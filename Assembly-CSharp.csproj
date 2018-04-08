@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\KnucklesController.cs" />
+    <None Include="Assets\Scenes\Testing\TestingScenes_ReadME.txt" />
     <Reference Include="Facebook.Unity.Settings">
       <HintPath>/Users/brye/Desktop/Spring 2018/596/KnucklesBattle/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
     </Reference>
