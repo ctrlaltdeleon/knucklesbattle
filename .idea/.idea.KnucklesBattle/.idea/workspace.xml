@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="259c4465-eac5-4422-b66a-def053c4611f" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor-firstpass.csproj" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor-firstpass.csproj" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Map.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Monsters.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Player.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Tower.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monster.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/KnucklesBattle.Editor.Plugins.csproj" afterPath="$PROJECT_DIR$/KnucklesBattle.Editor.Plugins.csproj" />
+      <change beforePath="$PROJECT_DIR$/KnucklesBattle.csproj" afterPath="$PROJECT_DIR$/KnucklesBattle.csproj" />
+      <change beforePath="$PROJECT_DIR$/KnucklesBattle.sln" afterPath="$PROJECT_DIR$/KnucklesBattle.sln" />
+      <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll.mdb" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll.mdb" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/BuiltinAssemblies.stamp" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/BuiltinAssemblies.stamp" />
+      <change beforePath="$PROJECT_DIR$/Library/assetDatabase3" afterPath="$PROJECT_DIR$/Library/assetDatabase3" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/00/00000000000000003000000000000000" afterPath="$PROJECT_DIR$/Library/metadata/00/00000000000000003000000000000000" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/24/243d7e38cfa174b829f9cd1ba4f5a67c" afterPath="$PROJECT_DIR$/Library/metadata/24/243d7e38cfa174b829f9cd1ba4f5a67c" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/24/243d7e38cfa174b829f9cd1ba4f5a67c.info" afterPath="$PROJECT_DIR$/Library/metadata/24/243d7e38cfa174b829f9cd1ba4f5a67c.info" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/2f/2fa73b3e5da564e7ab2e19bf77c63cc6" afterPath="$PROJECT_DIR$/Library/metadata/2f/2fa73b3e5da564e7ab2e19bf77c63cc6" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/2f/2fa73b3e5da564e7ab2e19bf77c63cc6.info" afterPath="$PROJECT_DIR$/Library/metadata/2f/2fa73b3e5da564e7ab2e19bf77c63cc6.info" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/81/812a8ac72c6f3d547834092092f297ad" afterPath="$PROJECT_DIR$/Library/metadata/81/812a8ac72c6f3d547834092092f297ad" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/f3/f3847827cfe1d459999015da339875ce.info" afterPath="$PROJECT_DIR$/Library/metadata/f3/f3847827cfe1d459999015da339875ce.info" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="HUDController.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/HUDController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+              <folding>
+                <marker date="1523231005435" expanded="true" signature="6:142" ph="..." />
+                <marker date="1523231005435" expanded="true" signature="186:1881" ph="{...}" />
+                <marker date="1523231005435" expanded="true" signature="671:820" ph="{...}" />
+                <marker date="1523231005435" expanded="true" signature="697:722" ph="{...}" />
+                <marker date="1523231005435" expanded="true" signature="750:780" ph="{...}" />
+                <marker date="1523231005435" expanded="true" signature="871:1218" ph="{...}" />
+                <marker date="1523231005435" expanded="true" signature="1273:1558" ph="{...}" />
+                <marker date="1523231005435" expanded="true" signature="1319:1501" ph="{...}" />
+                <marker date="1523231005435" expanded="true" signature="1375:1497" ph="{...}" />
+                <marker date="1523231005435" expanded="true" signature="1533:1552" ph="{...}" />
+                <marker date="1523231005435" expanded="true" signature="1580:1665" ph="{...}" />
+                <marker date="1523231005435" expanded="true" signature="1599:1662" ph="{...}" />
+                <marker date="1523231005435" expanded="true" signature="1758:1878" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AmmoPlatformConroller.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/AmmoPlatformConroller.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+              <folding>
+                <marker date="1523231066107" expanded="false" signature="6:78" ph="..." />
+                <marker date="1523231066107" expanded="true" signature="131:570" ph="{...}" />
+                <marker date="1523231066107" expanded="true" signature="181:188" ph="{...}" />
+                <marker date="1523231066107" expanded="true" signature="243:250" ph="{...}" />
+                <marker date="1523231066107" expanded="true" signature="296:568" ph="{...}" />
+                <marker date="1523231066107" expanded="true" signature="339:565" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TowerController.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/TowerController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="38" column="21" lean-forward="false" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+              <folding>
+                <marker date="1523230750137" expanded="true" signature="6:100" ph="..." />
+                <marker date="1523230750137" expanded="true" signature="146:1076" ph="{...}" />
+                <marker date="1523230750137" expanded="true" signature="399:499" ph="/* HUDController HUD = HUDController.instance.towerHealthBarSlider; ... */" />
+                <marker date="1523230750137" expanded="true" signature="515:522" ph="{...}" />
+                <marker date="1523230750137" expanded="true" signature="577:584" ph="{...}" />
+                <marker date="1523230750137" expanded="true" signature="633:1071" ph="{...}" />
+                <marker date="1523230750137" expanded="true" signature="682:1067" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameManager.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="23" selection-end-column="5" />
+              <folding>
+                <marker date="1523213271419" expanded="false" signature="6:113" ph="..." />
+                <marker date="1523213271419" expanded="true" signature="156:443" ph="{...}" />
+                <marker date="1523213271419" expanded="true" signature="289:438" ph="{...}" />
+                <marker date="1523213271419" expanded="true" signature="315:340" ph="{...}" />
+                <marker date="1523213271419" expanded="true" signature="368:398" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KnucklesTestController.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/KnucklesTestController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+              <folding>
+                <marker date="1523230583790" expanded="false" signature="6:78" ph="..." />
+                <marker date="1523230583790" expanded="true" signature="132:562" ph="{...}" />
+                <marker date="1523230583790" expanded="true" signature="182:248" ph="{...}" />
+                <marker date="1523230583790" expanded="true" signature="303:560" ph="{...}" />
+                <marker date="1523230583790" expanded="true" signature="347:553" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerTestController.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerTestController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="16" column="68" lean-forward="false" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
+              <folding>
+                <marker date="1523221933468" expanded="false" signature="6:78" ph="..." />
+                <marker date="1523221933468" expanded="true" signature="130:505" ph="{...}" />
+                <marker date="1523221933468" expanded="true" signature="180:187" ph="{...}" />
+                <marker date="1523221933468" expanded="true" signature="242:503" ph="{...}" />
+                <marker date="1523221933468" expanded="true" signature="292:496" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HUDController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/KnucklesTestController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerTestController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AmmoPlatformConroller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TowerController.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerTestController.cs" />
+        <option value="$PROJECT_DIR$/Assets/AmmoPlatformConroller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/KnucklesTestController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TowerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HUDController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AmmoPlatformConroller.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="KnucklesBattle (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="259c4465-eac5-4422-b66a-def053c4611f" name="Default" comment="" />
+      <created>1523215542650</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1523215542650</updated>
+      <workItem from="1523215547369" duration="8596000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="8596000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1918" height="1177" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18248175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/AmmoPlatformConroller.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="9" lean-forward="false" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="23" selection-end-column="5" />
+          <folding>
+            <marker date="1523213271419" expanded="false" signature="6:113" ph="..." />
+            <marker date="1523213271419" expanded="true" signature="156:443" ph="{...}" />
+            <marker date="1523213271419" expanded="true" signature="289:438" ph="{...}" />
+            <marker date="1523213271419" expanded="true" signature="315:340" ph="{...}" />
+            <marker date="1523213271419" expanded="true" signature="368:398" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerTestController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="68" lean-forward="false" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
+          <folding>
+            <marker date="1523221933468" expanded="false" signature="6:78" ph="..." />
+            <marker date="1523221933468" expanded="true" signature="130:505" ph="{...}" />
+            <marker date="1523221933468" expanded="true" signature="180:187" ph="{...}" />
+            <marker date="1523221933468" expanded="true" signature="242:503" ph="{...}" />
+            <marker date="1523221933468" expanded="true" signature="292:496" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/KnucklesTestController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+          <folding>
+            <marker date="1523230583790" expanded="false" signature="6:78" ph="..." />
+            <marker date="1523230583790" expanded="true" signature="132:562" ph="{...}" />
+            <marker date="1523230583790" expanded="true" signature="182:248" ph="{...}" />
+            <marker date="1523230583790" expanded="true" signature="303:560" ph="{...}" />
+            <marker date="1523230583790" expanded="true" signature="347:553" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/TowerController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="21" lean-forward="false" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+          <folding>
+            <marker date="1523230750137" expanded="true" signature="6:100" ph="..." />
+            <marker date="1523230750137" expanded="true" signature="146:1076" ph="{...}" />
+            <marker date="1523230750137" expanded="true" signature="399:499" ph="/* HUDController HUD = HUDController.instance.towerHealthBarSlider; ... */" />
+            <marker date="1523230750137" expanded="true" signature="515:522" ph="{...}" />
+            <marker date="1523230750137" expanded="true" signature="577:584" ph="{...}" />
+            <marker date="1523230750137" expanded="true" signature="633:1071" ph="{...}" />
+            <marker date="1523230750137" expanded="true" signature="682:1067" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/HUDController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+          <folding>
+            <marker date="1523231005435" expanded="true" signature="6:142" ph="..." />
+            <marker date="1523231005435" expanded="true" signature="186:1881" ph="{...}" />
+            <marker date="1523231005435" expanded="true" signature="671:820" ph="{...}" />
+            <marker date="1523231005435" expanded="true" signature="697:722" ph="{...}" />
+            <marker date="1523231005435" expanded="true" signature="750:780" ph="{...}" />
+            <marker date="1523231005435" expanded="true" signature="871:1218" ph="{...}" />
+            <marker date="1523231005435" expanded="true" signature="1273:1558" ph="{...}" />
+            <marker date="1523231005435" expanded="true" signature="1319:1501" ph="{...}" />
+            <marker date="1523231005435" expanded="true" signature="1375:1497" ph="{...}" />
+            <marker date="1523231005435" expanded="true" signature="1533:1552" ph="{...}" />
+            <marker date="1523231005435" expanded="true" signature="1580:1665" ph="{...}" />
+            <marker date="1523231005435" expanded="true" signature="1599:1662" ph="{...}" />
+            <marker date="1523231005435" expanded="true" signature="1758:1878" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/AmmoPlatformConroller.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+          <folding>
+            <marker date="1523231066107" expanded="false" signature="6:78" ph="..." />
+            <marker date="1523231066107" expanded="true" signature="131:570" ph="{...}" />
+            <marker date="1523231066107" expanded="true" signature="181:188" ph="{...}" />
+            <marker date="1523231066107" expanded="true" signature="243:250" ph="{...}" />
+            <marker date="1523231066107" expanded="true" signature="296:568" ph="{...}" />
+            <marker date="1523231066107" expanded="true" signature="339:565" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
