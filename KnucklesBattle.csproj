@@ -237,8 +237,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\Testing\AC\MrMeeseeksAI.cs" />
+    <Compile Include="Assets\Scenes\Testing\AC\ProtoPlayerMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\MrMeeseeksAI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scenes\Testing\TestingScenes_ReadME.txt" />
