@@ -41,6 +41,6 @@ sysinfo.txt\
 *.apk\
 *.unitypackage\
 }
-
-.idea
-Temp
+.idea 
+*/.DS_Store 
+Temp 
