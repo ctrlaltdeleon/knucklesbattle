@@ -7,19 +7,25 @@ using UnityEngine;
 /// </summary>
 public class PlayerControl : MonoBehaviour {
     private int m_health;
-    private int m_ammoCount;
+
+    [SerializeField]
+    private int m_ammoCount = 150;
+
     [SerializeField]
     private float m_speed = 2.0f;
 
     public int Health { get { return m_health; } }
     public int AmmoCount { get { return m_ammoCount; } }
     public float Speed { get { return m_speed; } }
+
+    [SerializeField]
+    private GameObject m_bulletPrefab;
+
 	// Use this for initialization
 	void Start () {
         m_health = 100;
         m_ammoCount = 150;
         m_speed = 2.0f;
-        DontDestroyOnLoad(this);
 	}
 	
 	// Update is called once per frame
@@ -60,9 +66,26 @@ public class PlayerControl : MonoBehaviour {
             transform.position = new Vector3(posX, posY, posZ);
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (m_ammoCount > 0)
+            {
+                StartCoroutine(Shoot());
+            }
+        }
 	}
 
     //TODO Implement Firing
+    IEnumerator Shoot()
+    {
+        PlayerBullet newBullet = Instantiate(m_bulletPrefab).GetComponent<PlayerBullet>();
+        newBullet.SetInitialDirection(transform.forward);
+        var spawnPoint = transform.position;
+        spawnPoint.y = spawnPoint.y + 0.25f;
+        newBullet.transform.position = spawnPoint;
+        --m_ammoCount;
+        yield return new WaitForSeconds(0.01f);
+    }
     //TODO Implement Collision Hit info
     //TODO Implement Everything Else.
     //TODO Implement Dealing with Damage.
