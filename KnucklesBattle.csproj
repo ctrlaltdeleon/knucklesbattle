@@ -235,11 +235,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AmmoPlatformConroller.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraControl.cs" />
     <Compile Include="Assets\Scripts\CanvasLookAtCamera.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HUDController.cs" />
     <Compile Include="Assets\Scripts\KnucklesController.cs" />
     <Compile Include="Assets\Scripts\KnucklesTestController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerBullet.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerPowerup.cs" />
     <Compile Include="Assets\Scripts\PlayerTestController.cs" />
     <Compile Include="Assets\Scripts\TowerController.cs" />
   </ItemGroup>
