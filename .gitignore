@@ -10,6 +10,7 @@
 [Oo]bj/\
 [Bb]uild/\
 [Bb]uilds/\
+Library/*
 Library/
 Assets/AssetStoreTools*\
 \
