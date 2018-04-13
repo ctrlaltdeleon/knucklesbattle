@@ -3,22 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MrMeeseeksWeaponAI : MonoBehaviour {
-    float timeCounter = 0;
-    float speed;
-    float radius;
-    public Vector3 pos;
+    // Inspector Variables
     public GameObject parent;
+    [SerializeField]
+    float speed;
+    [SerializeField]
+    float radius;
 
-    // Use this for initialization
-    void Start()
-    {
-        speed = 15;
-        radius = 2;
-    }
+    // Fixed Variables
+    float timeCounter = 0;
+    public Vector3 pos;
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         timeCounter += Time.deltaTime * speed;
 
         pos = parent.transform.position;

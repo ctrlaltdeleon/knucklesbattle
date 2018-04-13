@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// This file will be replaced by the actual player
+
 public class ProtoPlayerMovement : MonoBehaviour {
 
     float speed;

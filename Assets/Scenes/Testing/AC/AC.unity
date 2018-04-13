@@ -143,8 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af5a36efa389b8a488dd9f915c04edef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
   parent: {fileID: 1680421912}
+  speed: 2
+  radius: 4
+  pos: {x: 0, y: 0, z: 0}
 --- !u!23 &141249706
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -340,8 +342,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29664b09b51d9ca4aba461bb221b456d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
   parent: {fileID: 141249704}
+  speed: 5
+  radius: 1
+  pos: {x: 0, y: 0, z: 0}
 --- !u!23 &699076888
 MeshRenderer:
   m_ObjectHideFlags: 0
