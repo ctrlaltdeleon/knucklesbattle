@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoPlatformConroller : MonoBehaviour {
+public class AmmoPlatformController : MonoBehaviour {
 
-	public static AmmoPlatformConroller instance;
+	public static AmmoPlatformController instance;
 	public bool ammoCooldown;
 
 	// Use this for initialization
