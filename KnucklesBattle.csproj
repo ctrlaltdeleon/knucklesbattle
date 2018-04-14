@@ -234,6 +234,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\Testing\AC\ExtraMrMeeseeksAI.cs" />
+    <Compile Include="Assets\Scenes\Testing\AC\FlockController.cs" />
+    <Compile Include="Assets\Scenes\Testing\AC\MrMeeseeksAI.cs" />
+    <Compile Include="Assets\Scenes\Testing\AC\MrMeeseeksWeaponAI.cs" />
+    <Compile Include="Assets\Scenes\Testing\AC\ProtoPlayerMovement.cs" />
+    <Compile Include="Assets\Scenes\Testing\AC\TargetMovement.cs" />
     <Compile Include="Assets\Scripts\AmmoPlatformController.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraControl.cs" />
     <Compile Include="Assets\Scripts\CanvasLookAtCamera.cs" />
