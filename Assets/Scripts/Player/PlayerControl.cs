@@ -18,12 +18,16 @@ public class PlayerControl : MonoBehaviour {
 
     [SerializeField]
     private int m_health;
+    private int MAX_HEALTH = 100;
 
     [SerializeField]
     private int m_ammoCount = 150;
 
     [SerializeField]
     private float m_speed = 2.0f;
+
+    [SerializeField]
+    private float MAX_SPEED = 40.0f;
 
     public int Health { get { return m_health; } }
     public int AmmoCount { get { return m_ammoCount; } }
@@ -32,20 +36,29 @@ public class PlayerControl : MonoBehaviour {
 
     [SerializeField]
     private GameObject m_bulletPrefab;
+    private Vector3 m_lastPosition;
+
+    private Rigidbody m_rigidBody;
 
 	// Use this for initialization
 	void Start () {
         m_health = 100;
         m_ammoCount = 150;
-        m_speed = 2.0f;
         m_weaponType = WeaponType.DEFAULT;
+        MAX_SPEED = 40.0f;
+        m_rigidBody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        float posX = transform.position.x;
-        float posY = transform.position.y;
-        float posZ = transform.position.z;
+        float oldX, oldY, oldZ, posX, posY, posZ, dX, dZ;
+        oldX = posX = transform.position.x;
+        oldY = posY = transform.position.y;
+        oldZ =  posZ = transform.position.z;
+
+        dX = dZ = 0;
+
+        Vector3 oldVelocity = m_rigidBody.velocity;
 
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -57,26 +70,35 @@ public class PlayerControl : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.A))
         {
-            posX -= m_speed * Time.deltaTime;
-            transform.position = new Vector3(posX, posY, posZ);
+            if (Mathf.Abs(oldVelocity.x) < MAX_SPEED) {
+                m_rigidBody.AddForce(Vector3.left * m_speed, ForceMode.Impulse);
+            }
         }
+
 
         if (Input.GetKey(KeyCode.D))
         {
-            posX += m_speed * Time.deltaTime;
-            transform.position = new Vector3(posX, posY, posZ);
+            if (Mathf.Abs(oldVelocity.x) < MAX_SPEED) {
+                m_rigidBody.AddForce((-Vector3.left) * m_speed, ForceMode.Impulse);
+            }
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            posZ -= m_speed * Time.deltaTime;
-            transform.position = new Vector3(posX, posY, posZ);
+            if (Mathf.Abs(oldVelocity.z) < MAX_SPEED)
+            {
+                m_rigidBody.AddForce(-Vector3.forward * m_speed, ForceMode.Impulse);
+
+            }
         }
 
         if (Input.GetKey(KeyCode.W))
         {
-            posZ += m_speed * Time.deltaTime;
-            transform.position = new Vector3(posX, posY, posZ);
+            if (Mathf.Abs(oldVelocity.z) < MAX_SPEED)
+            {
+                m_rigidBody.AddForce(Vector3.forward * m_speed, ForceMode.Impulse);
+
+            }
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -102,6 +124,10 @@ public class PlayerControl : MonoBehaviour {
     {
         PlayerBullet newBullet = Instantiate(m_bulletPrefab).GetComponent<PlayerBullet>();
         newBullet.SetInitialDirection(transform.forward);
+        foreach (Transform t in GetComponentsInChildren<Transform>())
+        {
+            Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), t.gameObject.GetComponent<Collider>());
+        }
         var spawnPoint = transform.position;
         spawnPoint.y = spawnPoint.y + 0.25f;
         newBullet.transform.position = spawnPoint;
@@ -121,7 +147,14 @@ public class PlayerControl : MonoBehaviour {
     /// <param name="value">The value.</param>
     public void RewardHealth(int value)
     {
-        m_health += value;
+        if (m_health + value < MAX_HEALTH)
+        {
+            m_health += value;
+        }
+        else {
+            m_health = MAX_HEALTH;
+        }
+
     }
 
     /// <summary>

@@ -15,16 +15,17 @@ public class PlayerPowerup : MonoBehaviour {
     }
 
     [SerializeField]
-    private PowerupType m_powerupType;
+    private PowerupType m_powerupType = PowerupType.HEALTH;
     [SerializeField]
-    private int m_rewardValue;
+    private int m_rewardValue = 100;
+
+    private Rigidbody m_rigidBody;
 
     public PowerupType PowerUp { get { return m_powerupType; } }
 
 	// Use this for initialization
 	void Start () {
-        m_powerupType = PowerupType.HEALTH;
-        m_rewardValue = 100;
+        m_rigidBody = GetComponent<Rigidbody>();
 	}
 
     /// <summary>
@@ -41,32 +42,35 @@ public class PlayerPowerup : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float rotateValue = 0.55f * Time.deltaTime;
-        transform.Rotate(0f, rotateValue, 0f);
+        m_rigidBody.AddRelativeTorque(new Vector3(0.0f, rotateValue, 0.0f));
 	}
 
     //Reward player with things. 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision Should be occuring.");
         if (collision.gameObject && collision.gameObject.tag == "PlayerEntity")
         {
             var PlayerHandle = collision.gameObject.GetComponent<PlayerControl>();
             switch (m_powerupType)
             {
                 case PowerupType.HEALTH:
+                    Debug.Log("Health Rewarded!");
                     PlayerHandle.RewardHealth(m_rewardValue);
+                    Destroy(this.gameObject);
                     break;
                 case PowerupType.MESEEKS:
                     PlayerHandle.RewardMeseeks();
+                    Destroy(this.gameObject);
                     break;
                 case PowerupType.BULLETS:
                     PlayerHandle.RewardAmmo(m_rewardValue);
+                    Destroy(this.gameObject);
                     break;
                 case PowerupType.SPECIAL_WEAPON:
                     PlayerHandle.RewardSpecialWeapon();
+                    Destroy(this.gameObject);
                     break;
             }
         }
-        Destroy(this.gameObject);
     }
 }
