@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TowerController : MonoBehaviour
 {
-
+	//public static TowerController instance;
 	public int health = 100; //health points
 	private int maxHealth = 100;
 	
@@ -15,7 +15,8 @@ public class TowerController : MonoBehaviour
 	private Slider towerHealthBarSlider; 
 
 	private Text towerHealthText;
-	
+
+
 	//HUDController HUD = HUDController.instance.towerHealthBarSlider;
 	
 	// Use this for initialization

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private List<Vector3> randomSpawnPositions = new List<Vector3>();
     public float spawnRate = 1.0f;
     private float nextSpawn;
+	public bool ammoCooldown = false;
 
     // Use this for initialization
     void Awake()

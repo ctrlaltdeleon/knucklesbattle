@@ -10,9 +10,9 @@ public class HUDController : MonoBehaviour
 	
 
 	public Slider playerHealthBarSlider;
-	
-
 	public Slider towerHealthBarSlider;
+
+	public Image cooldownImageAlpha;
 	
 	public Text playerHealthText;
 	public Text ammoText;
@@ -28,6 +28,10 @@ public class HUDController : MonoBehaviour
 
 	public int maxAmmo = 1000;
 	public int ammo = 1000;
+
+	public bool ammoCooldown = false;
+
+	public float waitTime = 5.0f;
 	
 	void Awake () {
 		if (instance == null) {
@@ -43,6 +47,7 @@ public class HUDController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		cooldownImageAlpha.enabled = false;
 		playerHealthBarSlider.minValue = playerMinHealth;
 		playerHealthBarSlider.maxValue = playerMaxHealth;
 		playerHealthText.text = playerMaxHealth + "/" + playerMaxHealth;
@@ -55,7 +60,18 @@ public class HUDController : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		if (GameManager.instance.ammoCooldown == true)
+		{
+			cooldownImageAlpha.enabled = true;
+			cooldownImageAlpha.fillAmount -= 1.0f / waitTime * Time.deltaTime;
+			if (cooldownImageAlpha.fillAmount == 0) {
+				GameManager.instance.ammoCooldown = false;
+				cooldownImageAlpha.enabled = false;
+				cooldownImageAlpha.fillAmount = 1;
+			}
+		}
+			
 		
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
