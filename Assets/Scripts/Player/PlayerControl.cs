@@ -6,6 +6,17 @@ using UnityEngine;
 /// Player Controller
 /// </summary>
 public class PlayerControl : MonoBehaviour {
+    public enum WeaponType : uint
+    {
+        DEFAULT = 0,
+        MESEEKS = 1,
+        SPECIAL = 2
+    }
+
+    [SerializeField]
+    private WeaponType m_weaponType;
+
+    [SerializeField]
     private int m_health;
 
     [SerializeField]
@@ -17,6 +28,7 @@ public class PlayerControl : MonoBehaviour {
     public int Health { get { return m_health; } }
     public int AmmoCount { get { return m_ammoCount; } }
     public float Speed { get { return m_speed; } }
+    public WeaponType Weapon { get { return m_weaponType; } }
 
     [SerializeField]
     private GameObject m_bulletPrefab;
@@ -26,6 +38,7 @@ public class PlayerControl : MonoBehaviour {
         m_health = 100;
         m_ammoCount = 150;
         m_speed = 2.0f;
+        m_weaponType = WeaponType.DEFAULT;
 	}
 	
 	// Update is called once per frame
@@ -68,14 +81,23 @@ public class PlayerControl : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (m_ammoCount > 0)
+            if (m_weaponType == WeaponType.DEFAULT || m_weaponType == WeaponType.SPECIAL)
             {
-                StartCoroutine(Shoot());
+                if (m_ammoCount > 0)
+                {
+                    StartCoroutine(Shoot());
+                }
+            }
+            else {
+                StartCoroutine(DeployMeeseeks());
             }
         }
 	}
 
-    //TODO Implement Firing
+    /// <summary>
+    /// Shoots this instance.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Shoot()
     {
         PlayerBullet newBullet = Instantiate(m_bulletPrefab).GetComponent<PlayerBullet>();
@@ -86,7 +108,46 @@ public class PlayerControl : MonoBehaviour {
         --m_ammoCount;
         yield return new WaitForSeconds(0.01f);
     }
+
+    IEnumerator DeployMeeseeks()
+    {
+        //TODO Implement this with Meseeks.
+        yield return new WaitForSeconds(0.01f);
+    }
+
+    /// <summary>
+    /// Rewards the health.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    public void RewardHealth(int value)
+    {
+        m_health += value;
+    }
+
+    /// <summary>
+    /// Rewards the meseeks.
+    /// </summary>
+    public void RewardMeseeks()
+    {
+
+    }
+
+    /// <summary>
+    /// Rewards the ammo.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    public void RewardAmmo(int value)
+    {
+        m_ammoCount += value;
+    }
+
+    /// <summary>
+    /// Rewards the special weapon.
+    /// </summary>
+    public void RewardSpecialWeapon()
+    {
+
+    }
     //TODO Implement Collision Hit info
-    //TODO Implement Everything Else.
-    //TODO Implement Dealing with Damage.
+
 }

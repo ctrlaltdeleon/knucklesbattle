@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114189728138673876}
   m_Layer: 0
   m_Name: playerDummy
-  m_TagString: Untagged
+  m_TagString: PlayerEntity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,6 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3c334a9706bff489b736209231237c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_weaponType: 0
+  m_health: 0
   m_ammoCount: 150
   m_speed: 0
   m_bulletPrefab: {fileID: 1577464162047772, guid: 3f8327b840a6cda46a5d0f29868ad837,
