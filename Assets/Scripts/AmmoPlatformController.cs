@@ -21,12 +21,12 @@ public class AmmoPlatformController : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			if (!GameManager.instance.ammoCooldown) {
-				GameManager.instance.ammoCooldown = true;
-				HUDController.instance.ammo = HUDController.instance.maxAmmo;
-				HUDController.instance.ammoText.text = HUDController.instance.maxAmmo + "/" + HUDController.instance.maxAmmo;
+//			if (!GameManager.Instance.ammoCooldown) {
+//				GameManager.Instance.ammoCooldown = true;
+//				HUDController.instance.ammo = HUDController.instance.maxAmmo;
+//				HUDController.instance.ammoText.text = HUDController.instance.maxAmmo + "/" + HUDController.instance.maxAmmo;
 				Debug.Log("Player came to reload.");
-			}
+			//}
 
 		}
 	}

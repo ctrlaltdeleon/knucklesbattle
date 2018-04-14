@@ -14,14 +14,33 @@
         </e>
         <e p="Scenes" t="Include">
           <e p="Testing" t="Include">
+            <e p="AC" t="Include">
+              <e p="ExtraMrMeeseeksAI.cs" t="Include" />
+              <e p="FlockController.cs" t="Include" />
+              <e p="MrMeeseeksAI.cs" t="Include" />
+              <e p="MrMeeseeksWeaponAI.cs" t="Include" />
+              <e p="ProtoPlayerMovement.cs" t="Include" />
+              <e p="TargetMovement.cs" t="Include" />
+            </e>
             <e p="TestingScenes_ReadME.txt" t="Include" />
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="AmmoPlatformConroller.cs" t="Include" />
+          <e p="AmmoPlatformController.cs" t="Include" />
+          <e p="Camera" t="Include">
+            <e p="CameraControl.cs" t="Include" />
+          </e>
+          <e p="CanvasLookAtCamera.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="HUDController.cs" t="Include" />
+          <e p="KnucklesController.cs" t="Include" />
+          <e p="KnucklesSpawner.cs" t="Include" />
           <e p="KnucklesTestController.cs" t="Include" />
+          <e p="Player" t="Include">
+            <e p="PlayerBullet.cs" t="Include" />
+            <e p="PlayerControl.cs" t="Include" />
+            <e p="PlayerPowerup.cs" t="Include" />
+          </e>
           <e p="PlayerTestController.cs" t="Include" />
           <e p="TowerController.cs" t="Include" />
         </e>
@@ -34,7 +53,7 @@
         <e p="bin" t="ExcludeRecursive" />
       </e>
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2017.3/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_KnucklesBattle.-1736956731.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2017.3/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_KnucklesBattle.1524170936.00" t="ExcludeRecursive" />
   </component>
   <component name="RiderRiderContentModelStore">
     <excludedPaths />

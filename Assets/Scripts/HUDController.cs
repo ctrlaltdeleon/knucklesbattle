@@ -61,17 +61,17 @@ public class HUDController : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 
-		if (GameManager.instance.ammoCooldown == true)
-		{
-			cooldownImageAlpha.enabled = true;
-			cooldownImageAlpha.fillAmount -= 1.0f / waitTime * Time.deltaTime;
-			if (cooldownImageAlpha.fillAmount == 0) {
-				GameManager.instance.ammoCooldown = false;
-				cooldownImageAlpha.enabled = false;
-				cooldownImageAlpha.fillAmount = 1;
-			}
-		}
-			
+//		if (GameManager.Instance.ammoCooldown == true)
+//		{
+//			cooldownImageAlpha.enabled = true;
+//			cooldownImageAlpha.fillAmount -= 1.0f / waitTime * Time.deltaTime;
+//			if (cooldownImageAlpha.fillAmount == 0) {
+//				GameManager.Instance.ammoCooldown = false;
+//				cooldownImageAlpha.enabled = false;
+//				cooldownImageAlpha.fillAmount = 1;
+//			}
+//		}
+//			
 		
 		if (Input.GetKeyDown(KeyCode.Space))
 		{

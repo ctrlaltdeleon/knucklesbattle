@@ -3,49 +3,112 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance = null;
-    public GameObject Knuckles;
-    private List<Vector3> randomSpawnPositions = new List<Vector3>();
-    public float spawnRate = 1.0f;
-    private float nextSpawn;
-	public bool ammoCooldown = false;
+    //Global Instance
+    public static GameManager Instance = null;
+	
+    //Game Setup
+    public int waveLength;
+	
+    //Game State
+    private static int levelNumber;
+    private static int waveNumber;
+    
+    //Pause Menu
+    private bool paused;
+    public GameObject PauseMenu;
+    
+    //Spawner
+    public KnucklesSpawner kSpawn;
 
     // Use this for initialization
     void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
-        else if (instance != this)
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
 
-        nextSpawn = 0.0f;
-        for (int i = 0; i < 30; i++)
-        {
-            float randomPos = Random.Range(-250, 250);
-            randomSpawnPositions.Add(new Vector3(-250, 0, randomPos));
-            randomSpawnPositions.Add(new Vector3(250, 0, randomPos));
-            randomSpawnPositions.Add(new Vector3(randomPos, 0, -250));
-            randomSpawnPositions.Add(new Vector3(randomPos, 0, 250));
-        }
+    }
+    
+    void Start()
+    {
+        levelNumber = 1;
+        waveNumber = 1;
+        LoadLevel();
+    }
+
+    public void StartGame(string firstLevel)
+    {
+        SceneManager.LoadScene(firstLevel);
+    }
+
+    void LoadLevel()
+    {
+        
     }
 
 
     void Update()
     {
-        if (Time.time > nextSpawn)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("creating Knuckles");
-            nextSpawn = Time.time + spawnRate;
-            int index = Random.Range(0, randomSpawnPositions.Count);
-            Knuckles.transform.root.position = randomSpawnPositions[index];
-            Instantiate(Knuckles);
+            PauseGame();
         }
     }
+    
+    //Public Interfaces
+    //-----------------
+    public void WinGame()
+    {
+        //Increment Wave
+        waveNumber += 1;
+		
+        //Move to next stage if all waves are finished
+        if (waveNumber > waveLength)
+        {
+            waveNumber = 1;
+            levelNumber += 1;
+            LoadLevel();
+        }
+    }
+
+    public void LoseGame()
+    {
+        //Reset Wave and Level
+        levelNumber = 1;
+        waveNumber = 1;
+        //TODO: Lose behavior
+    }
+
+    public void PauseGame()
+    {
+        Debug.Log("Game Paused");
+        PauseMenu.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        Debug.Log("Game Resumed");
+        PauseMenu.SetActive(false);
+    }
+	
+    public void QuitGame()
+    {
+        Application.Quit();
+        #if UNITY_EDITOR
+                EditorApplication.isPlaying = false;
+        #endif
+    }
+
 }
