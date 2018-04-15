@@ -139,7 +139,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -313,6 +313,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 058f2ea95a8783a4fbda86d29507d807, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1196377655
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4666157416449268, guid: 1a7c5a83428d28c40b7109f5c977c3a8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666157416449268, guid: 1a7c5a83428d28c40b7109f5c977c3a8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666157416449268, guid: 1a7c5a83428d28c40b7109f5c977c3a8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666157416449268, guid: 1a7c5a83428d28c40b7109f5c977c3a8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666157416449268, guid: 1a7c5a83428d28c40b7109f5c977c3a8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666157416449268, guid: 1a7c5a83428d28c40b7109f5c977c3a8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666157416449268, guid: 1a7c5a83428d28c40b7109f5c977c3a8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666157416449268, guid: 1a7c5a83428d28c40b7109f5c977c3a8, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1a7c5a83428d28c40b7109f5c977c3a8, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1471484139
 GameObject:

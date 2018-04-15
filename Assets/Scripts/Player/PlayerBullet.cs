@@ -9,6 +9,8 @@ public class PlayerBullet : MonoBehaviour {
     [SerializeField]
     private float m_speed = 0.5f;
 
+    private Rigidbody m_rigidBody;
+
     /// <summary>
     /// Sets Initial direction of Bullet based off Parent's forward vector.
     /// </summary>
@@ -21,7 +23,7 @@ public class PlayerBullet : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-
+        m_rigidBody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -29,8 +31,7 @@ public class PlayerBullet : MonoBehaviour {
     {
         if (m_direction != null)
         {
-            Vector3 movement = new Vector3(m_speed * m_direction.x, m_speed * m_direction.y, m_speed * m_direction.z);
-            transform.Translate(movement);
+            m_rigidBody.AddForce(m_direction.x * m_speed, m_direction.y * m_speed, m_direction.z * m_speed);
         }
 	}
 
