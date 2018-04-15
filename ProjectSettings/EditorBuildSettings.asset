@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Production/MainMenu.unity
     guid: 839bf2871fc8443f69c8f7d86471c45e
   - enabled: 1
+    path: Assets/Scenes/Production/Level1.unity
+    guid: 19139f8c8e58f8c499ec3aecc3a3bac0
+  - enabled: 0
     path: Assets/Scenes/Testing/Tower_HUD_Knuckles.unity
     guid: 8792fbcada4994c0fa316389a440440c

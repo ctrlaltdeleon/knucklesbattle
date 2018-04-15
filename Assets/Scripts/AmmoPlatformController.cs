@@ -7,6 +7,9 @@ public class AmmoPlatformController : MonoBehaviour {
 	public static AmmoPlatformController instance;
 	public bool ammoCooldown;
 
+    [SerializeField]
+    private TowerController m_towerController;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -19,13 +22,14 @@ public class AmmoPlatformController : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Player")
+		if (other.gameObject.tag == "PlayerEntity")
 		{
-//			if (!GameManager.Instance.ammoCooldown) {
-//				GameManager.Instance.ammoCooldown = true;
-//				HUDController.instance.ammo = HUDController.instance.maxAmmo;
-//				HUDController.instance.ammoText.text = HUDController.instance.maxAmmo + "/" + HUDController.instance.maxAmmo;
-				Debug.Log("Player came to reload.");
+            //			if (!GameManager.Instance.ammoCooldown) {
+            //				GameManager.Instance.ammoCooldown = true;
+            //				HUDController.instance.ammo = HUDController.instance.maxAmmo;
+            //				HUDController.instance.ammoText.text = HUDController.instance.maxAmmo + "/" + HUDController.instance.maxAmmo;
+            m_towerController.InitiateCooldown();
+			Debug.Log("Player came to reload.");
 			//}
 
 		}

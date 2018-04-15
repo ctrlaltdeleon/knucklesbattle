@@ -6,15 +6,18 @@ using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
-	public static HUDController instance;
-	
+    [SerializeField]
+    private Image m_playerHealthIndicator;
 
-	public Slider playerHealthBarSlider;
-	public Slider towerHealthBarSlider;
+    [SerializeField]
+    private Image m_ammoIndicator;
 
-	public Image cooldownImageAlpha;
+    [SerializeField]
+    private Image m_towerIndicator;
+
+    [SerializeField]
+	private Image cooldownImageAlpha;
 	
-	public Text playerHealthText;
 	public Text ammoText;
 	public Text towerHealthText;
 	
@@ -32,15 +35,15 @@ public class HUDController : MonoBehaviour
 	public bool ammoCooldown = false;
 
 	public float waitTime = 5.0f;
+
+    [SerializeField]
+    private PlayerControl m_playerControl;
+
+    [SerializeField]
+    private TowerController m_towerController;
 	
 	void Awake () {
-		if (instance == null) {
-			instance = this;
-		} else if (instance != this) {
-			Destroy (gameObject);
-		}
-		DontDestroyOnLoad (gameObject);
-		
+
 	}
 	
 	
@@ -48,46 +51,34 @@ public class HUDController : MonoBehaviour
 	void Start ()
 	{
 		cooldownImageAlpha.enabled = false;
-		playerHealthBarSlider.minValue = playerMinHealth;
-		playerHealthBarSlider.maxValue = playerMaxHealth;
-		playerHealthText.text = playerMaxHealth + "/" + playerMaxHealth;
-		
-		towerHealthBarSlider.minValue = towerMinHealth;
-		towerHealthBarSlider.maxValue = towerMaxHealth;
-		towerHealthText.text = towerMaxHealth + "/" + towerMaxHealth;
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-//		if (GameManager.Instance.ammoCooldown == true)
-//		{
-//			cooldownImageAlpha.enabled = true;
-//			cooldownImageAlpha.fillAmount -= 1.0f / waitTime * Time.deltaTime;
-//			if (cooldownImageAlpha.fillAmount == 0) {
-//				GameManager.Instance.ammoCooldown = false;
-//				cooldownImageAlpha.enabled = false;
-//				cooldownImageAlpha.fillAmount = 1;
-//			}
-//		}
-//			
-		
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			//LosePlayerHealth(10);
-			if (playerHealth > 0)
-			{
-				playerHealth -= 10;
-				LoseHealth(playerHealth, playerHealthBarSlider, playerHealthText, playerMaxHealth);
-			}
-		}
+        //		if (GameManager.Instance.ammoCooldown == true)
+        //		{
+        //			cooldownImageAlpha.enabled = true;
+        //			cooldownImageAlpha.fillAmount -= 1.0f / waitTime * Time.deltaTime;
+        //			if (cooldownImageAlpha.fillAmount == 0) {
+        //				GameManager.Instance.ammoCooldown = false;
+        //				cooldownImageAlpha.enabled = false;
+        //				cooldownImageAlpha.fillAmount = 1;
+        //			}
+        //		}
+        //			
+        float playerHealthRatio = (float)m_playerControl.Health / (float)m_playerControl.MaxHealth;
+        float playerAmmoRatio = (float)m_playerControl.AmmoCount / (float)m_playerControl.MaxAmmo;
+        float playerAmmo = m_playerControl.AmmoCount;
 
-		if (Input.GetKey(KeyCode.S))
-		{
-			Fire();
-		}
-		
+        float towerHealthRatio = (float)m_towerController.Health / (float)m_towerController.MaxHealth;
+
+        m_playerHealthIndicator.fillAmount = playerHealthRatio;
+        m_ammoIndicator.fillAmount = playerAmmoRatio;
+        m_towerIndicator.fillAmount = towerHealthRatio;
+
+        ammoText.text = (m_playerControl.AmmoCount).ToString() + " / " + (m_playerControl.MaxAmmo).ToString();
 	}
 
 	private void Fire()

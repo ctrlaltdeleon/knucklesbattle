@@ -16,6 +16,9 @@ public class TowerController : MonoBehaviour
 
 	private Text towerHealthText;
 
+    public int Health { get { return health; } }
+    public int MaxHealth { get { return maxHealth; } }
+
 
 	//HUDController HUD = HUDController.instance.towerHealthBarSlider;
 	
@@ -29,6 +32,14 @@ public class TowerController : MonoBehaviour
 		
 	}
 
+    /// <summary>
+    /// Initiates the cooldown.
+    /// </summary>
+    public void InitiateCooldown()
+    {
+        //TODO Implement cooldown code.
+    }
+
 	private void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.tag == "KnucklesTest")
@@ -36,10 +47,7 @@ public class TowerController : MonoBehaviour
 			health -= 1;
 			
 			//Debug.Log(HUDtowerHealthBarSlider);
-			towerHealthBarSlider = HUDController.instance.towerHealthBarSlider;
-			towerHealthText = HUDController.instance.towerHealthText;
 			
-			HUDController.instance.LoseHealth(health, towerHealthBarSlider, towerHealthText, maxHealth);
 			Debug.Log("Knuckle collided with tower damaging it");
 			//HP -= knucklesDamage;
 		}	

@@ -22,6 +22,7 @@ public class PlayerControl : MonoBehaviour {
 
     [SerializeField]
     private int m_ammoCount = 150;
+    private int MAX_AMMO = 150;
 
     [SerializeField]
     private float m_speed = 2.0f;
@@ -30,7 +31,9 @@ public class PlayerControl : MonoBehaviour {
     private float MAX_SPEED = 40.0f;
 
     public int Health { get { return m_health; } }
+    public int MaxHealth { get { return MAX_HEALTH; } }
     public int AmmoCount { get { return m_ammoCount; } }
+    public int MaxAmmo { get { return MAX_AMMO; } }
     public float Speed { get { return m_speed; } }
     public WeaponType Weapon { get { return m_weaponType; } }
 
