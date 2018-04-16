@@ -46,7 +46,7 @@ public class AudioManager : MonoBehaviour {
     /// Plays the sound.
     /// </summary>
     /// <param name="sound">The sound.</param>
-    void playSound(string sound)
+    public void PlaySound(string sound)
     {
         try
         {

@@ -75,6 +75,10 @@ public class PlayerPowerup : MonoBehaviour {
         if (collision.gameObject && collision.gameObject.tag == "PlayerEntity")
         {
             var PlayerHandle = collision.gameObject.GetComponent<PlayerControl>();
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySound(m_sound);
+            }
             switch (m_powerupType)
             {
                 case PowerupType.HEALTH:

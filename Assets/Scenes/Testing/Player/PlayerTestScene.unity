@@ -217,9 +217,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23523565212604274, guid: 5b20d57f6b5454644b6cd1ff15abfad8,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 918a700274a805a4bb153c99dfc9cf63, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b20d57f6b5454644b6cd1ff15abfad8, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &512191680 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1741918042876566, guid: 058f2ea95a8783a4fbda86d29507d807,
+    type: 2}
+  m_PrefabInternal: {fileID: 1136141822}
 --- !u!1 &986692043
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f65936381924894cab4dcabdcdde53d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 0.5
+  m_speed: 0.8
+  m_lerpFactor: 0.8
+  m_player: {fileID: 512191680}
+  m_focalPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1136141822
 Prefab:
   m_ObjectHideFlags: 0

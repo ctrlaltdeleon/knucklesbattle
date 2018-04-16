@@ -7,9 +7,21 @@ public class CameraControl : MonoBehaviour {
     [SerializeField]
     private float m_speed = 0.5f;
 
+    [SerializeField]
+    private float m_lerpFactor = 0.8f;
+
+    [SerializeField]
+    private GameObject m_player;
+
+    [SerializeField]
+    private Vector3 m_focalPosition;
+
 	// Use this for initialization
 	void Start () {
-		
+        if (m_player != null)
+        {
+            m_focalPosition = m_player.transform.position;
+        }
 	}
 	
 	// Update is called once per frame
@@ -38,5 +50,15 @@ public class CameraControl : MonoBehaviour {
         }
 
         transform.position = campos;
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("Rotate Camera Left");
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Rotate Camera Right");
+        }
 	}
 }
