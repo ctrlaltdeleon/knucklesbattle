@@ -32,7 +32,7 @@ public class PlayerControl : MonoBehaviour {
 
     public int Health { get { return m_health; } }
     public int MaxHealth { get { return MAX_HEALTH; } }
-    public int AmmoCount { get { return m_ammoCount; } }
+	public int AmmoCount { get { return m_ammoCount; } set {m_ammoCount = value; } }
     public int MaxAmmo { get { return MAX_AMMO; } }
     public float Speed { get { return m_speed; } }
     public WeaponType Weapon { get { return m_weaponType; } }

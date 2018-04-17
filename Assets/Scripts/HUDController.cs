@@ -57,16 +57,7 @@ public class HUDController : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 
-        //		if (GameManager.Instance.ammoCooldown == true)
-        //		{
-        //			cooldownImageAlpha.enabled = true;
-        //			cooldownImageAlpha.fillAmount -= 1.0f / waitTime * Time.deltaTime;
-        //			if (cooldownImageAlpha.fillAmount == 0) {
-        //				GameManager.Instance.ammoCooldown = false;
-        //				cooldownImageAlpha.enabled = false;
-        //				cooldownImageAlpha.fillAmount = 1;
-        //			}
-        //		}
+        //		
         //			
         float playerHealthRatio = (float)m_playerControl.Health / (float)m_playerControl.MaxHealth;
         float playerAmmoRatio = (float)m_playerControl.AmmoCount / (float)m_playerControl.MaxAmmo;

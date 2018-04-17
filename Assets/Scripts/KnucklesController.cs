@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KnucklesController : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class KnucklesController : MonoBehaviour
     public GameObject tower;
     public int type;
     public float hp;
+
+	public Slider knucklesHPSlider;
+
+	[SerializeField]
+	private PlayerBullet m_PlayerBullet;
 
     void Awake()
     {
@@ -22,21 +28,21 @@ public class KnucklesController : MonoBehaviour
         switch (type)
         {
             case (int) Knuckles.Red:
-                speed = 10;
+                speed = 1f;
                 hp = 20;
                 break;
             case (int) Knuckles.Blue:
                 gameObject.transform.localScale *= 2.5f;
                 transform.GetChild(2).localScale /= 2.5f;
-                speed = 7.5f;
+                speed = 0.7f;
                 hp = 40;
                 break;
             case (int) Knuckles.Green:
-                speed = 10;
+                speed = 1f;
                 hp = 15;
                 break;
             case (int) Knuckles.Orange:
-                speed = 30;
+                speed = 3f;
                 hp = 15;
                 break;
         }
@@ -59,6 +65,46 @@ public class KnucklesController : MonoBehaviour
             Vector3.MoveTowards(gameObject.transform.position, new Vector3(target.x, 0, target.z),
                 speed * Time.deltaTime);
     }
+		
+
+
+	private void OnCollisionEnter(Collision other)
+	{
+		Debug.Log ("In OnCollisionEnter");
+		if (other.gameObject.tag == "PlayerBullet") 
+		{
+			float newSliderValue = 0;
+			Debug.Log (m_PlayerBullet.BulletDamage);
+
+			float newHealth = hp - m_PlayerBullet.BulletDamage; //15-10 = 5
+
+			switch (type)
+			{
+			case (int) Knuckles.Red:
+				newSliderValue = newHealth/20;
+				break;
+			case (int) Knuckles.Blue:
+				newSliderValue = newHealth/40;
+				break;
+			case (int) Knuckles.Green:
+				newSliderValue = newHealth/15;
+				break;
+			case (int) Knuckles.Orange:
+				newSliderValue = newHealth/15;
+				break;
+			}
+
+			knucklesHPSlider.value = newSliderValue;
+			hp -= m_PlayerBullet.BulletDamage;
+
+			if (hp <= 0) {
+				Destroy (gameObject); //Destroy knuckle
+			}
+			Destroy (other.gameObject); //Destroy bullet
+
+		}
+
+	}
 }
 
 enum Knuckles
