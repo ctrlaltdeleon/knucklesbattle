@@ -30,7 +30,7 @@ public class TowerController : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (m_AmmoPlatformController.AmmoCooldown);
+		//Debug.Log (m_AmmoPlatformController.AmmoCooldown);
 		if (m_AmmoPlatformController.AmmoCooldown)
 		{
 			cooldownImageAlpha.enabled = true;

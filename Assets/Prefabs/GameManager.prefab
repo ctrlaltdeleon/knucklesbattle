@@ -82,6 +82,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1766972149385632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4521400524623156}
+  - component: {fileID: 114713267462426292}
+  m_Layer: 0
+  m_Name: Power Up Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1795951796876298
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +110,22 @@ GameObject:
   - component: {fileID: 114381258066146704}
   m_Layer: 0
   m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1858248879150498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4291673441554436}
+  - component: {fileID: 114262455243578704}
+  m_Layer: 0
+  m_Name: Knuckles Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,6 +166,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4291673441554436
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858248879150498}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4505201343335408}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4505201343335408
 Transform:
   m_ObjectHideFlags: 1
@@ -146,8 +191,23 @@ Transform:
   m_Children:
   - {fileID: 224731036828207424}
   - {fileID: 4543249806105690}
+  - {fileID: 4291673441554436}
+  - {fileID: 4521400524623156}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4521400524623156
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766972149385632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4505201343335408}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4543249806105690
 Transform:
@@ -228,6 +288,27 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114262455243578704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858248879150498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1478de7b2b87540bf9006bbcccbd9b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Knuckles: {fileID: 1230748934233448, guid: ff548f5b026ce433a9a457a796f5d81f, type: 2}
+  minX: -50
+  maxX: 50
+  minZ: 0
+  maxZ: 0
+  spawnHeight: 3
+  spawnRate: 1
+  KnucklesGroup: {fileID: 0}
+  difficultyRating: 50
+  canSpawn: 0
 --- !u!114 &114333288606211444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,6 +520,30 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114713267462426292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766972149385632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511a0ba987313461aab97d1354fe4fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Powerups:
+  - {fileID: 1722109384605308, guid: 017493e9cbdef5445ac178963f498af4, type: 2}
+  - {fileID: 1982082864458710, guid: 760de842c2f25fb4e88b5a5492fb7303, type: 2}
+  - {fileID: 1219667467267476, guid: 5b20d57f6b5454644b6cd1ff15abfad8, type: 2}
+  - {fileID: 1324229190438914, guid: 413f72bc59751084e8f74db3c76958a6, type: 2}
+  minX: -10
+  maxX: 10
+  minZ: -10
+  maxZ: 10
+  spawnHeight: 2
+  spawnRate: 1
+  PowerupGroup: {fileID: 0}
+  difficultyRating: 50
 --- !u!114 &114810632716952004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -452,7 +557,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveLength: 0
   PauseMenu: {fileID: 1714132208290382}
-  kSpawn: {fileID: 0}
+  KnucklesSpawner: {fileID: 114262455243578704}
+  PowerupSpawner: {fileID: 114713267462426292}
 --- !u!114 &114918220360529558
 MonoBehaviour:
   m_ObjectHideFlags: 1
