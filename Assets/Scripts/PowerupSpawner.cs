@@ -24,6 +24,9 @@ public class PowerupSpawner : MonoBehaviour {
 		//Algorithm to find quantity to spawn
 		int numPowerups = (int)Mathf.Log(levelNumber * difficultyRating, 2f);
 		
+		//Procedural Seeding based on levelNumber
+		Random.InitState(levelNumber);
+		
 		Debug.Log("Num of Powerups: " + numPowerups);
 		
 		for (int i = 0; i < numPowerups; i++)

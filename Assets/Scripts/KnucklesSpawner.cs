@@ -26,14 +26,13 @@ public class KnucklesSpawner : MonoBehaviour {
 	public void GenerateSpawnPoints (int levelNumber) {
 		//Number to spawn
 		int numKnuckles = (int)Mathf.Log(levelNumber * difficultyRating, 2f);
-		
 		Debug.Log("Num of Knuckles: " + numKnuckles);
 		
+		//Procedural Seeding based on levelNumber
+		Random.InitState(levelNumber);
+		
 		for (int i = 0; i < numKnuckles; i++)
-		{
-			//Procedural Seeding based on levelNumber
-			Random.InitState(levelNumber);
-			
+		{	
 			//Four sided Map Spawn Points
 			float randomPos = Random.Range(minX, maxX);
 			randomSpawnPositions.Add(new Vector3(minX, spawnHeight, randomPos));
