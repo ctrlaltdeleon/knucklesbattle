@@ -9,6 +9,12 @@ public class PlayerBullet : MonoBehaviour {
     [SerializeField]
     private float m_speed = 0.5f;
 
+	[SerializeField]
+	private int bulletDamage = 10;
+
+	[SerializeField]
+	public int BulletDamage { get { return bulletDamage; } }
+
     private Rigidbody m_rigidBody;
 
     /// <summary>

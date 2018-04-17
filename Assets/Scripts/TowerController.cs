@@ -8,28 +8,39 @@ public class TowerController : MonoBehaviour
 	//public static TowerController instance;
 	public int health = 100; //health points
 	private int maxHealth = 100;
+	private float cooldownTime = 10.0f;
 	
 	private int knucklesDamage; //placebo variable for knuckles damage value from Knuckles Controller
-
-
-	private Slider towerHealthBarSlider; 
-
-	private Text towerHealthText;
-
     public int Health { get { return health; } }
     public int MaxHealth { get { return maxHealth; } }
+
+	public Image cooldownImageAlpha;
+
+	[SerializeField]
+	private AmmoPlatformController m_AmmoPlatformController;
+
 
 
 	//HUDController HUD = HUDController.instance.towerHealthBarSlider;
 	
 	// Use this for initialization
 	void Start () {
-		
+		cooldownImageAlpha.enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		Debug.Log (m_AmmoPlatformController.AmmoCooldown);
+		if (m_AmmoPlatformController.AmmoCooldown)
+		{
+			cooldownImageAlpha.enabled = true;
+			cooldownImageAlpha.fillAmount -= 1.0f / cooldownTime * Time.deltaTime;
+			if (cooldownImageAlpha.fillAmount == 0) {
+				m_AmmoPlatformController.AmmoCooldown = false;
+				cooldownImageAlpha.enabled = false;
+				cooldownImageAlpha.fillAmount = 1;
+			}
+		}
 	}
 
     /// <summary>
@@ -37,6 +48,7 @@ public class TowerController : MonoBehaviour
     /// </summary>
     public void InitiateCooldown()
     {
+		
         //TODO Implement cooldown code.
     }
 

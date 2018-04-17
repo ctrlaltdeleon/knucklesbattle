@@ -5,10 +5,17 @@ using UnityEngine;
 public class AmmoPlatformController : MonoBehaviour {
 
 	public static AmmoPlatformController instance;
-	public bool ammoCooldown;
+	private bool ammoCooldown = false;
+
+	[SerializeField] 
+	public bool AmmoCooldown {get { return ammoCooldown;} set { ammoCooldown = value;}}
 
     [SerializeField]
-    private TowerController m_towerController;
+    public TowerController m_towerController;
+
+	[SerializeField]
+	private PlayerControl m_playerControl;
+
 
 	// Use this for initialization
 	void Start () {
@@ -24,14 +31,13 @@ public class AmmoPlatformController : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "PlayerEntity")
 		{
-            //			if (!GameManager.Instance.ammoCooldown) {
-            //				GameManager.Instance.ammoCooldown = true;
-            //				HUDController.instance.ammo = HUDController.instance.maxAmmo;
-            //				HUDController.instance.ammoText.text = HUDController.instance.maxAmmo + "/" + HUDController.instance.maxAmmo;
-            m_towerController.InitiateCooldown();
+			if (ammoCooldown == false)
+			{
+				m_playerControl.AmmoCount = m_playerControl.MaxAmmo;
+			}
+			ammoCooldown = true;
+            //m_towerController.InitiateCooldown();
 			Debug.Log("Player came to reload.");
-			//}
-
 		}
 	}
 }
