@@ -9,6 +9,14 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
+
+    public enum CoordinateDirection {
+        POS_Z_FORWARD,
+        POS_X_FORWARD,
+        NEG_Z_FORWARD,
+        NEG_X_FORWARD
+    };
+
     //Global Instance
     public static GameManager Instance = null;
 	
@@ -22,6 +30,10 @@ public class GameManager : MonoBehaviour
     //Pause Menu
     private bool paused;
     public GameObject PauseMenu;
+
+    private CoordinateDirection m_coordinateDirection;
+
+    public CoordinateDirection CoordDirection { get { return m_coordinateDirection; } }
     
     //Spawner
     public KnucklesSpawner kSpawn;
@@ -111,4 +123,25 @@ public class GameManager : MonoBehaviour
         #endif
     }
 
+    //Coordinate Direction    
+    /// <summary>
+    /// Changes the coordinate direction.
+    /// </summary>
+    /// <param name="direction">The direction.</param>
+    public void ChangeCoordinateDirection(int direction) {
+        switch (Mathf.Abs(direction % 4)) {
+            case 0:
+                m_coordinateDirection = CoordinateDirection.POS_Z_FORWARD;
+                break;
+            case 1:
+                m_coordinateDirection = CoordinateDirection.POS_X_FORWARD;
+                break;
+            case 2:
+                m_coordinateDirection = CoordinateDirection.NEG_Z_FORWARD;
+                break;
+            case 3:
+                m_coordinateDirection = CoordinateDirection.NEG_X_FORWARD;
+                break;
+        }
+    }
 }

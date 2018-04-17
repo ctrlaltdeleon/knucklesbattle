@@ -18,8 +18,17 @@ public class CameraControl : MonoBehaviour {
 
     private GameObject m_rotatePoint;
 
-    private Vector3 m_newRotation;
     private bool m_hasRotated;
+
+    [SerializeField]
+    private int m_rotationIndex;
+
+    private Vector3[] m_rotatePoints = {
+        new Vector3(0.0f, 0f, 0.0f),
+        new Vector3(0.0f, 90f, 0.0f),
+        new Vector3(0.0f, 180f, 0.0f),
+        new Vector3(0.0f, 270f, 0f)
+    };
 
 	// Use this for initialization
 	void Start () {
@@ -29,8 +38,8 @@ public class CameraControl : MonoBehaviour {
         }
         m_rotatePoint = new GameObject("CameraRotatePoint");
         transform.parent = m_rotatePoint.transform;
-        m_newRotation = new Vector3(0.0f, 0.0f, 0.0f);
         m_hasRotated = false;
+        m_rotationIndex = 0;
 	}
 	
 	// Update is called once per frame
@@ -63,10 +72,10 @@ public class CameraControl : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Debug.Log("Rotate Camera Left");
             if (!m_hasRotated)
             {
-                m_newRotation.y += 90.0f;
+                m_rotationIndex--;
+                GameManager.Instance.ChangeCoordinateDirection(m_rotationIndex);
                 m_hasRotated = true;
             }
 
@@ -74,30 +83,30 @@ public class CameraControl : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Rotate Camera Right");
             if (!m_hasRotated)
             {
-                m_newRotation.y -= -90.0f;
+                m_rotationIndex++;
+                GameManager.Instance.ChangeCoordinateDirection(m_rotationIndex);
                 m_hasRotated = true;
             }
 
         }
 
-        if (oldRotation.y != m_newRotation.y)
+        var newRotation = m_rotatePoints[(int)Mathf.Abs(m_rotationIndex % 4)];
+        if (oldRotation.y != newRotation.y)
         {
-            if (oldRotation.y > m_newRotation.y + 1.0f || oldRotation.y < m_newRotation.y - 1.0f)
+            if (oldRotation.y > newRotation.y + 1.0f || oldRotation.y < newRotation.y - 1.0f)
             {
-                var newRot = Vector3.Slerp(oldRotation, m_newRotation, 0.6f);
+                var newRot = Vector3.Slerp(oldRotation, newRotation, 0.8f);
                 newRot.x = 0;
                 newRot.z = 0;
                 m_rotatePoint.transform.rotation = Quaternion.Euler(newRot);
             }
             else
             {
-                m_rotatePoint.transform.rotation = Quaternion.Euler(m_newRotation);
+                m_rotatePoint.transform.rotation = Quaternion.Euler(newRotation);
                 m_hasRotated = false;
             }
-
         }
         else {
             m_hasRotated = false;
