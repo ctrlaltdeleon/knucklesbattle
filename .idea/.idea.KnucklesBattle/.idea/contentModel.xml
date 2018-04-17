@@ -27,6 +27,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AmmoPlatformController.cs" t="Include" />
+          <e p="AudioManager.cs" t="Include" />
           <e p="Camera" t="Include">
             <e p="CameraControl.cs" t="Include" />
           </e>
@@ -42,6 +43,7 @@
             <e p="PlayerPowerup.cs" t="Include" />
           </e>
           <e p="PlayerTestController.cs" t="Include" />
+          <e p="PowerupSpawner.cs" t="Include" />
           <e p="TowerController.cs" t="Include" />
         </e>
       </e>

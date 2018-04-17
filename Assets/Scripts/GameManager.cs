@@ -35,8 +35,9 @@ public class GameManager : MonoBehaviour
 
     public CoordinateDirection CoordDirection { get { return m_coordinateDirection; } }
     
-    //Spawner
-    public KnucklesSpawner kSpawn;
+    //Spawners
+    public KnucklesSpawner KnucklesSpawner;
+    public PowerupSpawner PowerupSpawner;
 
     // Use this for initialization
     void Awake()
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
     {
         levelNumber = 1;
         waveNumber = 1;
-        LoadLevel();
+        LoadLevel(levelNumber);
     }
 
     public void StartGame(string firstLevel)
@@ -65,9 +66,20 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(firstLevel);
     }
 
-    void LoadLevel()
+    void LoadLevel(int seed)
     {
+        //Prepare Knuckles and Powerups
+        KnucklesSpawner.GenerateSpawnPoints(seed);
+        KnucklesSpawner.canSpawn = true;
+        PowerupSpawner.spawnPowerups(seed);
         
+        //Procedurally Spawn Knuckles
+        InvokeRepeating("GM_spawnKnuckles", 1.0f, KnucklesSpawner.spawnRate);
+    }
+
+    void GM_spawnKnuckles()
+    {
+        KnucklesSpawner.spawnKnuckles();
     }
 
 
@@ -83,6 +95,8 @@ public class GameManager : MonoBehaviour
     //-----------------
     public void WinGame()
     {
+        KnucklesSpawner.canSpawn = false;
+        
         //Increment Wave
         waveNumber += 1;
 		
@@ -91,7 +105,7 @@ public class GameManager : MonoBehaviour
         {
             waveNumber = 1;
             levelNumber += 1;
-            LoadLevel();
+            LoadLevel(levelNumber);
         }
     }
 
@@ -100,6 +114,7 @@ public class GameManager : MonoBehaviour
         //Reset Wave and Level
         levelNumber = 1;
         waveNumber = 1;
+        StartGame("Level1");
         //TODO: Lose behavior
     }
 

@@ -70,7 +70,7 @@ public class KnucklesController : MonoBehaviour
 
 	private void OnCollisionEnter(Collision other)
 	{
-		Debug.Log ("In OnCollisionEnter");
+		//Debug.Log ("In OnCollisionEnter");
 		if (other.gameObject.tag == "PlayerBullet") 
 		{
 			float newSliderValue = 0;

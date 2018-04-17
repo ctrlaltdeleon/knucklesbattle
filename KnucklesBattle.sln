@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnucklesBattle", "Assembly-CSharp.csproj", "{8DE074DD-A06E-7D84-5886-E063AA51394E}"
+Project("{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{8DE074DD-A06E-7D84-5886-E063AA51394E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnucklesBattle", "Assembly-CSharp-Editor-firstpass.csproj", "{DD3D35C6-3917-CF5E-D29E-FA1D144F8509}"
+Project("{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{DD3D35C6-3917-CF5E-D29E-FA1D144F8509}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

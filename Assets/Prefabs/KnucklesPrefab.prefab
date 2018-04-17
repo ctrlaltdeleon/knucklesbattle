@@ -1453,7 +1453,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1230748934233448}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -57, y: 0, z: -250}
+  m_LocalPosition: {x: 250, y: 3, z: 124}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4599726252497476}
@@ -2160,6 +2160,8 @@ MonoBehaviour:
   tower: {fileID: 100002, guid: 4b47645256bfe48b684c1031b7b01e6b, type: 3}
   type: 0
   hp: 0
+  knucklesHPSlider: {fileID: 0}
+  m_PlayerBullet: {fileID: 0}
 --- !u!136 &136858454133877024
 CapsuleCollider:
   m_ObjectHideFlags: 1

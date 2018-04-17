@@ -4,35 +4,59 @@ using UnityEngine;
 
 public class KnucklesSpawner : MonoBehaviour {
 	
-	//Spawn Settings
+	//Prefabs
 	public GameObject Knuckles;
-	private List<Vector3> randomSpawnPositions = new List<Vector3>();
-	public float spawnRate = 1.0f;
-	private float nextSpawn;
 	
-	// Use this for initialization
-	void Awake () {
-		nextSpawn = 0.0f;
-		for (int i = 0; i < 30; i++)
+	//Map Boundaries
+	public int minX;
+	public int maxX;
+	public int minZ;
+	public int maxZ;
+	
+	//Spawn Settings
+	private List<Vector3> randomSpawnPositions = new List<Vector3>();
+	public int spawnHeight;
+	public float spawnRate = 1.0f;
+	public GameObject KnucklesGroup;
+	public float difficultyRating = 50f;
+	
+	//Can Spawn
+	public bool canSpawn = false;
+	
+	public void GenerateSpawnPoints (int levelNumber) {
+		//Number to spawn
+		int numKnuckles = (int)Mathf.Log(levelNumber * difficultyRating, 2f);
+		
+		Debug.Log("Num of Knuckles: " + numKnuckles);
+		
+		for (int i = 0; i < numKnuckles; i++)
 		{
-			float randomPos = Random.Range(-250, 250);
-			randomSpawnPositions.Add(new Vector3(-250, 0, randomPos));
-			randomSpawnPositions.Add(new Vector3(250, 0, randomPos));
-			randomSpawnPositions.Add(new Vector3(randomPos, 0, -250));
-			randomSpawnPositions.Add(new Vector3(randomPos, 0, 250));
+			//Procedural Seeding based on levelNumber
+			Random.InitState(levelNumber);
+			
+			//Four sided Map Spawn Points
+			float randomPos = Random.Range(minX, maxX);
+			randomSpawnPositions.Add(new Vector3(minX, spawnHeight, randomPos));
+			randomSpawnPositions.Add(new Vector3(maxX, spawnHeight, randomPos));
+			randomSpawnPositions.Add(new Vector3(randomPos, spawnHeight, minX));
+			randomSpawnPositions.Add(new Vector3(randomPos, spawnHeight, maxX));
 		}
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Time.time > nextSpawn)
-		{
-			nextSpawn = Time.time + spawnRate;
+
+	public void spawnKnuckles()
+	{
+		if (canSpawn)
+		{	
+			Debug.Log("Spawning ~");
+			//Randomly instantiate from a spawn point
 			int index = Random.Range(0, randomSpawnPositions.Count);
-			Knuckles.transform.root.position = randomSpawnPositions[index];
-			Instantiate(Knuckles);
+			GameObject newKnuckles = Instantiate(Knuckles, randomSpawnPositions[index], Quaternion.identity);
+			
+			//Group the knuckles
+			newKnuckles.transform.SetParent(KnucklesGroup.transform);
 		}
 	}
+	
 	
 }
