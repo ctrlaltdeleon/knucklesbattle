@@ -74,8 +74,8 @@ public class CameraControl : MonoBehaviour {
         {
             if (!m_hasRotated)
             {
-                Debug.Log("Rotate Camera Left");
                 m_rotationIndex--;
+                GameManager.Instance.ChangeCoordinateDirection(m_rotationIndex);
                 m_hasRotated = true;
             }
 
@@ -85,8 +85,8 @@ public class CameraControl : MonoBehaviour {
         {
             if (!m_hasRotated)
             {
-                Debug.Log("Rotate Camera Right");
                 m_rotationIndex++;
+                GameManager.Instance.ChangeCoordinateDirection(m_rotationIndex);
                 m_hasRotated = true;
             }
 

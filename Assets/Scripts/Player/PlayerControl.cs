@@ -43,6 +43,9 @@ public class PlayerControl : MonoBehaviour {
 
     private Rigidbody m_rigidBody;
 
+    private Vector3 m_Left;
+    private Vector3 m_Forward;
+
 	// Use this for initialization
 	void Start () {
         m_health = 100;
@@ -50,6 +53,8 @@ public class PlayerControl : MonoBehaviour {
         m_weaponType = WeaponType.DEFAULT;
         MAX_SPEED = 40.0f;
         m_rigidBody = GetComponent<Rigidbody>();
+        m_Left = Vector3.left;
+        m_Forward = Vector3.forward;
 	}
 	
 	// Update is called once per frame
@@ -60,6 +65,27 @@ public class PlayerControl : MonoBehaviour {
         oldZ =  posZ = transform.position.z;
 
         dX = dZ = 0;
+
+        //Get the coordinate direction relative to the camera;
+        switch (GameManager.Instance.CoordDirection)
+        {
+            case GameManager.CoordinateDirection.POS_Z_FORWARD:
+                m_Forward = Vector3.forward;
+                m_Left = Vector3.left;
+                break;
+            case GameManager.CoordinateDirection.POS_X_FORWARD:
+                m_Forward = -Vector3.left;
+                m_Left = Vector3.forward;
+                break;
+            case GameManager.CoordinateDirection.NEG_Z_FORWARD:
+                m_Forward = -Vector3.forward;
+                m_Left = -Vector3.left;
+                break;
+            case GameManager.CoordinateDirection.NEG_X_FORWARD:
+                m_Forward = Vector3.left;
+                m_Left = -Vector3.forward;
+                break;
+        }
 
         Vector3 oldVelocity = m_rigidBody.velocity;
 
@@ -74,7 +100,7 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
         {
             if (Mathf.Abs(oldVelocity.x) < MAX_SPEED) {
-                m_rigidBody.AddForce(Vector3.left * m_speed, ForceMode.Impulse);
+                m_rigidBody.AddForce(m_Left * m_speed, ForceMode.Impulse);
             }
         }
 
@@ -82,7 +108,7 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetKey(KeyCode.D))
         {
             if (Mathf.Abs(oldVelocity.x) < MAX_SPEED) {
-                m_rigidBody.AddForce((-Vector3.left) * m_speed, ForceMode.Impulse);
+                m_rigidBody.AddForce((-m_Left) * m_speed, ForceMode.Impulse);
             }
         }
 
@@ -90,7 +116,7 @@ public class PlayerControl : MonoBehaviour {
         {
             if (Mathf.Abs(oldVelocity.z) < MAX_SPEED)
             {
-                m_rigidBody.AddForce(-Vector3.forward * m_speed, ForceMode.Impulse);
+                m_rigidBody.AddForce(-m_Forward * m_speed, ForceMode.Impulse);
 
             }
         }
@@ -99,7 +125,7 @@ public class PlayerControl : MonoBehaviour {
         {
             if (Mathf.Abs(oldVelocity.z) < MAX_SPEED)
             {
-                m_rigidBody.AddForce(Vector3.forward * m_speed, ForceMode.Impulse);
+                m_rigidBody.AddForce(m_Forward * m_speed, ForceMode.Impulse);
 
             }
         }
