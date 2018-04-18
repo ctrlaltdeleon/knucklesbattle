@@ -262,6 +262,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114391128625635512, guid: 371b682e675714bd0a0db96a759c526a,
+        type: 2}
+      propertyPath: m_audioData.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4505201343335408, guid: 371b682e675714bd0a0db96a759c526a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -485,28 +490,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 483395534}
---- !u!1 &665812487 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1428570204127256, guid: 371b682e675714bd0a0db96a759c526a,
-    type: 2}
-  m_PrefabInternal: {fileID: 357604946}
---- !u!114 &665812488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 665812487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fe3366d88427934f9f2ba9f731310b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_audioData:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &952868927
 GameObject:
   m_ObjectHideFlags: 0

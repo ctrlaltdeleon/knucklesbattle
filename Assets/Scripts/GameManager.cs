@@ -9,7 +9,11 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
-
+	public enum GameState : uint {
+		START,
+		GAME,
+		END
+	}
     public enum CoordinateDirection {
         POS_Z_FORWARD,
         POS_X_FORWARD,
@@ -30,6 +34,10 @@ public class GameManager : MonoBehaviour
     //Pause Menu
     private bool paused;
     public GameObject PauseMenu;
+	private int m_currentLevel = 0;
+
+	private bool powerupSpawned = false;
+	private GameState m_currentState = GameState.START;
 
     private CoordinateDirection m_coordinateDirection;
 
@@ -58,16 +66,30 @@ public class GameManager : MonoBehaviour
     {
         levelNumber = 1;
         waveNumber = 1;
-        LoadLevel(levelNumber);
     }
 
-    public void StartGame(string firstLevel)
+	public void StartGame(string firstLevel)
     {
-        SceneManager.LoadScene(firstLevel);
+		SceneManager.LoadScene (firstLevel);
+		//StartCoroutine (StartGame2 (firstLevel));
+		//LoadLevel(levelNumber);
+		m_currentState = GameState.GAME;
+		powerupSpawned = true;
     }
 
-    void LoadLevel(int seed)
+	IEnumerator StartGame2(string firstLevel){
+		SceneManager.LoadScene(firstLevel);
+		yield return new WaitForSeconds (2);
+
+	}
+
+	void deferredWait(int level){
+		LoadLevel (level);
+	}
+
+    public void LoadLevel(int seed)
     {
+		
         //Prepare Knuckles and Powerups
         KnucklesSpawner.GenerateSpawnPoints(seed);
         KnucklesSpawner.canSpawn = true;
@@ -85,6 +107,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+		if (m_currentState == GameState.GAME && powerupSpawned) {
+			//TODO Powerup spawn here
+			LoadLevel(1);
+			powerupSpawned = false;
+		}
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
