@@ -11,10 +11,7 @@ public class KnucklesController : MonoBehaviour
     public int type;
     public float hp;
 
-	public Slider knucklesHPSlider;
-
-	[SerializeField]
-	private PlayerBullet m_PlayerBullet;
+    public Slider knucklesHPSlider;
 
     void Awake()
     {
@@ -65,46 +62,46 @@ public class KnucklesController : MonoBehaviour
             Vector3.MoveTowards(gameObject.transform.position, new Vector3(target.x, 0, target.z),
                 speed * Time.deltaTime);
     }
-		
 
 
-	private void OnCollisionEnter(Collision other)
-	{
-		//Debug.Log ("In OnCollisionEnter");
-		if (other.gameObject.tag == "PlayerBullet") 
-		{
-			float newSliderValue = 0;
-			Debug.Log (m_PlayerBullet.BulletDamage);
+    private void OnCollisionEnter(Collision other)
+    {
+        //Debug.Log ("In OnCollisionEnter");
+        if (other.gameObject.tag == "PlayerBullet")
+        {
+            float newSliderValue = 0;
+            Debug.Log(other.gameObject.GetComponent<PlayerBullet>().BulletDamage);
 
-			float newHealth = hp - m_PlayerBullet.BulletDamage; //15-10 = 5
+            float newHealth = hp - other.gameObject.GetComponent<PlayerBullet>().BulletDamage; //15-10 = 5
 
-			switch (type)
-			{
-			case (int) Knuckles.Red:
-				newSliderValue = newHealth/20;
-				break;
-			case (int) Knuckles.Blue:
-				newSliderValue = newHealth/40;
-				break;
-			case (int) Knuckles.Green:
-				newSliderValue = newHealth/15;
-				break;
-			case (int) Knuckles.Orange:
-				newSliderValue = newHealth/15;
-				break;
-			}
 
-			knucklesHPSlider.value = newSliderValue;
-			hp -= m_PlayerBullet.BulletDamage;
+            switch (type)
+            {
+                case (int) Knuckles.Red:
+                    newSliderValue = newHealth / 20;
+                    break;
+                case (int) Knuckles.Blue:
+                    newSliderValue = newHealth / 40;
+                    break;
+                case (int) Knuckles.Green:
+                    newSliderValue = newHealth / 15;
+                    break;
+                case (int) Knuckles.Orange:
+                    newSliderValue = newHealth / 15;
+                    break;
+            }
 
-			if (hp <= 0) {
-				Destroy (gameObject); //Destroy knuckle
-			}
-			Destroy (other.gameObject); //Destroy bullet
+            knucklesHPSlider.value = newSliderValue;
+            hp -= other.gameObject.GetComponent<PlayerBullet>().BulletDamage;
 
-		}
+            if (hp <= 0)
+            {
+                Destroy(gameObject); //Destroy knuckle
+            }
 
-	}
+            Destroy(other.gameObject); //Destroy bullet
+        }
+    }
 }
 
 enum Knuckles

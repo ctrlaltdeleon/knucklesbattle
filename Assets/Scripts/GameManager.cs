@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
 
 	public void StartGame(string firstLevel)
     {
+        Debug.Log("suh");
 		SceneManager.LoadScene (firstLevel);
 		//StartCoroutine (StartGame2 (firstLevel));
 		//LoadLevel(levelNumber);
