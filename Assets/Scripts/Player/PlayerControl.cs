@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 /// <summary>
 /// Player Controller
 /// </summary>
-public class PlayerControl : MonoBehaviour {
+public class PlayerControl : NetworkBehaviour
+{
     public enum WeaponType : uint
     {
         DEFAULT = 0,
@@ -13,32 +15,51 @@ public class PlayerControl : MonoBehaviour {
         SPECIAL = 2
     }
 
-    [SerializeField]
-    private WeaponType m_weaponType;
+    [SerializeField] private WeaponType m_weaponType;
 
-    [SerializeField]
-    private int m_health;
+    [SerializeField] private int m_health;
     private int MAX_HEALTH = 100;
 
-    [SerializeField]
-    private int m_ammoCount = 150;
+    [SerializeField] private int m_ammoCount = 150;
     private int MAX_AMMO = 150;
 
-    [SerializeField]
-    private float m_speed = 2.0f;
+    [SerializeField] private float m_speed = 2.0f;
 
-    [SerializeField]
-    private float MAX_SPEED = 40.0f;
+    [SerializeField] private float MAX_SPEED = 40.0f;
 
-    public int Health { get { return m_health; } }
-    public int MaxHealth { get { return MAX_HEALTH; } }
-	public int AmmoCount { get { return m_ammoCount; } set {m_ammoCount = value; } }
-    public int MaxAmmo { get { return MAX_AMMO; } }
-    public float Speed { get { return m_speed; } }
-    public WeaponType Weapon { get { return m_weaponType; } }
+    public int Health
+    {
+        get { return m_health; }
+    }
 
-    [SerializeField]
-    private GameObject m_bulletPrefab;
+    public int MaxHealth
+    {
+        get { return MAX_HEALTH; }
+    }
+
+    public int AmmoCount
+    {
+        get { return m_ammoCount; }
+        set { m_ammoCount = value; }
+    }
+
+    public int MaxAmmo
+    {
+        get { return MAX_AMMO; }
+    }
+
+    public float Speed
+    {
+        get { return m_speed; }
+    }
+
+    public WeaponType Weapon
+    {
+        get { return m_weaponType; }
+    }
+
+    public static PlayerControl Instance;
+    [SerializeField] private GameObject m_bulletPrefab;
     private Vector3 m_lastPosition;
 
     private Rigidbody m_rigidBody;
@@ -46,8 +67,24 @@ public class PlayerControl : MonoBehaviour {
     private Vector3 m_Left;
     private Vector3 m_Forward;
 
-	// Use this for initialization
-	void Start () {
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
+        transform.position = new Vector3(0, 0, -3f);
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+        if (isLocalPlayer)
+        {
+            Instance = this;
+        }
+
         m_health = 100;
         m_ammoCount = 150;
         m_weaponType = WeaponType.DEFAULT;
@@ -55,14 +92,20 @@ public class PlayerControl : MonoBehaviour {
         m_rigidBody = GetComponent<Rigidbody>();
         m_Left = Vector3.left;
         m_Forward = Vector3.forward;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         float oldX, oldY, oldZ, posX, posY, posZ, dX, dZ;
         oldX = posX = transform.position.x;
         oldY = posY = transform.position.y;
-        oldZ =  posZ = transform.position.z;
+        oldZ = posZ = transform.position.z;
 
         dX = dZ = 0;
 
@@ -91,7 +134,8 @@ public class PlayerControl : MonoBehaviour {
 
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit)) {
+        if (Physics.Raycast(ray, out hit))
+        {
             var mouseWorldPosition = hit.point;
             transform.LookAt(mouseWorldPosition);
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
@@ -99,7 +143,8 @@ public class PlayerControl : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.A))
         {
-            if (Mathf.Abs(oldVelocity.x) < MAX_SPEED) {
+            if (Mathf.Abs(oldVelocity.x) < MAX_SPEED)
+            {
                 m_rigidBody.AddForce(m_Left * m_speed, ForceMode.Impulse);
             }
         }
@@ -107,7 +152,8 @@ public class PlayerControl : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.D))
         {
-            if (Mathf.Abs(oldVelocity.x) < MAX_SPEED) {
+            if (Mathf.Abs(oldVelocity.x) < MAX_SPEED)
+            {
                 m_rigidBody.AddForce((-m_Left) * m_speed, ForceMode.Impulse);
             }
         }
@@ -117,7 +163,6 @@ public class PlayerControl : MonoBehaviour {
             if (Mathf.Abs(oldVelocity.z) < MAX_SPEED)
             {
                 m_rigidBody.AddForce(-m_Forward * m_speed, ForceMode.Impulse);
-
             }
         }
 
@@ -126,7 +171,6 @@ public class PlayerControl : MonoBehaviour {
             if (Mathf.Abs(oldVelocity.z) < MAX_SPEED)
             {
                 m_rigidBody.AddForce(m_Forward * m_speed, ForceMode.Impulse);
-
             }
         }
 
@@ -139,11 +183,12 @@ public class PlayerControl : MonoBehaviour {
                     StartCoroutine(Shoot());
                 }
             }
-            else {
+            else
+            {
                 StartCoroutine(DeployMeeseeks());
             }
         }
-	}
+    }
 
     /// <summary>
     /// Shoots this instance.
@@ -153,12 +198,12 @@ public class PlayerControl : MonoBehaviour {
     {
         PlayerBullet newBullet = Instantiate(m_bulletPrefab).GetComponent<PlayerBullet>();
         newBullet.SetInitialDirection(transform.forward);
-        foreach (Transform t in GetComponentsInChildren<Transform>())
-        {
-            Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), t.gameObject.GetComponent<Collider>());
-        }
+//        foreach (Transform t in GetComponentsInChildren<Transform>())
+//        {
+//            Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), t.gameObject.GetComponent<Collider>());
+//        }
         var spawnPoint = transform.position;
-        spawnPoint.y = spawnPoint.y + 0.25f;
+        spawnPoint.y = spawnPoint.y + 1.5f;
         newBullet.transform.position = spawnPoint;
         --m_ammoCount;
         yield return new WaitForSeconds(0.01f);
@@ -180,10 +225,10 @@ public class PlayerControl : MonoBehaviour {
         {
             m_health += value;
         }
-        else {
+        else
+        {
             m_health = MAX_HEALTH;
         }
-
     }
 
     /// <summary>
@@ -191,7 +236,6 @@ public class PlayerControl : MonoBehaviour {
     /// </summary>
     public void RewardMeseeks()
     {
-
     }
 
     /// <summary>
@@ -208,8 +252,7 @@ public class PlayerControl : MonoBehaviour {
     /// </summary>
     public void RewardSpecialWeapon()
     {
-
     }
-    //TODO Implement Collision Hit info
 
+    //TODO Implement Collision Hit info
 }
