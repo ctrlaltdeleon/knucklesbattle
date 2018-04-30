@@ -72,7 +72,7 @@ public class TowerController : MonoBehaviour
 		{
 			Destroy (other.gameObject);
 			//Apply damage to tower from KnucklesController.
-			health -= other.gameObject.GetComponent<SpitController>().m_KnucklesController.attackDmg;
+			health -= other.gameObject.GetComponent<SpitController>().m_KnucklesController.GetAttackDmg;
 			Debug.Log ("Tower Health: " + health);
 
 		}	

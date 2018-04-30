@@ -19,8 +19,8 @@ public class KnucklesController : NetworkBehaviour
 
 	//For spitting
 	public Transform startPosition;
-	public Transform target;
 	public GameObject spitPrefab;
+	private Vector3 towerPosition;
 	float startTime;
     void Awake()
     {
@@ -42,7 +42,6 @@ public class KnucklesController : NetworkBehaviour
 			speed = 1f;
 			hp = 15;
 			attackDmg = 2f;
-			InvokeRepeating ("Spit", 1.0f, 3.0f);
 			break;
 		case (int) Knuckles.Orange: //Fast
 			speed = 3f;
@@ -52,12 +51,15 @@ public class KnucklesController : NetworkBehaviour
 		}
     }
 
+	void Start(){
+		towerPosition = new Vector3 (0, 0, 0);
+	}
+
     // Update is called once per frame
     void Update()
     {
-		if (type == (int)Knuckles.Orange) 
+		if (type == (int)Knuckles.Green) 
 		{
-			//Debug.Log(Vector3.Distance(tower.transform.position, transform.position));
 			if (Vector3.Distance (tower.transform.position, transform.position) > 15) {
 				MoveTowards (tower.transform.position);
 				startTime = Time.time;
@@ -134,7 +136,7 @@ public class KnucklesController : NetworkBehaviour
 		GameObject ball = Instantiate(spitPrefab, startPosition.position, Quaternion.identity);
 		Rigidbody rb = ball.GetComponent<Rigidbody>();
 		Vector3 gravityBase = new Vector3(0, -10, 0);
-		rb.velocity = HitTargetByAngle (transform.position, target.position, gravityBase, 45f);
+		rb.velocity = HitTargetByAngle (transform.position, towerPosition, gravityBase, 45f);
 	}
 
 	public static Vector3 HitTargetByAngle(Vector3 startPosition, Vector3 targetPosition, Vector3 gravityBase, float limitAngle)
