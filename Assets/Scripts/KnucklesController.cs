@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class KnucklesController : MonoBehaviour
+public class KnucklesController : NetworkBehaviour
 {
-    public List<Texture> colors;
     public float speed;
     public GameObject tower;
     public int type;
+
     public float hp;
 	[SerializeField]
 	public float attackDmg;
@@ -23,14 +24,6 @@ public class KnucklesController : MonoBehaviour
 	float startTime;
     void Awake()
     {
-        // Change the color of knuckles
-        //int randomColor = Random.Range(0, colors.Count);
-		int randomColor = 3;
-        gameObject.transform.GetChild(1).GetComponent<Renderer>().materials[1].mainTexture =
-            colors[randomColor];
-        type = randomColor;
-
-
         // Set attributes based on color
 		switch (type) {
 		case (int) Knuckles.Red: //Normal

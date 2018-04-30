@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4670785715554454}
+  - component: {fileID: 114104357142951180}
   m_Layer: 0
   m_Name: KnucklesGroup
   m_TagString: Untagged
@@ -39,3 +40,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114104357142951180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1186216018876804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1478de7b2b87540bf9006bbcccbd9b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Knuckles: {fileID: 1042751267100756, guid: 4354b6542736447b1bcf63fbde0210de, type: 2}
+  minX: -50
+  maxX: 50
+  minZ: 0
+  maxZ: 0
+  spawnHeight: 2
+  spawnRate: 1
+  KnucklesGroupPrefab: {fileID: 1186216018876804}
+  difficultyRating: 50
+  canSpawn: 1

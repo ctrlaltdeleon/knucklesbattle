@@ -83,6 +83,8 @@ GameObject:
   - component: {fileID: 114127066203933082}
   - component: {fileID: 136033134804105428}
   - component: {fileID: 54180780276261270}
+  - component: {fileID: 114414052696402536}
+  - component: {fileID: 114337572324531724}
   m_Layer: 0
   m_Name: KnucklesPrefab
   m_TagString: KnucklesTest
@@ -2049,6 +2051,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f336ccec418f4e67be8164cfc2177fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114337572324531724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042751267100756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114360070206039102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2065,6 +2088,38 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114414052696402536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042751267100756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 67
+    i1: 84
+    i2: 182
+    i3: 84
+    i4: 39
+    i5: 54
+    i6: 68
+    i7: 123
+    i8: 27
+    i9: 207
+    i10: 99
+    i11: 251
+    i12: 222
+    i13: 2
+    i14: 16
+    i15: 222
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114775073964308024
 MonoBehaviour:
   m_ObjectHideFlags: 1
