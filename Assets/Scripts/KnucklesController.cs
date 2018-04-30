@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class KnucklesController : MonoBehaviour
+public class KnucklesController : NetworkBehaviour
 {
-    public List<Texture> colors;
     public float speed;
     public GameObject tower;
     public int type;
@@ -13,13 +13,11 @@ public class KnucklesController : MonoBehaviour
 
     public Slider knucklesHPSlider;
 
-    void Awake()
+    public void Colorize(Texture color, int knuckleType)
     {
         // Change the color of knuckles
-        int randomColor = Random.Range(0, colors.Count);
-        gameObject.transform.GetChild(1).GetComponent<Renderer>().materials[1].mainTexture =
-            colors[randomColor];
-        type = randomColor;
+        gameObject.transform.GetChild(1).GetComponent<Renderer>().materials[1].mainTexture = color;
+        type = knuckleType;
 
         // Set attributes based on color
         switch (type)
