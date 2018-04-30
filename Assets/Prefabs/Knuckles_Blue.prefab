@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 114028875366941334}
   m_Layer: 0
   m_Name: Knuckles_Blue
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1598,13 +1598,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1190819021014826}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.000027909113, y: 2.2124057, z: 0.0062084794}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4800632914884246}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4722097246868162
 Transform:
   m_ObjectHideFlags: 1
@@ -1825,14 +1825,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1572765737052892}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.9215979, z: -0.38757902}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.9215979, z: -0.387579}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4303846609232456}
   m_Father: {fileID: 4800632914884246}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4952854933603582
 Transform:
   m_ObjectHideFlags: 1
@@ -2045,7 +2045,10 @@ MonoBehaviour:
   tower: {fileID: 100002, guid: 4b47645256bfe48b684c1031b7b01e6b, type: 3}
   type: 1
   hp: 0
+  attackDmg: 0
   knucklesHPSlider: {fileID: 114128076999526886}
+  startPosition: {fileID: 0}
+  spitPrefab: {fileID: 0}
 --- !u!114 &114358450447773386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2399,7 +2402,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1463180608930514}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 124}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224961828345224756}
@@ -2408,6 +2411,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 11}
+  m_AnchoredPosition: {x: 0, y: 6.5}
   m_SizeDelta: {x: 30, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}

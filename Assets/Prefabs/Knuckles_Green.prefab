@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 114398580117755072}
   m_Layer: 0
   m_Name: Knuckles_Green
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1138,7 +1138,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1623438736925242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.783}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4203066779706456}
@@ -1248,14 +1248,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1054680135067522}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.9215979, z: -0.38757902}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.9215979, z: -0.387579}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4371545607424298}
   m_Father: {fileID: 4072566926478762}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4203159609072978
 Transform:
   m_ObjectHideFlags: 1
@@ -2029,7 +2029,7 @@ MonoBehaviour:
   attackDmg: 0
   knucklesHPSlider: {fileID: 114799607624346490}
   startPosition: {fileID: 4139267349872946}
-  spitPrefab: {fileID: 1520245694551074, guid: a15870882407e47d4bbd4d239764565e, type: 2}
+  spitPrefab: {fileID: 1559512517342656, guid: d0db7af40920ca548a42fdf289654619, type: 2}
 --- !u!114 &114398580117755072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2356,7 +2356,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1645471621866232}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 124}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224807645614158472}
@@ -2365,7 +2365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 11}
+  m_AnchoredPosition: {x: 0, y: 6.5}
   m_SizeDelta: {x: 30, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224189144428989930

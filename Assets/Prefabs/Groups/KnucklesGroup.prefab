@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4670785715554454}
   - component: {fileID: 114104357142951180}
+  - component: {fileID: 114411697806692230}
   m_Layer: 0
   m_Name: KnucklesGroup
   m_TagString: Untagged
@@ -51,13 +52,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1478de7b2b87540bf9006bbcccbd9b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Knuckles: {fileID: 1042751267100756, guid: 4354b6542736447b1bcf63fbde0210de, type: 2}
+  Knuckles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   minX: -50
   maxX: 50
-  minZ: 0
-  maxZ: 0
   spawnHeight: 2
   spawnRate: 1
-  KnucklesGroupPrefab: {fileID: 1186216018876804}
   difficultyRating: 50
-  canSpawn: 1
+  maxNumKnuckles: 0
+--- !u!114 &114411697806692230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1186216018876804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 210
+    i1: 55
+    i2: 164
+    i3: 43
+    i4: 3
+    i5: 213
+    i6: 180
+    i7: 7
+    i8: 184
+    i9: 33
+    i10: 196
+    i11: 147
+    i12: 73
+    i13: 118
+    i14: 51
+    i15: 190
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

@@ -2,9 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpitController : MonoBehaviour {
+public class SpitController : MonoBehaviour
+{
+    [SerializeField] public KnucklesController m_KnucklesController;
+    private Rigidbody Rb;
 
-	[SerializeField]
-	public KnucklesController m_KnucklesController;
+    void Start()
+    {
+        Rb = GetComponent<Rigidbody>();
+    }
 
+    void Update()
+    {
+        transform.rotation = Quaternion.LookRotation(Rb.velocity);
+    }
 }
