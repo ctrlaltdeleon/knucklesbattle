@@ -6,18 +6,19 @@ using UnityEngine.Networking;
 public class KnucklesSpawner : NetworkBehaviour
 {
     //Prefabs
-    public GameObject Knuckles;
+    public List<GameObject> Knuckles;
 
     //Map Boundaries
     public int minX;
+
     public int maxX;
 
     //Spawn Settings
     private List<Vector3> randomSpawnPositions = new List<Vector3>();
+
     public int spawnHeight;
     public float spawnRate = 1.0f;
     public float difficultyRating = 50f;
-    public List<Texture> colors = new List<Texture>();
 
 
     public override void OnStartServer()
@@ -52,10 +53,9 @@ public class KnucklesSpawner : NetworkBehaviour
     {
         //Randomly instantiate from a spawn point
         int index = Random.Range(0, randomSpawnPositions.Count);
-        int randomColor = Random.Range(0, colors.Count);
-        Debug.Log("Color Number" + randomColor);
-        GameObject newKnuckles = Instantiate(Knuckles, randomSpawnPositions[index], Quaternion.identity);
-        newKnuckles.GetComponent<KnucklesController>().Colorize(colors[randomColor], randomColor);
+        int randomColor = Random.Range(0, Knuckles.Count);
+        Debug.Log("Knuckles color Number" + randomColor);
+        GameObject newKnuckles = Instantiate(Knuckles[randomColor], randomSpawnPositions[index], Quaternion.identity);
         NetworkServer.Spawn(newKnuckles);
 
         //Group the knuckles

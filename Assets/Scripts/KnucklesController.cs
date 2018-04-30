@@ -9,16 +9,13 @@ public class KnucklesController : NetworkBehaviour
     public float speed;
     public GameObject tower;
     public int type;
+
     public float hp;
 
     public Slider knucklesHPSlider;
 
-    public void Colorize(Texture color, int knuckleType)
+    void Awake()
     {
-        // Change the color of knuckles
-        gameObject.transform.GetChild(1).GetComponent<Renderer>().materials[1].mainTexture = color;
-        type = knuckleType;
-
         // Set attributes based on color
         switch (type)
         {
