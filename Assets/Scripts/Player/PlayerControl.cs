@@ -196,6 +196,10 @@ public class PlayerControl : NetworkBehaviour
 		{
 			m_health -= 5;
 			Debug.Log ("Health: " + m_health);
+		    if (m_health <= 0)
+		    {
+		        GameManager.Instance.LoseGame();
+		    }
 		}
 	}
 

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
     public enum CoordinateDirection {
         POS_Z_FORWARD,
@@ -70,15 +71,23 @@ public class GameManager : MonoBehaviour
         PauseMenu.SetActive(true);
     }
 
+    [Server]
     public void WonLevel()
     {
         level++;
-        SceneManager.LoadScene("Level1");
+        if (level > 10)
+        {
+            SceneManager.LoadScene("Credits");
+        }
+        GameObject ks = GameObject.FindGameObjectWithTag("KnucklesGroup");
+        ks.GetComponent<KnucklesSpawner>().StartLevel();
+        GameObject ps = GameObject.FindGameObjectWithTag("PowerupGroup");
+        ps.GetComponent<PowerupSpawner>().StartLevel();
     }
 
     public void LoseGame()
     {
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void ResumeGame()

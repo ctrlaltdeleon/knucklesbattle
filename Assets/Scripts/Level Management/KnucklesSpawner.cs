@@ -24,6 +24,11 @@ public class KnucklesSpawner : NetworkBehaviour
 
     public override void OnStartServer()
     {
+        StartLevel();
+    }
+
+    public void StartLevel()
+    {
         int levelNumber = GameManager.Instance.level;
         maxNumKnuckles = (int) Mathf.Log(levelNumber * difficultyRating, 2f);
         Random.InitState(levelNumber);

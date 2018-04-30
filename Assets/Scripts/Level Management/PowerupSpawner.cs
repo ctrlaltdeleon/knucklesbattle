@@ -26,6 +26,11 @@ public class PowerupSpawner : MonoBehaviour
         spawnPowerups(GameManager.Instance.level);
     }
 
+    public void StartLevel()
+    {
+        spawnPowerups(GameManager.Instance.level);
+    }
+
     public void spawnPowerups(int levelNumber)
     {
 
