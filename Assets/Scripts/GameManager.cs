@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public int waveLength;
 	
     //Game State
-    private static int levelNumber;
+    public int levelNumber;
     private static int waveNumber;
     
     //Pause Menu

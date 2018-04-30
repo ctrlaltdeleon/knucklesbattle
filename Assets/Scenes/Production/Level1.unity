@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465934, g: 0.49642956, b: 0.57482487, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -113,6 +113,58 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &20661916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 20661917}
+  - component: {fileID: 20661918}
+  m_Layer: 0
+  m_Name: ProceduralGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &20661917
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 20661916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.508714, y: 1.2343547, z: -9.003776}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &20661918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 20661916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cedb3756d7544deb5f760790a943a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -20
+  maxX: 20
+  blocks:
+  - {fileID: 1652228968013032, guid: e3357e50d1e5542a5adb1bb210715a42, type: 2}
+  - {fileID: 1800090114479504, guid: ea06a1a041ae5437f85a50e22790f0bd, type: 2}
+  - {fileID: 1878973048644570, guid: a1eec294acd5242baa5b105a932ec98a, type: 2}
+  monsters: []
+  groundHeight: -1
+  terrainDetail: 2
+  terrainHeight: 3
+  terrainMinHeight: 3
+  seed: 1
 --- !u!114 &58257828 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114544949679494898, guid: adf814faaf5c40045b751be77b9d414d,
@@ -330,46 +382,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1921945711}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!1 &1570026458
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1570026461}
-  - component: {fileID: 1570026459}
-  m_Layer: 0
-  m_Name: Level1Indicator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1570026459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1570026458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aa9d64523ffd432b92931e5fcebd851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1570026461
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1570026458}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1785575935
 Prefab:
   m_ObjectHideFlags: 0
@@ -422,7 +434,7 @@ Prefab:
     - target: {fileID: 224177557912559532, guid: adf814faaf5c40045b751be77b9d414d,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224177557912559532, guid: adf814faaf5c40045b751be77b9d414d,
         type: 2}
@@ -462,7 +474,7 @@ Prefab:
     - target: {fileID: 224177557912559532, guid: adf814faaf5c40045b751be77b9d414d,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224177557912559532, guid: adf814faaf5c40045b751be77b9d414d,
         type: 2}
@@ -702,7 +714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &2099533003
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -769,5 +781,5 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
