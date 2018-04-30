@@ -2,50 +2,75 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
-      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
-      <e p="Assets" t="Include">
-        <e p="Plugins" t="Include">
-          <e p="Editor" t="Include">
-            <e p="JetBrains" t="Include">
-              <e p="Unity3DRider.cs" t="Include" />
-            </e>
-          </e>
+      <e p="Assets/Fonts" t="Include">
+        <e p="OpenSans" t="Include">
+          <e p="License!.txt" t="Include" />
         </e>
-        <e p="Scenes" t="Include">
-          <e p="Testing" t="Include">
-            <e p="AC" t="Include">
-              <e p="ExtraMrMeeseeksAI.cs" t="Include" />
-              <e p="FlockController.cs" t="Include" />
-              <e p="MrMeeseeksAI.cs" t="Include" />
-              <e p="MrMeeseeksWeaponAI.cs" t="Include" />
-              <e p="ProtoPlayerMovement.cs" t="Include" />
-              <e p="TargetMovement.cs" t="Include" />
-            </e>
-            <e p="TestingScenes_ReadME.txt" t="Include" />
-          </e>
-        </e>
+      </e>
+      <e p="Assets/Lobby" t="Include">
+        <e p="Documentation.txt" t="Include" />
+        <e p="Instruction.txt" t="Include" />
         <e p="Scripts" t="Include">
-          <e p="AmmoPlatformController.cs" t="Include" />
-          <e p="AudioManager.cs" t="Include" />
-          <e p="Camera" t="Include">
-            <e p="CameraControl.cs" t="Include" />
+          <e p="DraggablePanel.cs" t="Include" />
+          <e p="EventSystemChecker.cs" t="Include" />
+          <e p="Lobby" t="Include">
+            <e p="LobbyCountdownPanel.cs" t="Include" />
+            <e p="LobbyHook.cs" t="Include" />
+            <e p="LobbyInfoPanel.cs" t="Include" />
+            <e p="LobbyMainMenu.cs" t="Include" />
+            <e p="LobbyManager.cs" t="Include" />
+            <e p="LobbyPlayer.cs" t="Include" />
+            <e p="LobbyPlayerList.cs" t="Include" />
+            <e p="LobbyServerEntry.cs" t="Include" />
+            <e p="LobbyServerList.cs" t="Include" />
+            <e p="LobbyTopPanel.cs" t="Include" />
           </e>
-          <e p="CanvasLookAtCamera.cs" t="Include" />
-          <e p="GameManager.cs" t="Include" />
-          <e p="HUDController.cs" t="Include" />
-          <e p="KnucklesController.cs" t="Include" />
-          <e p="KnucklesSpawner.cs" t="Include" />
-          <e p="KnucklesTestController.cs" t="Include" />
-          <e p="Player" t="Include">
-            <e p="PlayerBullet.cs" t="Include" />
-            <e p="PlayerControl.cs" t="Include" />
-            <e p="PlayerPowerup.cs" t="Include" />
-          </e>
-          <e p="PlayerTestController.cs" t="Include" />
-          <e p="PowerupSpawner.cs" t="Include" />
-          <e p="TowerController.cs" t="Include" />
         </e>
+      </e>
+      <e p="Assets/SampleScenes" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="NetworkAsteroid.cs" t="Include" />
+          <e p="NetworkGameManager.cs" t="Include" />
+          <e p="NetworkLobbyHook.cs" t="Include" />
+          <e p="NetworkSpaceship.cs" t="Include" />
+          <e p="NetworkSpaceshipBullet.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Assets/Scenes" t="Include">
+        <e p="Testing" t="Include">
+          <e p="AC" t="Include">
+            <e p="ExtraMrMeeseeksAI.cs" t="Include" />
+            <e p="FlockController.cs" t="Include" />
+            <e p="MrMeeseeksAI.cs" t="Include" />
+            <e p="MrMeeseeksWeaponAI.cs" t="Include" />
+            <e p="ProtoPlayerMovement.cs" t="Include" />
+            <e p="TargetMovement.cs" t="Include" />
+          </e>
+          <e p="TestingScenes_ReadME.txt" t="Include" />
+        </e>
+      </e>
+      <e p="Assets/Scripts" t="Include">
+        <e p="AmmoPlatformController.cs" t="Include" />
+        <e p="AudioManager.cs" t="Include" />
+        <e p="Camera" t="Include">
+          <e p="CameraControl.cs" t="Include" />
+        </e>
+        <e p="CanvasLookAtCamera.cs" t="Include" />
+        <e p="GameManager.cs" t="Include" />
+        <e p="HUDController.cs" t="Include" />
+        <e p="KnucklesController.cs" t="Include" />
+        <e p="KnucklesSpawner.cs" t="Include" />
+        <e p="KnucklesTestController.cs" t="Include" />
+        <e p="LevelIndicator.cs" t="Include" />
+        <e p="Player" t="Include">
+          <e p="PlayerBullet.cs" t="Include" />
+          <e p="PlayerControl.cs" t="Include" />
+          <e p="PlayerPowerup.cs" t="Include" />
+        </e>
+        <e p="PlayerTestController.cs" t="Include" />
+        <e p="PowerupSpawner.cs" t="Include" />
+        <e p="TowerController.cs" t="Include" />
       </e>
       <e p="KnucklesBattle.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
@@ -55,7 +80,7 @@
         <e p="bin" t="ExcludeRecursive" />
       </e>
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2017.3/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_KnucklesBattle.1524170936.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.1/resharper-host/local/Transient/ReSharperHost/v12/SolutionCaches/_KnucklesBattle.1524170936.00" t="ExcludeRecursive" />
   </component>
   <component name="RiderRiderContentModelStore">
     <excludedPaths />
