@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -615,7 +615,7 @@ MonoBehaviour:
   level: 1
   PauseMenu: {fileID: 1534447323}
   KnucklesSpawner: {fileID: 0}
-  PowerupSpawner: {fileID: 1182460565}
+  PowerupSpawner: {fileID: 0}
 --- !u!4 &885036905
 Transform:
   m_ObjectHideFlags: 0
@@ -629,7 +629,6 @@ Transform:
   m_Children:
   - {fileID: 1534447329}
   - {fileID: 1036307399}
-  - {fileID: 1182460566}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -895,63 +894,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
---- !u!1 &1182460564
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1766972149385632, guid: 371b682e675714bd0a0db96a759c526a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1182460566}
-  - component: {fileID: 1182460565}
-  m_Layer: 0
-  m_Name: Power Up Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1182460565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114713267462426292, guid: 371b682e675714bd0a0db96a759c526a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1182460564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511a0ba987313461aab97d1354fe4fbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Powerups:
-  - {fileID: 1722109384605308, guid: 017493e9cbdef5445ac178963f498af4, type: 2}
-  - {fileID: 1982082864458710, guid: 760de842c2f25fb4e88b5a5492fb7303, type: 2}
-  - {fileID: 1219667467267476, guid: 5b20d57f6b5454644b6cd1ff15abfad8, type: 2}
-  - {fileID: 1324229190438914, guid: 413f72bc59751084e8f74db3c76958a6, type: 2}
-  minX: -10
-  maxX: 10
-  minZ: -10
-  maxZ: 10
-  spawnHeight: 2
-  spawnRate: 1
-  PowerupGroupPrefab: {fileID: 1656611362300160, guid: 839d7945ae12c4bbaa32fc85655f3778,
-    type: 2}
-  difficultyRating: 50
---- !u!4 &1182460566
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4521400524623156, guid: 371b682e675714bd0a0db96a759c526a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1182460564}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 885036905}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1302390746
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,13 +18,16 @@ public class PowerupSpawner : MonoBehaviour
     public int spawnHeight;
     public float spawnRate = 1.0f;
     public GameObject PowerupGroupPrefab;
-    private GameObject PowerupGroupGO;
     public float difficultyRating = 50f;
+    
 
+    private void Start()
+    {
+        spawnPowerups(GameManager.Instance.level);
+    }
 
     public void spawnPowerups(int levelNumber)
     {
-        PowerupGroupGO = Instantiate(PowerupGroupPrefab);
 
         //Algorithm to find quantity to spawn
         int numPowerups = (int) Mathf.Log(levelNumber * difficultyRating, 2f);
@@ -43,7 +46,7 @@ public class PowerupSpawner : MonoBehaviour
             GameObject newPowerup = Instantiate(Powerups[powerupIndex], randPosition, Quaternion.identity);
 
             //Group the powerups
-            newPowerup.transform.SetParent(PowerupGroupGO.transform);
+            newPowerup.transform.SetParent(transform);
         }
     }
 }

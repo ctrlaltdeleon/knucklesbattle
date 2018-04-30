@@ -63,6 +63,7 @@ public class KnucklesSpawner : NetworkBehaviour
             //Group the knuckles
             newKnuckles.transform.SetParent(transform);
             numKnuckles++;
+            GameManager.Instance.numMonsters++;
         }
     }
 }
