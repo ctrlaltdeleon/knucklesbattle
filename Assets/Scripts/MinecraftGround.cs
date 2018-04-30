@@ -22,7 +22,7 @@ public class MinecraftGround : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		//seed = GameManager.Instance.levelNumber;
+		seed = GameManager.Instance.level;
 		GenerateTerrain();
 	}
 	

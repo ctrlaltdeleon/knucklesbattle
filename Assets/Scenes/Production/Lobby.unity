@@ -4419,7 +4419,11 @@ MonoBehaviour:
   m_PlayerSpawnMethod: 0
   m_OfflineScene: Lobby
   m_OnlineScene: 
-  m_SpawnPrefabs: []
+  m_SpawnPrefabs:
+  - {fileID: 1185643994814014, guid: 3794ce74d8bea4a699425f61803f9275, type: 2}
+  - {fileID: 1379538909177354, guid: e67d5e0bb3f28462ea6c5e6500f50a83, type: 2}
+  - {fileID: 1336762871596562, guid: 02a22bffb638b4340b3dee6d787e5df0, type: 2}
+  - {fileID: 1714620332355796, guid: a946d2ffaf31a442c9d28800143ae365, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
