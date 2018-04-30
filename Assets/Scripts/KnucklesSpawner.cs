@@ -1,43 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class KnucklesSpawner : MonoBehaviour
+public class KnucklesSpawner : NetworkBehaviour
 {
     //Prefabs
-    public GameObject Knuckles;
+    public List<GameObject> Knuckles;
 
     //Map Boundaries
     public int minX;
+
     public int maxX;
-    public int minZ;
-    public int maxZ;
 
     //Spawn Settings
     private List<Vector3> randomSpawnPositions = new List<Vector3>();
+
     public int spawnHeight;
     public float spawnRate = 1.0f;
-    public GameObject KnucklesGroupPrefab;
-    private GameObject KnucklesGroupGO;
     public float difficultyRating = 50f;
+    [SyncVar] private int numKnuckles = 0;
+    [SyncVar] public int maxNumKnuckles;
 
-
-    //Can Spawn
-    public bool canSpawn = false;
-
-    public void GenerateSpawnPoints(int levelNumber)
-
+    public override void OnStartServer()
     {
-        KnucklesGroupGO = Instantiate(KnucklesGroupPrefab);
-
-        //Number to spawn
-        int numKnuckles = (int) Mathf.Log(levelNumber * difficultyRating, 2f);
-        Debug.Log("Num of Knuckles: " + numKnuckles);
-
-        //Procedural Seeding based on levelNumber
+        int levelNumber = GameManager.Instance.level;
+        maxNumKnuckles = (int) Mathf.Log(levelNumber * difficultyRating, 2f);
         Random.InitState(levelNumber);
 
-        for (int i = 0; i < numKnuckles; i++)
+        GenerateSpawnPoints();
+        InvokeRepeating("spawnKnuckles", 1f, spawnRate);
+    }
+
+    public void GenerateSpawnPoints()
+    {
+        //Number to spawn
+        Debug.Log("Num of Knuckles: " + maxNumKnuckles);
+
+        for (int i = 0; i < maxNumKnuckles; i++)
         {
             //Four sided Map Spawn Points
             float randomPos = Random.Range(minX, maxX);
@@ -50,15 +50,19 @@ public class KnucklesSpawner : MonoBehaviour
 
     public void spawnKnuckles()
     {
-        if (canSpawn)
+        if (numKnuckles < maxNumKnuckles)
         {
-            Debug.Log("Spawning ~");
             //Randomly instantiate from a spawn point
             int index = Random.Range(0, randomSpawnPositions.Count);
-            GameObject newKnuckles = Instantiate(Knuckles, randomSpawnPositions[index], Quaternion.identity);
+            int randomColor = Random.Range(0, Knuckles.Count);
+            Debug.Log("Knuckles color Number" + randomColor);
+            GameObject newKnuckles =
+                Instantiate(Knuckles[randomColor], randomSpawnPositions[index], Quaternion.identity);
+            NetworkServer.Spawn(newKnuckles);
 
             //Group the knuckles
-            newKnuckles.transform.SetParent(KnucklesGroupGO.transform);
+            newKnuckles.transform.SetParent(transform);
+            numKnuckles++;
         }
     }
 }
