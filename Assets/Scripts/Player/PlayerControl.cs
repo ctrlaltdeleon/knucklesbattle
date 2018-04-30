@@ -190,6 +190,15 @@ public class PlayerControl : NetworkBehaviour
         }
     }
 
+	private void OnCollisionEnter(Collision other)
+	{
+		if (other.gameObject.tag == "Enemy") 
+		{
+			m_health -= 5;
+			Debug.Log ("Health: " + m_health);
+		}
+	}
+
     /// <summary>
     /// Shoots this instance.
     /// </summary>
