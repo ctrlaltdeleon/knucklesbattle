@@ -103,7 +103,7 @@ public class KnucklesController : NetworkBehaviour
     private void OnCollisionEnter(Collision other)
     {
         //Debug.Log ("In OnCollisionEnter");
-        if (other.gameObject.tag == "PlayerBullet")
+        if (other.gameObject.CompareTag("PlayerBullet"))
         {
             float newSliderValue = 0;
             Debug.Log(other.gameObject.GetComponent<PlayerBullet>().BulletDamage);
@@ -133,6 +133,11 @@ public class KnucklesController : NetworkBehaviour
             if (hp <= 0)
             {
                 Destroy(gameObject); //Destroy knuckle
+                GameManager.Instance.numMonsters--;
+                if (GameManager.Instance.numMonsters <= 0)
+                {
+                    GameManager.Instance.WonLevel();
+                }
             }
 
             Destroy(other.gameObject); //Destroy bullet

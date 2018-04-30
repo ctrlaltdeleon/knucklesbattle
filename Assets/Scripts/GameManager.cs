@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 	
     //Game State
     public int level = 1;
+    public int numMonsters = 0;
     
     //Pause Menu
     private bool paused;
@@ -67,6 +68,17 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Paused");
         PauseMenu.SetActive(true);
+    }
+
+    public void WonLevel()
+    {
+        level++;
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void LoseGame()
+    {
+        SceneManager.LoadScene("Lobby");
     }
 
     public void ResumeGame()

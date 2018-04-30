@@ -53,6 +53,11 @@ public class TowerController : MonoBehaviour
                 cooldownImageAlpha.fillAmount = 1;
             }
         }
+
+        if (health <= 0)
+        {
+            GameManager.Instance.LoseGame();
+        }
     }
 
     /// <summary>
@@ -87,5 +92,6 @@ public class TowerController : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Tower Health: " + health);
         }
+        
     }
 }
