@@ -6,18 +6,21 @@ using UnityEngine.UI;
 public class TowerController : MonoBehaviour
 {
 	//public static TowerController instance;
-	public int health = 100; //health points
+	public float health = 100; //health points
 	private int maxHealth = 100;
 	private float cooldownTime = 10.0f;
 	
 	private int knucklesDamage; //placebo variable for knuckles damage value from Knuckles Controller
-    public int Health { get { return health; } }
+    public float Health { get { return health; } }
     public int MaxHealth { get { return maxHealth; } }
 
 	public Image cooldownImageAlpha;
 
 	[SerializeField]
 	private AmmoPlatformController m_AmmoPlatformController;
+
+	/*[SerializeField]
+	private KnucklesController m_KnucklesController;*/
 
 
 
@@ -56,12 +59,22 @@ public class TowerController : MonoBehaviour
 	{
 		if (other.gameObject.tag == "KnucklesTest")
 		{
-			health -= 1;
-			
+			health -= other.gameObject.GetComponent<KnucklesController> ().GetAttackDmg;
+			//Debug.Log ("Tower Health: " + health);
+			//health -= m_KnucklesController.GetAttackDmg;
+			//health -= 1;
 			//Debug.Log(HUDtowerHealthBarSlider);
 			
 			Debug.Log("Knuckle collided with tower damaging it");
 			//HP -= knucklesDamage;
+		}
+		if (other.gameObject.tag == "Spit") 
+		{
+			Destroy (other.gameObject);
+			//Apply damage to tower from KnucklesController.
+			health -= other.gameObject.GetComponent<SpitController>().m_KnucklesController.attackDmg;
+			Debug.Log ("Tower Health: " + health);
+
 		}	
 	}
 
