@@ -128,19 +128,6 @@ public class PlayerControl : NetworkBehaviour
         }
     }
 
-    public void UpdateHealth(float health)
-    {
-        CmdUpdateHealth(health);
-    }
-
-    [Command]
-    public void CmdUpdateHealth(float health)
-    {
-        Debug.Log("suhdudeeeeee serverrsssupppp" + health);
-//        hp = health;
-    }
-
-
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Enemy")
@@ -161,6 +148,7 @@ public class PlayerControl : NetworkBehaviour
     IEnumerator Shoot()
     {
         CmdFire(Camera.main.transform.forward);
+        --m_ammoCount;
         yield return new WaitForSeconds(0.01f);
     }
 
@@ -177,7 +165,6 @@ public class PlayerControl : NetworkBehaviour
 //            Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), t.gameObject.GetComponent<Collider>());
 //        }
         newBullet.transform.position = bulletSpawnPosition.position;
-        --m_ammoCount;
     }
 
     IEnumerator DeployMeeseeks()
