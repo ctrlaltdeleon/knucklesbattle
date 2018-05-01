@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 114388279579695560}
   - component: {fileID: 54645238900095950}
   - component: {fileID: 96102699026736976}
+  - component: {fileID: 114811225619131896}
+  - component: {fileID: 114335992760892488}
   m_Layer: 0
   m_Name: playerBullet
   m_TagString: PlayerBullet
@@ -99,7 +101,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!96 &96102699026736976
 TrailRenderer:
@@ -188,6 +190,27 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114335992760892488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577464162047772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114388279579695560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,8 +222,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5593b588b5ee96a4bb9c08e7d15357a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 80
+  m_speed: 140
   bulletDamage: 10
+--- !u!114 &114811225619131896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577464162047772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 63
+    i1: 131
+    i2: 39
+    i3: 184
+    i4: 64
+    i5: 166
+    i6: 205
+    i7: 164
+    i8: 106
+    i9: 93
+    i10: 15
+    i11: 41
+    i12: 134
+    i13: 138
+    i14: 216
+    i15: 55
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!135 &135327456066039752
 SphereCollider:
   m_ObjectHideFlags: 1

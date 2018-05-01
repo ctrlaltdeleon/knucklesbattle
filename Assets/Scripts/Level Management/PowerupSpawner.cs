@@ -9,31 +9,39 @@ public class PowerupSpawner : MonoBehaviour
 
     //Map Boundaries
     public int minX;
+
     public int maxX;
     public int minZ;
     public int maxZ;
 
+    private bool levelLoaded;
+
     //Spawn Settings
     private List<Vector3> randomSpawnPositions = new List<Vector3>();
+
     public int spawnHeight;
     public float spawnRate = 1.0f;
     public GameObject PowerupGroupPrefab;
     public float difficultyRating = 50f;
-    
 
-    private void Start()
+
+    void Update()
     {
-        spawnPowerups(GameManager.Instance.level);
+        //Start
+        if (LevelManager.Instance != null && !levelLoaded)
+        {
+            levelLoaded = true;
+            spawnPowerups(LevelManager.Instance.level);
+        }
     }
 
     public void StartLevel()
     {
-        spawnPowerups(GameManager.Instance.level);
+        spawnPowerups(LevelManager.Instance.level);
     }
 
     public void spawnPowerups(int levelNumber)
     {
-
         //Algorithm to find quantity to spawn
         int numPowerups = (int) Mathf.Log(levelNumber * difficultyRating, 2f);
 

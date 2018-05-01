@@ -5,18 +5,20 @@ using UnityEngine.UI;
 
 public class LevelUI : MonoBehaviour
 {
+    public Text levelText;
 
-	public Text levelText;
+    // Use this for initialization
+    void Start()
+    {
+        levelText = GetComponent<Text>();
+    }
 
-	// Use this for initialization
-	void Start ()
-	{
-		levelText = GetComponent<Text>();
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		levelText.text = "Level " + GameManager.Instance.level.ToString();
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        if (LevelManager.Instance)
+        {
+            levelText.text = "Level " + LevelManager.Instance.level.ToString();
+        }
+    }
 }
