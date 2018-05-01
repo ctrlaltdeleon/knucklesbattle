@@ -2024,7 +2024,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2182,7 +2182,7 @@ MonoBehaviour:
     i14: 10
     i15: 131
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
 --- !u!136 &136408144867776790
 CapsuleCollider:
   m_ObjectHideFlags: 1

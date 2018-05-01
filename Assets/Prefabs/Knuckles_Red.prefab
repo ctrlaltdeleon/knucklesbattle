@@ -2029,7 +2029,7 @@ MonoBehaviour:
     i14: 146
     i15: 117
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114218149827476724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2126,7 +2126,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

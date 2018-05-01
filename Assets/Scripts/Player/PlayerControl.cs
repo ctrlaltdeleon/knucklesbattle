@@ -66,6 +66,7 @@ public class PlayerControl : NetworkBehaviour
 
     private Vector3 m_Left;
     private Vector3 m_Forward;
+    public Transform bulletSpawnPosition;
 
     void Awake()
     {
@@ -83,6 +84,7 @@ public class PlayerControl : NetworkBehaviour
         if (isLocalPlayer)
         {
             Instance = this;
+            CameraController.character = gameObject;
         }
 
         m_health = 100;
@@ -102,77 +104,13 @@ public class PlayerControl : NetworkBehaviour
             return;
         }
 
-        float oldX, oldY, oldZ, posX, posY, posZ, dX, dZ;
-        oldX = posX = transform.position.x;
-        oldY = posY = transform.position.y;
-        oldZ = posZ = transform.position.z;
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
-        dX = dZ = 0;
-
-        //Get the coordinate direction relative to the camera;
-        switch (GameManager.Instance.CoordDirection)
-        {
-            case GameManager.CoordinateDirection.POS_Z_FORWARD:
-                m_Forward = Vector3.forward;
-                m_Left = Vector3.left;
-                break;
-            case GameManager.CoordinateDirection.POS_X_FORWARD:
-                m_Forward = -Vector3.left;
-                m_Left = Vector3.forward;
-                break;
-            case GameManager.CoordinateDirection.NEG_Z_FORWARD:
-                m_Forward = -Vector3.forward;
-                m_Left = -Vector3.left;
-                break;
-            case GameManager.CoordinateDirection.NEG_X_FORWARD:
-                m_Forward = Vector3.left;
-                m_Left = -Vector3.forward;
-                break;
-        }
-
-        Vector3 oldVelocity = m_rigidBody.velocity;
-
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
-        {
-            var mouseWorldPosition = hit.point;
-            transform.LookAt(mouseWorldPosition);
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            if (Mathf.Abs(oldVelocity.x) < MAX_SPEED)
-            {
-                m_rigidBody.AddForce(m_Left * m_speed, ForceMode.Impulse);
-            }
-        }
-
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            if (Mathf.Abs(oldVelocity.x) < MAX_SPEED)
-            {
-                m_rigidBody.AddForce((-m_Left) * m_speed, ForceMode.Impulse);
-            }
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            if (Mathf.Abs(oldVelocity.z) < MAX_SPEED)
-            {
-                m_rigidBody.AddForce(-m_Forward * m_speed, ForceMode.Impulse);
-            }
-        }
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            if (Mathf.Abs(oldVelocity.z) < MAX_SPEED)
-            {
-                m_rigidBody.AddForce(m_Forward * m_speed, ForceMode.Impulse);
-            }
-        }
+        //Movements
+        float xDir = x * Time.deltaTime * 30.0f;
+        float zDir = z * Time.deltaTime * 30.0f;
+        transform.Translate(xDir, 0, zDir);
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -190,18 +128,31 @@ public class PlayerControl : NetworkBehaviour
         }
     }
 
-	private void OnCollisionEnter(Collision other)
-	{
-		if (other.gameObject.tag == "Enemy") 
-		{
-			m_health -= 5;
-			Debug.Log ("Health: " + m_health);
-		    if (m_health <= 0)
-		    {
-		        GameManager.Instance.LoseGame();
-		    }
-		}
-	}
+    public void UpdateHealth(float health)
+    {
+        CmdUpdateHealth(health);
+    }
+
+    [Command]
+    public void CmdUpdateHealth(float health)
+    {
+        Debug.Log("suhdudeeeeee serverrsssupppp" + health);
+//        hp = health;
+    }
+
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            m_health -= 5;
+            Debug.Log("Health: " + m_health);
+            if (m_health <= 0)
+            {
+                LevelManager.Instance.LoseGame();
+            }
+        }
+    }
 
     /// <summary>
     /// Shoots this instance.
@@ -209,17 +160,24 @@ public class PlayerControl : NetworkBehaviour
     /// <returns></returns>
     IEnumerator Shoot()
     {
-        PlayerBullet newBullet = Instantiate(m_bulletPrefab).GetComponent<PlayerBullet>();
-        newBullet.SetInitialDirection(transform.forward);
+        CmdFire();
+        yield return new WaitForSeconds(0.01f);
+    }
+
+    [Command]
+    public void CmdFire()
+    {
+        GameObject bullet = Instantiate(m_bulletPrefab);
+        bullet.transform.position = bulletSpawnPosition.position;
+        NetworkServer.Spawn(bullet);
+        PlayerBullet newBullet = bullet.GetComponent<PlayerBullet>();
+        newBullet.SetInitialDirection(Camera.main.transform.forward);
 //        foreach (Transform t in GetComponentsInChildren<Transform>())
 //        {
 //            Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), t.gameObject.GetComponent<Collider>());
 //        }
-        var spawnPoint = transform.position;
-        spawnPoint.y = spawnPoint.y + 1.5f;
-        newBullet.transform.position = spawnPoint;
+        newBullet.transform.position = bulletSpawnPosition.position;
         --m_ammoCount;
-        yield return new WaitForSeconds(0.01f);
     }
 
     IEnumerator DeployMeeseeks()

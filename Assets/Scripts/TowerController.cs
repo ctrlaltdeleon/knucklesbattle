@@ -7,6 +7,7 @@ public class TowerController : MonoBehaviour
 {
     //public static TowerController instance;
     public float health = 100; //health points
+
     private int maxHealth = 100;
     private float cooldownTime = 10.0f;
 
@@ -56,7 +57,7 @@ public class TowerController : MonoBehaviour
 
         if (health <= 0)
         {
-            GameManager.Instance.LoseGame();
+            LevelManager.Instance.LoseGame();
         }
     }
 
@@ -92,6 +93,5 @@ public class TowerController : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Tower Health: " + health);
         }
-        
     }
 }

@@ -5,6 +5,9 @@ using UnityEngine.Networking;
 
 public class KnucklesSpawner : NetworkBehaviour
 {
+    //Instance
+    public static KnucklesSpawner Instance = null;
+
     //Prefabs
     public List<GameObject> Knuckles;
 
@@ -22,6 +25,18 @@ public class KnucklesSpawner : NetworkBehaviour
     [SyncVar] private int numKnuckles = 0;
     [SyncVar] public int maxNumKnuckles;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(Instance);
+        }
+    }
+
     public override void OnStartServer()
     {
         StartLevel();
@@ -29,8 +44,9 @@ public class KnucklesSpawner : NetworkBehaviour
 
     public void StartLevel()
     {
-        int levelNumber = GameManager.Instance.level;
+        int levelNumber = LevelManager.Instance.level;
         maxNumKnuckles = (int) Mathf.Log(levelNumber * difficultyRating, 2f);
+        LevelManager.Instance.numMonsters = maxNumKnuckles;
         Random.InitState(levelNumber);
 
         GenerateSpawnPoints();
@@ -68,7 +84,6 @@ public class KnucklesSpawner : NetworkBehaviour
             //Group the knuckles
             newKnuckles.transform.SetParent(transform);
             numKnuckles++;
-            GameManager.Instance.numMonsters++;
         }
     }
 }

@@ -22,6 +22,7 @@ public class KnucklesController : NetworkBehaviour
 
     //For spitting
     public Transform startPosition;
+
     public GameObject spitPrefab;
     private Vector3 towerPosition;
     float startTime;
@@ -105,8 +106,11 @@ public class KnucklesController : NetworkBehaviour
         //Debug.Log ("In OnCollisionEnter");
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
+            if (!isServer)
+            {
+                return;
+            }
             float newSliderValue = 0;
-            Debug.Log(other.gameObject.GetComponent<PlayerBullet>().BulletDamage);
 
             float newHealth = hp - other.gameObject.GetComponent<PlayerBullet>().BulletDamage; //15-10 = 5
 
@@ -129,20 +133,25 @@ public class KnucklesController : NetworkBehaviour
 
             knucklesHPSlider.value = newSliderValue;
             hp -= other.gameObject.GetComponent<PlayerBullet>().BulletDamage;
-
             if (hp <= 0)
             {
                 Destroy(gameObject); //Destroy knuckle
-                GameManager.Instance.numMonsters--;
-                if (GameManager.Instance.numMonsters <= 0)
-                {
-                    GameManager.Instance.WonLevel();
-                }
+                Debug.Log("Destroy Knuckles");
+                LevelManager.Instance.numMonsters--;
             }
 
             Destroy(other.gameObject); //Destroy bullet
         }
     }
+
+//    [ClientRpc]
+//    public void RpcTakeDamage(float health)
+//    {
+//        Debug.Log("Param health" + hp);
+//        Debug.Log("Hp" + hp);
+//        hp = health;
+//    }
+
 
     //SPIT CODE FOR ORANGE KNUCKLE
 
