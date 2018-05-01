@@ -15,5 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Testing/Tower_HUD_Knuckles.unity
     guid: 8792fbcada4994c0fa316389a440440c
   - enabled: 1
-    path: Assets/Scenes/Production/Credits.unity
-    guid: 0f0ba88c538574d29a3953bb1b5860ff
+    path: Assets/Scenes/Production/Lobby.unity
+    guid: 7bb983244102f0147b69217dafa0a4aa

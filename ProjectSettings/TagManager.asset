@@ -4,11 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - KnucklesTest
   - PlayerBullet
   - PlayerEntity
   - KnucklesGroup
   - PowerupGroup
+  - Fire
+  - Spit
+  - Enemy
   layers:
   - Default
   - TransparentFX
