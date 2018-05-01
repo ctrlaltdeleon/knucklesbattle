@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerBullet : MonoBehaviour
+public class PlayerBullet : NetworkBehaviour
 {
     private Vector3 m_direction;
 
@@ -44,6 +45,6 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        Destroy(transform.gameObject);
+//        Destroy(transform.gameObject);
     }
 }

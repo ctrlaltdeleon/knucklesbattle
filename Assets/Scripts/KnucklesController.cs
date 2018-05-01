@@ -110,10 +110,10 @@ public class KnucklesController : NetworkBehaviour
             {
                 return;
             }
+
             float newSliderValue = 0;
 
             float newHealth = hp - other.gameObject.GetComponent<PlayerBullet>().BulletDamage; //15-10 = 5
-
 
             switch (type)
             {
@@ -133,6 +133,7 @@ public class KnucklesController : NetworkBehaviour
 
             knucklesHPSlider.value = newSliderValue;
             hp -= other.gameObject.GetComponent<PlayerBullet>().BulletDamage;
+            RpcTakeDamage(newSliderValue);
             if (hp <= 0)
             {
                 Destroy(gameObject); //Destroy knuckle
@@ -144,13 +145,16 @@ public class KnucklesController : NetworkBehaviour
         }
     }
 
-//    [ClientRpc]
-//    public void RpcTakeDamage(float health)
+//    [Command]
+//    void CmdTakeDamage(float health)
 //    {
-//        Debug.Log("Param health" + hp);
-//        Debug.Log("Hp" + hp);
-//        hp = health;
+//
 //    }
+    [ClientRpc]
+    public void RpcTakeDamage(float newSliderValue)
+    {
+        knucklesHPSlider.value = newSliderValue;
+    }
 
 
     //SPIT CODE FOR ORANGE KNUCKLE

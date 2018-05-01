@@ -112,7 +112,7 @@ public class PlayerControl : NetworkBehaviour
         float zDir = z * Time.deltaTime * 30.0f;
         transform.Translate(xDir, 0, zDir);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             if (m_weaponType == WeaponType.DEFAULT || m_weaponType == WeaponType.SPECIAL)
             {
@@ -160,18 +160,18 @@ public class PlayerControl : NetworkBehaviour
     /// <returns></returns>
     IEnumerator Shoot()
     {
-        CmdFire();
+        CmdFire(Camera.main.transform.forward);
         yield return new WaitForSeconds(0.01f);
     }
 
     [Command]
-    public void CmdFire()
+    public void CmdFire(Vector3 direction)
     {
         GameObject bullet = Instantiate(m_bulletPrefab);
         bullet.transform.position = bulletSpawnPosition.position;
         NetworkServer.Spawn(bullet);
         PlayerBullet newBullet = bullet.GetComponent<PlayerBullet>();
-        newBullet.SetInitialDirection(Camera.main.transform.forward);
+        newBullet.SetInitialDirection(direction);
 //        foreach (Transform t in GetComponentsInChildren<Transform>())
 //        {
 //            Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), t.gameObject.GetComponent<Collider>());
