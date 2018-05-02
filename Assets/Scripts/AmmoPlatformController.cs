@@ -16,18 +16,6 @@ public class AmmoPlatformController : MonoBehaviour
 
     [SerializeField] public TowerController m_towerController;
 
-    [SerializeField]
-//	private PlayerControl m_playerControl;
-
-    // Use this for initialization
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -35,14 +23,10 @@ public class AmmoPlatformController : MonoBehaviour
         {
             if (ammoCooldown == false)
             {
-                Debug.Log(PlayerControl.Instance);
                 PlayerControl.Instance.AmmoCount = PlayerControl.Instance.MaxAmmo;
-//                m_playerControl.AmmoCount = m_playerControl.MaxAmmo;
             }
 
             ammoCooldown = true;
-            //m_towerController.InitiateCooldown();
-            Debug.Log("Player came to reload.");
         }
     }
 }

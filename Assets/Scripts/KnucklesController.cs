@@ -84,12 +84,9 @@ public class KnucklesController : NetworkBehaviour
             }
             else
             {
-//                Debug.Log ("Waiting time: " + (Time.time - startTime));
                 if (Time.time - startTime > 3f)
                 {
                     Spit();
-                    Debug.Log("SpitAtt" + GetAttackDmg);
-
                     startTime = Time.time;
                 }
             }
@@ -154,7 +151,6 @@ public class KnucklesController : NetworkBehaviour
                 NetworkServer.Spawn(explosion);
                 Destroy(gameObject); //Destroy knuckle
                 Destroy(explosion, 1.5f);
-                Debug.Log("Destroy Knuckles");
                 LevelManager.Instance.numMonsters--;
             }
 

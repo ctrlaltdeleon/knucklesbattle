@@ -72,7 +72,6 @@ public class PlayerControl : NetworkBehaviour
     public AudioSource audioSource;
     public float knockbackStrength;
 
-    private int debugCounter = 0;
 
     void Awake()
     {
@@ -132,9 +131,7 @@ public class PlayerControl : NetworkBehaviour
             {
                 if (m_ammoCount > 0)
                 {
-                    debugCounter++;
-                    Debug.Log("Bullets fired so far: " + debugCounter);
-                    //StartCoroutine(Shoot());
+
                     CmdFire(Camera.main.transform.forward, Camera.main.transform.rotation);
                     --m_ammoCount;
                 }
@@ -167,24 +164,13 @@ public class PlayerControl : NetworkBehaviour
         m_rigidBody.AddForce(direction.normalized * knockbackStrength);
     }
 
-    /// <summary>
-    /// Shoots this instance.
-    /// </summary>
-    /// <returns></returns>
-    /*IEnumerator Shoot()
-    {
-        CmdFire(Camera.main.transform.forward);
-        --m_ammoCount;
-        yield return new WaitForSeconds(0.25f);
-    }*/
     [Command]
     public void CmdFire(Vector3 direction, Quaternion rotation)
     {
-        GameObject bullet = Instantiate(m_bulletPrefab);
+        GameObject bullet = Instantiate(m_bulletPrefab, direction, rotation);
         bullet.transform.position = bulletSpawnPosition.position;
         NetworkServer.Spawn(bullet);
         PlayerBullet newBullet = bullet.GetComponent<PlayerBullet>();
-        newBullet.SetInitialDirection(direction, rotation);
 //        foreach (Transform t in GetComponentsInChildren<Transform>())
 //        {
 //            Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), t.gameObject.GetComponent<Collider>());
