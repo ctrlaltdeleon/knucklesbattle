@@ -19,6 +19,15 @@ public class MenuManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (Instance != this)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(Instance);
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame

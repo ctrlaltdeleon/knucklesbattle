@@ -31,24 +31,30 @@ public class LevelManager : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isServer)
+        {
+            return;
+        }
         if (numMonsters <= 0)
         {
-            WonLevel();
+            Debug.Log("From the server, emit WON LEVEL");
+            CmdWonLevel();
         }
     }
 
-    public void DestroyEnemy(GameObject knuckles)
-    {
-        CmdDestroyKnuckles(knuckles);
-    }
+//    public void DestroyEnemy(GameObject knuckles)
+//    {
+//        CmdDestroyKnuckles(knuckles);
+//    }
+//
+//    [Command]
+//    void CmdDestroyKnuckles(GameObject knuckles)
+//    {
+//        NetworkServer.Destroy(knuckles);
+//    }
 
     [Command]
-    void CmdDestroyKnuckles(GameObject knuckles)
-    {
-        NetworkServer.Destroy(knuckles);
-    }
-
-    public void WonLevel()
+    public void CmdWonLevel()
     {
         level++;
         if (level > 10)

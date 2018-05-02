@@ -7,9 +7,11 @@ public class PlayerBullet : NetworkBehaviour
 {
     private Vector3 m_direction;
 
-    [SerializeField] private float m_speed = 0.5f;
+    [SerializeField] private float m_speed = 100f;
 
     [SerializeField] private int bulletDamage = 10;
+
+    public float timer = 0;
 
     [SerializeField]
     public int BulletDamage
@@ -18,6 +20,12 @@ public class PlayerBullet : NetworkBehaviour
     }
 
     private Rigidbody m_rigidBody;
+
+
+    void Awake()
+    {
+        timer = Time.time;
+    }
 
     /// <summary>
     /// Sets Initial direction of Bullet based off Parent's forward vector.
@@ -29,6 +37,7 @@ public class PlayerBullet : NetworkBehaviour
     }
 
     // Use this for initialization
+
     void Start()
     {
         m_rigidBody = GetComponent<Rigidbody>();
@@ -37,14 +46,8 @@ public class PlayerBullet : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_direction != null)
-        {
-            m_rigidBody.AddForce(m_direction * m_speed);
-        }
-    }
-
-    private void OnBecameInvisible()
-    {
-//        Destroy(transform.gameObject);
+        m_rigidBody.AddForce(m_direction * m_speed);
+        if (Time.time - timer > 2)
+            NetworkServer.Destroy(gameObject);
     }
 }

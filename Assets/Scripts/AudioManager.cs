@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour {
+public class AudioManager : MonoBehaviour
+{
     //Global Instance
     public static AudioManager Instance = null;
 
@@ -24,7 +25,8 @@ public class AudioManager : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         m_audioSrcDictionary = new Dictionary<string, AudioSource>();
         GameObject audioSrcObject = new GameObject("AudioSource");
         audioSrcObject.transform.parent = transform;
@@ -35,12 +37,12 @@ public class AudioManager : MonoBehaviour {
             audioSource.playOnAwake = false;
             m_audioSrcDictionary[ad.name] = audioSource;
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
 
     /// <summary>
     /// Plays the sound.
@@ -52,8 +54,9 @@ public class AudioManager : MonoBehaviour {
         {
             m_audioSrcDictionary[sound].Play();
         }
-        catch (System.Exception e) {
-            Debug.LogWarning("Audio Clip not found");
+        catch (System.Exception e)
+        {
+            Debug.LogWarning("Audio Clip not found" + e);
         }
     }
 }

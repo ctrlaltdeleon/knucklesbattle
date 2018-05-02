@@ -68,6 +68,8 @@ public class PlayerControl : NetworkBehaviour
     private Vector3 m_Forward;
     public Transform bulletSpawnPosition;
 
+    private int debugCounter = 0;
+
     void Awake()
     {
         if (Instance == null)
@@ -112,13 +114,17 @@ public class PlayerControl : NetworkBehaviour
         float zDir = z * Time.deltaTime * 30.0f;
         transform.Translate(xDir, 0, zDir);
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (m_weaponType == WeaponType.DEFAULT || m_weaponType == WeaponType.SPECIAL)
             {
                 if (m_ammoCount > 0)
                 {
-                    StartCoroutine(Shoot());
+                    debugCounter++;
+                    Debug.Log("Bullets fired so far: " + debugCounter);
+                    //StartCoroutine(Shoot());
+                    CmdFire(Camera.main.transform.forward);
+                    --m_ammoCount;
                 }
             }
             else
@@ -145,12 +151,12 @@ public class PlayerControl : NetworkBehaviour
     /// Shoots this instance.
     /// </summary>
     /// <returns></returns>
-    IEnumerator Shoot()
+    /*IEnumerator Shoot()
     {
         CmdFire(Camera.main.transform.forward);
         --m_ammoCount;
-        yield return new WaitForSeconds(0.01f);
-    }
+        yield return new WaitForSeconds(0.25f);
+    }*/
 
     [Command]
     public void CmdFire(Vector3 direction)

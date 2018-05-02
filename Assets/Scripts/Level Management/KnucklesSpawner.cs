@@ -48,7 +48,7 @@ public class KnucklesSpawner : NetworkBehaviour
         maxNumKnuckles = (int) Mathf.Log(levelNumber * difficultyRating, 2f);
         LevelManager.Instance.numMonsters = maxNumKnuckles;
         Random.InitState(levelNumber);
-
+        numKnuckles = 0;
         GenerateSpawnPoints();
         InvokeRepeating("spawnKnuckles", 1f, spawnRate);
     }

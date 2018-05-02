@@ -36,24 +36,24 @@ public class KnucklesController : NetworkBehaviour
         switch (type)
         {
             case (int) Knuckles.Red: //Normal
-                speed = 1f;
+                speed = 4f;
                 hp = 20;
                 attackDmg = 1f;
                 break;
             case (int) Knuckles.Blue: //Slow, heavy damage
                 gameObject.transform.localScale *= 2.5f;
                 transform.GetChild(2).localScale /= 2.5f;
-                speed = 0.7f;
+                speed = 3f;
                 hp = 40;
                 attackDmg = 5f;
                 break;
             case (int) Knuckles.Green: //Projectile/Spit
-                speed = 1f;
+                speed = 4f;
                 hp = 15;
                 attackDmg = 2f;
                 break;
             case (int) Knuckles.Orange: //Fast
-                speed = 3f;
+                speed = 6f;
                 hp = 15;
                 attackDmg = 0.5f;
                 break;
