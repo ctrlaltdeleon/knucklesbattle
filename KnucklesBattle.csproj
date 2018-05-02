@@ -259,20 +259,23 @@
     <Compile Include="Assets\Scenes\Testing\AC\TargetMovement.cs" />
     <Compile Include="Assets\Scripts\AmmoPlatformController.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\Camera\CameraControl.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CanvasLookAtCamera.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HUDController.cs" />
     <Compile Include="Assets\Scripts\KnucklesController.cs" />
-    <Compile Include="Assets\Scripts\KnucklesSpawner.cs" />
     <Compile Include="Assets\Scripts\KnucklesTestController.cs" />
-    <Compile Include="Assets\Scripts\LevelController.cs" />
-    <Compile Include="Assets\Scripts\LevelIndicator.cs" />
+    <Compile Include="Assets\Scripts\Level Management\KnucklesSpawner.cs" />
+    <Compile Include="Assets\Scripts\Level Management\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\Level Management\MinecraftGround.cs" />
+    <Compile Include="Assets\Scripts\Level Management\PowerupSpawner.cs" />
+    <Compile Include="Assets\Scripts\LevelUI.cs" />
+    <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBullet.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerPowerup.cs" />
     <Compile Include="Assets\Scripts\PlayerTestController.cs" />
-    <Compile Include="Assets\Scripts\PowerupSpawner.cs" />
+    <Compile Include="Assets\Scripts\SpitController.cs" />
     <Compile Include="Assets\Scripts\TowerController.cs" />
   </ItemGroup>
   <ItemGroup>
