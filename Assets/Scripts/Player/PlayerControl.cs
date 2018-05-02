@@ -157,7 +157,7 @@ public class PlayerControl : NetworkBehaviour
     [Command]
     public void CmdFire(Vector3 direction, Quaternion rotation)
     {
-        GameObject bullet = Instantiate(m_bulletPrefab, direction, rotation);
+        GameObject bullet = Instantiate(m_bulletPrefab, bulletSpawnPosition.position, rotation);
         bullet.transform.position = bulletSpawnPosition.position;
         NetworkServer.Spawn(bullet);
         PlayerBullet newBullet = bullet.GetComponent<PlayerBullet>();

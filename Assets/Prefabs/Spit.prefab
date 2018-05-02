@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4652442736966314}
   - component: {fileID: 54937104871240144}
-  - component: {fileID: 135165815809908742}
   - component: {fileID: 114411752850897012}
+  - component: {fileID: 136140797556822756}
   m_Layer: 0
   m_Name: Spit
   m_TagString: Spit
@@ -54,7 +54,7 @@ Transform:
   m_GameObject: {fileID: 1559512517342656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.3, y: 0.2, z: 0.3}
   m_Children:
   - {fileID: 4964256216287122}
   m_Father: {fileID: 0}
@@ -142,8 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_KnucklesController: {fileID: 114269980557518934, guid: c4ed04ab88bc14218926cf452c7d80ea,
     type: 2}
---- !u!135 &135165815809908742
-SphereCollider:
+--- !u!136 &136140797556822756
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -151,6 +151,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.87
-  m_Center: {x: 0.01639684, y: -0.66, z: 0.81}
+  m_Radius: 0.54229736
+  m_Height: 3.091332
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.8614254, z: -0.044198234}

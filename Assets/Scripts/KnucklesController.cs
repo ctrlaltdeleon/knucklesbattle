@@ -49,10 +49,10 @@ public class KnucklesController : NetworkBehaviour
                 attackDmg = 1f;
                 break;
             case (int) Knuckles.Blue: //Slow, heavy damage
-                gameObject.transform.localScale *= 3.5f;
-                transform.GetChild(2).localScale /= 3.5f;
+                gameObject.transform.localScale *= 7f;
+                transform.GetChild(2).localScale /= 7f;
                 speed = 3f;
-                hp = 95;
+                hp = 145;
                 attackDmg = 5f;
                 break;
             case (int) Knuckles.Green: //Projectile/Spit
