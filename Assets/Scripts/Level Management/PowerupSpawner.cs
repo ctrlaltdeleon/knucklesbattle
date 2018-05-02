@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PowerupSpawner : MonoBehaviour
+public class PowerupSpawner : NetworkBehaviour
 {
+    public static PowerupSpawner Instance = null;
+
     //Prefabs
     public List<GameObject> Powerups;
 
@@ -24,6 +27,21 @@ public class PowerupSpawner : MonoBehaviour
     public GameObject PowerupGroupPrefab;
     public float difficultyRating = 50f;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(Instance);
+        }
+    }
+
+    public override void OnStartServer()
+    {
+    }
 
     void Update()
     {
@@ -31,7 +49,7 @@ public class PowerupSpawner : MonoBehaviour
         if (LevelManager.Instance != null && !levelLoaded)
         {
             levelLoaded = true;
-            spawnPowerups(LevelManager.Instance.level);
+            StartLevel();
         }
     }
 
@@ -43,7 +61,7 @@ public class PowerupSpawner : MonoBehaviour
     public void spawnPowerups(int levelNumber)
     {
         //Algorithm to find quantity to spawn
-        int numPowerups = (int) Mathf.Log(levelNumber * difficultyRating, 2f);
+        int numPowerups = (int) Mathf.Log(levelNumber * difficultyRating * NetworkServer.connections.Count, 2f);
 
         //Procedural Seeding based on levelNumber
         Random.InitState(levelNumber);
@@ -57,6 +75,7 @@ public class PowerupSpawner : MonoBehaviour
             int powerupIndex = Random.Range(0, Powerups.Count);
 
             GameObject newPowerup = Instantiate(Powerups[powerupIndex], randPosition, Quaternion.identity);
+            NetworkServer.Spawn(newPowerup);
 
             //Group the powerups
             newPowerup.transform.SetParent(transform);

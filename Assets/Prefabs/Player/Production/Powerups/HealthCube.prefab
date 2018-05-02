@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 65114896877228252}
   - component: {fileID: 54542981090969336}
   - component: {fileID: 114360462469120660}
+  - component: {fileID: 114918839532078662}
   m_Layer: 0
   m_Name: HealthCube
   m_TagString: Untagged
@@ -199,3 +200,35 @@ MonoBehaviour:
   m_rewardValue: 30
   m_rotAxis: 2
   m_sound: 
+--- !u!114 &114918839532078662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1982082864458710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 118
+    i1: 13
+    i2: 232
+    i3: 66
+    i4: 194
+    i5: 242
+    i6: 95
+    i7: 180
+    i8: 232
+    i9: 139
+    i10: 90
+    i11: 84
+    i12: 146
+    i13: 251
+    i14: 115
+    i15: 3
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

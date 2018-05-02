@@ -63,13 +63,10 @@ public class LevelManager : NetworkBehaviour
             return;
         }
         Debug.Log("Start new Level " + level);
-        GameObject ks = GameObject.FindGameObjectWithTag("KnucklesGroup");
-        ks.GetComponent<KnucklesSpawner>().StartLevel();
-        GameObject ps = GameObject.FindGameObjectWithTag("PowerupGroup");
-        ps.GetComponent<PowerupSpawner>().StartLevel();
         if (KnucklesSpawner.Instance != null)
         {
             KnucklesSpawner.Instance.StartLevel();
+            PowerupSpawner.Instance.StartLevel();
         }
     }
 

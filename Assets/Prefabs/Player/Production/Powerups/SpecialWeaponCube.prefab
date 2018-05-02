@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65023641915668488}
   - component: {fileID: 54756620767542562}
   - component: {fileID: 114337408803575970}
+  - component: {fileID: 114818119825571566}
   m_Layer: 0
   m_Name: SpecialWeaponCube
   m_TagString: Untagged
@@ -199,3 +200,35 @@ MonoBehaviour:
   m_rewardValue: 30
   m_rotAxis: 2
   m_sound: 
+--- !u!114 &114818119825571566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1324229190438914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 65
+    i1: 63
+    i2: 114
+    i3: 188
+    i4: 89
+    i5: 117
+    i6: 16
+    i7: 132
+    i8: 232
+    i9: 247
+    i10: 77
+    i11: 179
+    i12: 199
+    i13: 105
+    i14: 88
+    i15: 166
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

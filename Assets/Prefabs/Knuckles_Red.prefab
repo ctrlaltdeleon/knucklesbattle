@@ -1943,7 +1943,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 4
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &95166688211260948
 Animator:
   serializedVersion: 3

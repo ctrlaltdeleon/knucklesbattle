@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65251318925109904}
   - component: {fileID: 54959477486449878}
   - component: {fileID: 114268437238269582}
+  - component: {fileID: 114353711980654984}
   m_Layer: 0
   m_Name: MeseeksCube
   m_TagString: Untagged
@@ -199,3 +200,35 @@ MonoBehaviour:
   m_rewardValue: 100
   m_rotAxis: 2
   m_sound: 
+--- !u!114 &114353711980654984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219667467267476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 91
+    i1: 32
+    i2: 213
+    i3: 127
+    i4: 107
+    i5: 84
+    i6: 84
+    i7: 100
+    i8: 75
+    i9: 108
+    i10: 209
+    i11: 255
+    i12: 21
+    i13: 171
+    i14: 250
+    i15: 216
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
