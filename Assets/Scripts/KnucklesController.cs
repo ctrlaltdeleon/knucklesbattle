@@ -26,10 +26,16 @@ public class KnucklesController : NetworkBehaviour
     public GameObject spitPrefab;
     private Vector3 towerPosition;
     float startTime;
+    public GameObject explosion;
 
+    public AudioClip[] ugandanDialect;
+    public AudioClip spit;
+    public AudioClip oof;
+    public AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         towerPosition = new Vector3(0, 0, 0);
 
         // Set attributes based on color
@@ -58,6 +64,12 @@ public class KnucklesController : NetworkBehaviour
                 attackDmg = 0.5f;
                 break;
         }
+        InvokeRepeating("SpeakUgandan", Random.Range(1f, 3f), Random.Range(5f, 8f));
+    }
+
+    public void SpeakUgandan()
+    {
+        audioSource.PlayOneShot(ugandanDialect[Random.Range(0, ugandanDialect.Length)]);
     }
 
     // Update is called once per frame
@@ -111,6 +123,7 @@ public class KnucklesController : NetworkBehaviour
                 return;
             }
 
+            audioSource.PlayOneShot(oof);
             float newSliderValue = 0;
 
             float newHealth = hp - other.gameObject.GetComponent<PlayerBullet>().BulletDamage; //15-10 = 5
@@ -136,7 +149,11 @@ public class KnucklesController : NetworkBehaviour
             RpcTakeDamage(newSliderValue);
             if (hp <= 0)
             {
+                GameObject explosion = Instantiate(this.explosion);
+                explosion.transform.position = gameObject.transform.position;
+                NetworkServer.Spawn(explosion);
                 Destroy(gameObject); //Destroy knuckle
+                Destroy(explosion, 1.5f);
                 Debug.Log("Destroy Knuckles");
                 LevelManager.Instance.numMonsters--;
             }
@@ -162,6 +179,7 @@ public class KnucklesController : NetworkBehaviour
     private void Spit()
     {
         //Vector3 gravityBase = new Vector3(0, -100, 0);
+        audioSource.PlayOneShot(spit);
         GameObject ball = Instantiate(spitPrefab, startPosition.position, spitPrefab.transform.rotation);
         ball.GetComponent<SpitController>().m_KnucklesController = this;
         Rigidbody rb = ball.GetComponent<Rigidbody>();

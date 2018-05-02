@@ -11,6 +11,7 @@ TagManager:
   - Fire
   - Spit
   - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX

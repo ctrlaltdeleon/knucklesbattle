@@ -31,9 +31,10 @@ public class PlayerBullet : NetworkBehaviour
     /// Sets Initial direction of Bullet based off Parent's forward vector.
     /// </summary>
     /// <param name="direction"></param>
-    public void SetInitialDirection(Vector3 direction)
+    public void SetInitialDirection(Vector3 direction, Quaternion rotation)
     {
         m_direction = direction;
+        transform.rotation = rotation;
     }
 
     // Use this for initialization
@@ -49,5 +50,13 @@ public class PlayerBullet : NetworkBehaviour
         m_rigidBody.AddForce(m_direction * m_speed);
         if (Time.time - timer > 2)
             NetworkServer.Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            NetworkServer.Destroy(gameObject);
+        }
     }
 }

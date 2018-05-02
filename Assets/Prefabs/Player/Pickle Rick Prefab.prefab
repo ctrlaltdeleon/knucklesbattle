@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_ammoCount: 150
   m_speed: 40
   MAX_SPEED: 0
-  m_bulletPrefab: {fileID: 1577464162047772, guid: 3f8327b840a6cda46a5d0f29868ad837,
+  m_bulletPrefab: {fileID: 1996569756414780, guid: aa24e548c143b4b6890f22f80b0f54a9,
     type: 2}
   bulletSpawnPosition: {fileID: 4742482418666472}
   rickisms:

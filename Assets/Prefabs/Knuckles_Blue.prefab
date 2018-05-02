@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 114164849158218490}
   - component: {fileID: 114982582747555416}
   - component: {fileID: 114028875366941334}
+  - component: {fileID: 82327507789971418}
   m_Layer: 0
   m_Name: Knuckles_Blue
   m_TagString: Enemy
@@ -1944,6 +1945,86 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!82 &82327507789971418
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1379538909177354}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95297624366827944
 Animator:
   serializedVersion: 3
@@ -2049,6 +2130,15 @@ MonoBehaviour:
   knucklesHPSlider: {fileID: 114128076999526886}
   startPosition: {fileID: 0}
   spitPrefab: {fileID: 0}
+  explosion: {fileID: 100004, guid: 6e8c7c425e5bc374daf95a774767b1e3, type: 2}
+  ugandanDialect:
+  - {fileID: 8300000, guid: 3fcb638b827ff4e4987589e38e3f2179, type: 3}
+  - {fileID: 8300000, guid: 5d9df04c6533f434d8f82a99d0e9916a, type: 3}
+  - {fileID: 8300000, guid: c8aab0f7c772e43548fc9525f7a0efc3, type: 3}
+  - {fileID: 8300000, guid: 929b4c4adcbff4f5f9b99a96c1060239, type: 3}
+  spit: {fileID: 8300000, guid: 5395df7a5510a49a99b44f51ccea67b2, type: 3}
+  oof: {fileID: 8300000, guid: 91218bcdc8e934a0b9c7948b9d49a889, type: 3}
+  audioSource: {fileID: 0}
 --- !u!114 &114358450447773386
 MonoBehaviour:
   m_ObjectHideFlags: 1

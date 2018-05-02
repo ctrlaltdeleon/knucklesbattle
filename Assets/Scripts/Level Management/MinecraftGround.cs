@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class MinecraftGround : MonoBehaviour
 {
@@ -11,8 +12,6 @@ public class MinecraftGround : MonoBehaviour
 
     // Prefabs
     public GameObject[] blocks;
-
-    public GameObject[] monsters;
 
     private bool levelLoaded;
 

@@ -10,6 +10,7 @@ public class SpitController : MonoBehaviour
     void Start()
     {
         Rb = GetComponent<Rigidbody>();
+        Destroy(gameObject, 5f);
     }
 
     void Update()

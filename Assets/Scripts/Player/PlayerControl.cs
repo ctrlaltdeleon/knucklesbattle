@@ -71,7 +71,7 @@ public class PlayerControl : NetworkBehaviour
     public AudioClip[] rickisms;
     public AudioSource audioSource;
     public float knockbackStrength;
-    
+
     private int debugCounter = 0;
 
     void Awake()
@@ -101,14 +101,13 @@ public class PlayerControl : NetworkBehaviour
         m_rigidBody = GetComponent<Rigidbody>();
         m_Left = Vector3.left;
         m_Forward = Vector3.forward;
-        
-        InvokeRepeating("PlayRickSounds", 1f, Random.Range(6f, 16f));
+
+        InvokeRepeating("PlayRickSounds", Random.Range(3f, 10f), Random.Range(8f, 19f));
     }
 
     public void PlayRickSounds()
     {
         audioSource.PlayOneShot(rickisms[Random.Range(0, rickisms.Length)]);
-
     }
 
     // Update is called once per frame
@@ -136,7 +135,7 @@ public class PlayerControl : NetworkBehaviour
                     debugCounter++;
                     Debug.Log("Bullets fired so far: " + debugCounter);
                     //StartCoroutine(Shoot());
-                    CmdFire(Camera.main.transform.forward);
+                    CmdFire(Camera.main.transform.forward, Camera.main.transform.rotation);
                     --m_ammoCount;
                 }
             }
@@ -153,7 +152,7 @@ public class PlayerControl : NetworkBehaviour
         {
             m_health -= 10;
             Debug.Log("Health: " + m_health);
-            
+
             //ApplyKnockback(other.gameObject.transform.position);
             if (m_health <= 0)
             {
@@ -178,15 +177,14 @@ public class PlayerControl : NetworkBehaviour
         --m_ammoCount;
         yield return new WaitForSeconds(0.25f);
     }*/
-
     [Command]
-    public void CmdFire(Vector3 direction)
+    public void CmdFire(Vector3 direction, Quaternion rotation)
     {
         GameObject bullet = Instantiate(m_bulletPrefab);
         bullet.transform.position = bulletSpawnPosition.position;
         NetworkServer.Spawn(bullet);
         PlayerBullet newBullet = bullet.GetComponent<PlayerBullet>();
-        newBullet.SetInitialDirection(direction);
+        newBullet.SetInitialDirection(direction, rotation);
 //        foreach (Transform t in GetComponentsInChildren<Transform>())
 //        {
 //            Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), t.gameObject.GetComponent<Collider>());
