@@ -76,7 +76,6 @@ public class KnucklesSpawner : NetworkBehaviour
             //Randomly instantiate from a spawn point
             int index = Random.Range(0, randomSpawnPositions.Count);
             int randomColor = Random.Range(0, Knuckles.Count);
-            Debug.Log("Knuckles color Number" + randomColor);
             GameObject newKnuckles =
                 Instantiate(Knuckles[randomColor], randomSpawnPositions[index], Quaternion.identity);
             NetworkServer.Spawn(newKnuckles);

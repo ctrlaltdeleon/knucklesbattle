@@ -27,6 +27,9 @@ public class PowerupSpawner : NetworkBehaviour
     public GameObject PowerupGroupPrefab;
     public float difficultyRating = 50f;
 
+    public int numPowerups = 0;
+    private int maxNumPowerups = 0;
+
     void Awake()
     {
         if (Instance == null)
@@ -55,20 +58,19 @@ public class PowerupSpawner : NetworkBehaviour
 
     public void StartLevel()
     {
-        spawnPowerups(LevelManager.Instance.level);
-    }
-
-    public void spawnPowerups(int levelNumber)
-    {
         //Algorithm to find quantity to spawn
-        int numPowerups = (int) Mathf.Log(levelNumber * difficultyRating * NetworkServer.connections.Count, 2f);
+        maxNumPowerups = LevelManager.Instance.level * (NetworkServer.connections.Count / 2);
 
         //Procedural Seeding based on levelNumber
-        Random.InitState(levelNumber);
+        Random.InitState(LevelManager.Instance.level);
 
         Debug.Log("Num of Powerups: " + numPowerups);
+        InvokeRepeating("spawnPowerups", 0, 3f);
+    }
 
-        for (int i = 0; i < numPowerups; i++)
+    public void spawnPowerups()
+    {
+        if (numPowerups < maxNumPowerups)
         {
             //Grab random position and powerup
             Vector3 randPosition = new Vector3(Random.Range(minX, maxX), spawnHeight, Random.Range(minZ, maxZ));
@@ -79,6 +81,7 @@ public class PowerupSpawner : NetworkBehaviour
 
             //Group the powerups
             newPowerup.transform.SetParent(transform);
+            numPowerups++;
         }
     }
 }

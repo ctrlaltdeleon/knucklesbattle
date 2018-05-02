@@ -42,25 +42,29 @@ public class KnucklesController : NetworkBehaviour
         switch (type)
         {
             case (int) Knuckles.Red: //Normal
+                gameObject.transform.localScale *= 1.6f;
+                transform.GetChild(2).localScale /= 1.6f;
                 speed = 4f;
-                hp = 20;
+                hp = 45;
                 attackDmg = 1f;
                 break;
             case (int) Knuckles.Blue: //Slow, heavy damage
-                gameObject.transform.localScale *= 2.5f;
-                transform.GetChild(2).localScale /= 2.5f;
+                gameObject.transform.localScale *= 7f;
+                transform.GetChild(2).localScale /= 7f;
                 speed = 3f;
-                hp = 40;
+                hp = 145;
                 attackDmg = 5f;
                 break;
             case (int) Knuckles.Green: //Projectile/Spit
+                gameObject.transform.localScale *= 1.2f;
+                transform.GetChild(2).localScale /= 1.2f;
                 speed = 4f;
-                hp = 15;
+                hp = 27;
                 attackDmg = 2f;
                 break;
             case (int) Knuckles.Orange: //Fast
                 speed = 6f;
-                hp = 15;
+                hp = 23;
                 attackDmg = 0.5f;
                 break;
         }
@@ -84,12 +88,9 @@ public class KnucklesController : NetworkBehaviour
             }
             else
             {
-//                Debug.Log ("Waiting time: " + (Time.time - startTime));
                 if (Time.time - startTime > 3f)
                 {
                     Spit();
-                    Debug.Log("SpitAtt" + GetAttackDmg);
-
                     startTime = Time.time;
                 }
             }
@@ -154,7 +155,6 @@ public class KnucklesController : NetworkBehaviour
                 NetworkServer.Spawn(explosion);
                 Destroy(gameObject); //Destroy knuckle
                 Destroy(explosion, 1.5f);
-                Debug.Log("Destroy Knuckles");
                 LevelManager.Instance.numMonsters--;
             }
 

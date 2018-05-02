@@ -565,7 +565,7 @@ Prefab:
     - target: {fileID: 114104357142951180, guid: d237a42b03d5b407b821c493497633be,
         type: 2}
       propertyPath: difficultyRating
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114411697806692230, guid: d237a42b03d5b407b821c493497633be, type: 2}
@@ -799,6 +799,7 @@ MonoBehaviour:
   PowerupGroupPrefab: {fileID: 1656611362300160, guid: 839d7945ae12c4bbaa32fc85655f3778,
     type: 2}
   difficultyRating: 10
+  numPowerups: 0
 --- !u!114 &1785575938
 MonoBehaviour:
   m_ObjectHideFlags: 0

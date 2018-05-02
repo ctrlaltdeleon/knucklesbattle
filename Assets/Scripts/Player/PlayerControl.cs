@@ -23,9 +23,6 @@ public class PlayerControl : NetworkBehaviour
     [SerializeField] private int m_ammoCount = 150;
     private int MAX_AMMO = 150;
 
-    [SerializeField] private float m_speed = 2.0f;
-
-    [SerializeField] private float MAX_SPEED = 40.0f;
 
     public int Health
     {
@@ -48,11 +45,6 @@ public class PlayerControl : NetworkBehaviour
         get { return MAX_AMMO; }
     }
 
-    public float Speed
-    {
-        get { return m_speed; }
-    }
-
     public WeaponType Weapon
     {
         get { return m_weaponType; }
@@ -72,7 +64,6 @@ public class PlayerControl : NetworkBehaviour
     public AudioSource audioSource;
     public float knockbackStrength;
 
-    private int debugCounter = 0;
 
     void Awake()
     {
@@ -97,7 +88,6 @@ public class PlayerControl : NetworkBehaviour
         m_health = 100;
         m_ammoCount = 150;
         m_weaponType = WeaponType.DEFAULT;
-        MAX_SPEED = 40.0f;
         m_rigidBody = GetComponent<Rigidbody>();
         m_Left = Vector3.left;
         m_Forward = Vector3.forward;
@@ -122,8 +112,8 @@ public class PlayerControl : NetworkBehaviour
         float z = Input.GetAxis("Vertical");
 
         //Movements
-        float xDir = x * Time.deltaTime * 30.0f;
-        float zDir = z * Time.deltaTime * 30.0f;
+        float xDir = x * Time.deltaTime * 15.0f;
+        float zDir = z * Time.deltaTime * 15.0f;
         transform.Translate(xDir, 0, zDir);
 
         if (Input.GetMouseButtonDown(0))
@@ -132,9 +122,6 @@ public class PlayerControl : NetworkBehaviour
             {
                 if (m_ammoCount > 0)
                 {
-                    debugCounter++;
-                    Debug.Log("Bullets fired so far: " + debugCounter);
-                    //StartCoroutine(Shoot());
                     CmdFire(Camera.main.transform.forward, Camera.main.transform.rotation);
                     --m_ammoCount;
                 }
@@ -167,24 +154,14 @@ public class PlayerControl : NetworkBehaviour
         m_rigidBody.AddForce(direction.normalized * knockbackStrength);
     }
 
-    /// <summary>
-    /// Shoots this instance.
-    /// </summary>
-    /// <returns></returns>
-    /*IEnumerator Shoot()
-    {
-        CmdFire(Camera.main.transform.forward);
-        --m_ammoCount;
-        yield return new WaitForSeconds(0.25f);
-    }*/
     [Command]
     public void CmdFire(Vector3 direction, Quaternion rotation)
     {
-        GameObject bullet = Instantiate(m_bulletPrefab);
+        GameObject bullet = Instantiate(m_bulletPrefab, bulletSpawnPosition.position, rotation);
         bullet.transform.position = bulletSpawnPosition.position;
         NetworkServer.Spawn(bullet);
         PlayerBullet newBullet = bullet.GetComponent<PlayerBullet>();
-        newBullet.SetInitialDirection(direction, rotation);
+        newBullet.SetInitialDirection(direction);
 //        foreach (Transform t in GetComponentsInChildren<Transform>())
 //        {
 //            Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), t.gameObject.GetComponent<Collider>());

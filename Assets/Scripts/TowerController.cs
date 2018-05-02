@@ -73,25 +73,14 @@ public class TowerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Knuckle collided with tower damaging it");
-            Debug.Log(other.gameObject.GetComponent<KnucklesController>().GetAttackDmg);
             health -= other.gameObject.GetComponent<KnucklesController>().GetAttackDmg;
-            //health -= m_KnucklesController.GetAttackDmg;
-            //Debug.Log(HUDtowerHealthBarSlider);
-            Debug.Log("Tower Health: " + health);
-
-            //HP -= knucklesDamage;
         }
 
         if (other.gameObject.tag == "Spit")
         {
-            Debug.Log("Taking damage from spit");
             //Apply damage to tower from KnucklesController.
-            Debug.Log("SpitCollide" +
-                      other.gameObject.GetComponent<SpitController>().m_KnucklesController.GetAttackDmg);
             health -= other.gameObject.GetComponent<SpitController>().m_KnucklesController.GetAttackDmg;
             Destroy(other.gameObject);
-            Debug.Log("Tower Health: " + health);
         }
     }
 }
