@@ -13,6 +13,9 @@ public class LevelManager : NetworkBehaviour
 
     [SyncVar] public int numMonsters = 1;
 
+    public AudioSource audioSource;
+    public AudioClip nextLevelSound;
+
 
     // Use this for initialization
     void Awake()
@@ -28,6 +31,11 @@ public class LevelManager : NetworkBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -57,6 +65,7 @@ public class LevelManager : NetworkBehaviour
     public void CmdWonLevel()
     {
         level++;
+        audioSource.PlayOneShot(nextLevelSound);
         if (level > 10)
         {
             SceneManager.LoadScene("MainMenu");

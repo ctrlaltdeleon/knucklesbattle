@@ -68,6 +68,10 @@ public class PlayerControl : NetworkBehaviour
     private Vector3 m_Forward;
     public Transform bulletSpawnPosition;
 
+    public AudioClip[] rickisms;
+    public AudioSource audioSource;
+    public float knockbackStrength;
+    
     private int debugCounter = 0;
 
     void Awake()
@@ -89,6 +93,7 @@ public class PlayerControl : NetworkBehaviour
             CameraController.character = gameObject;
         }
 
+        audioSource = GetComponent<AudioSource>();
         m_health = 100;
         m_ammoCount = 150;
         m_weaponType = WeaponType.DEFAULT;
@@ -96,6 +101,14 @@ public class PlayerControl : NetworkBehaviour
         m_rigidBody = GetComponent<Rigidbody>();
         m_Left = Vector3.left;
         m_Forward = Vector3.forward;
+        
+        InvokeRepeating("PlayRickSounds", 1f, Random.Range(6f, 16f));
+    }
+
+    public void PlayRickSounds()
+    {
+        audioSource.PlayOneShot(rickisms[Random.Range(0, rickisms.Length)]);
+
     }
 
     // Update is called once per frame
@@ -138,13 +151,21 @@ public class PlayerControl : NetworkBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            m_health -= 5;
+            m_health -= 10;
             Debug.Log("Health: " + m_health);
+            
+            //ApplyKnockback(other.gameObject.transform.position);
             if (m_health <= 0)
             {
                 LevelManager.Instance.LoseGame();
             }
         }
+    }
+
+    private void ApplyKnockback(Vector3 otherTransformPos)
+    {
+        Vector3 direction = transform.position - otherTransformPos;
+        m_rigidBody.AddForce(direction.normalized * knockbackStrength);
     }
 
     /// <summary>
