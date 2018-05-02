@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnucklesBattle", "KnucklesB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnucklesBattle.Editor.Plugins", "KnucklesBattle.Editor.Plugins.csproj", "{122D9DD5-DA0B-F3AD-814B-729CFD41F05A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnucklesBattle.Editor", "KnucklesBattle.Editor.csproj", "{AC3FB279-7BFB-6665-4581-4038067AE230}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{122D9DD5-DA0B-F3AD-814B-729CFD41F05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{122D9DD5-DA0B-F3AD-814B-729CFD41F05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{122D9DD5-DA0B-F3AD-814B-729CFD41F05A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC3FB279-7BFB-6665-4581-4038067AE230}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC3FB279-7BFB-6665-4581-4038067AE230}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC3FB279-7BFB-6665-4581-4038067AE230}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC3FB279-7BFB-6665-4581-4038067AE230}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
