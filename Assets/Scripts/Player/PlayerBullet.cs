@@ -5,7 +5,8 @@ using UnityEngine.Networking;
 
 public class PlayerBullet : NetworkBehaviour
 {
-    [SerializeField] private float m_speed = 100f;
+    [SerializeField] private float m_speed = 1f;
+    [SerializeField] private float max_speed = 100f;
 
     [SerializeField] private int bulletDamage = 10;
 
@@ -37,6 +38,10 @@ public class PlayerBullet : NetworkBehaviour
         m_rigidBody.AddForce(transform.forward * m_speed);
         if (Time.time - timer > 2)
             NetworkServer.Destroy(gameObject);
+        if (m_speed < max_speed)
+        {
+            m_speed += m_speed;
+        }
     }
 
     private void OnCollisionEnter(Collision other)

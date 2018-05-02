@@ -23,9 +23,6 @@ public class PlayerControl : NetworkBehaviour
     [SerializeField] private int m_ammoCount = 150;
     private int MAX_AMMO = 150;
 
-    [SerializeField] private float m_speed = 2.0f;
-
-    [SerializeField] private float MAX_SPEED = 40.0f;
 
     public int Health
     {
@@ -46,11 +43,6 @@ public class PlayerControl : NetworkBehaviour
     public int MaxAmmo
     {
         get { return MAX_AMMO; }
-    }
-
-    public float Speed
-    {
-        get { return m_speed; }
     }
 
     public WeaponType Weapon
@@ -96,7 +88,6 @@ public class PlayerControl : NetworkBehaviour
         m_health = 100;
         m_ammoCount = 150;
         m_weaponType = WeaponType.DEFAULT;
-        MAX_SPEED = 40.0f;
         m_rigidBody = GetComponent<Rigidbody>();
         m_Left = Vector3.left;
         m_Forward = Vector3.forward;
@@ -121,8 +112,8 @@ public class PlayerControl : NetworkBehaviour
         float z = Input.GetAxis("Vertical");
 
         //Movements
-        float xDir = x * Time.deltaTime * 30.0f;
-        float zDir = z * Time.deltaTime * 30.0f;
+        float xDir = x * Time.deltaTime * 15.0f;
+        float zDir = z * Time.deltaTime * 15.0f;
         transform.Translate(xDir, 0, zDir);
 
         if (Input.GetMouseButtonDown(0))
@@ -131,7 +122,6 @@ public class PlayerControl : NetworkBehaviour
             {
                 if (m_ammoCount > 0)
                 {
-
                     CmdFire(Camera.main.transform.forward, Camera.main.transform.rotation);
                     --m_ammoCount;
                 }

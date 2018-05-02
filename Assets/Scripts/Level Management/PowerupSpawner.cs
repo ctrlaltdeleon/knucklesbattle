@@ -61,7 +61,7 @@ public class PowerupSpawner : NetworkBehaviour
     public void spawnPowerups(int levelNumber)
     {
         //Algorithm to find quantity to spawn
-        int numPowerups = (int) Mathf.Log(levelNumber * difficultyRating * NetworkServer.connections.Count, 2f);
+        int numPowerups = levelNumber * (NetworkServer.connections.Count / 2);
 
         //Procedural Seeding based on levelNumber
         Random.InitState(levelNumber);
