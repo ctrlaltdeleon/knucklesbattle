@@ -66,7 +66,7 @@ public class LevelManager : NetworkBehaviour
     {
         level++;
         audioSource.PlayOneShot(nextLevelSound);
-        if (level > 10)
+        if (level > 20)
         {
             SceneManager.LoadScene("MainMenu");
             return;

@@ -1,44 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 /// <summary>
 /// Holds PowerUp Information
 /// </summary>
-public class PlayerPowerup : MonoBehaviour {
-
-    public enum PowerupType : uint {
+public class PlayerPowerup : NetworkBehaviour
+{
+    public enum PowerupType : uint
+    {
         HEALTH = 0,
         MESEEKS = 1,
         BULLETS = 2,
         SPECIAL_WEAPON = 3
     }
 
-    public enum RotateAxis : uint {
+    public enum RotateAxis : uint
+    {
         X,
         Y,
         Z
     }
 
-    [SerializeField]
-    private PowerupType m_powerupType = PowerupType.HEALTH;
-    [SerializeField]
-    private int m_rewardValue = 100;
+    [SerializeField] private PowerupType m_powerupType = PowerupType.HEALTH;
+    [SerializeField] private int m_rewardValue = 100;
 
-    [SerializeField]
-    private RotateAxis m_rotAxis = RotateAxis.Y;
+    [SerializeField] private RotateAxis m_rotAxis = RotateAxis.Y;
 
     private Rigidbody m_rigidBody;
 
-    public PowerupType PowerUp { get { return m_powerupType; } }
+    public PowerupType PowerUp
+    {
+        get { return m_powerupType; }
+    }
 
-    [SerializeField]
-    private string m_sound;
+    [SerializeField] private string m_sound;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         m_rigidBody = GetComponent<Rigidbody>();
-	}
+    }
 
     /// <summary>
     /// Initializes the settings.
@@ -50,9 +53,10 @@ public class PlayerPowerup : MonoBehaviour {
         m_powerupType = type;
         m_rewardValue = rewardValue;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         float rotateValue = 1.5f * Time.deltaTime;
         switch (m_rotAxis)
         {
@@ -66,14 +70,14 @@ public class PlayerPowerup : MonoBehaviour {
                 m_rigidBody.AddRelativeTorque(new Vector3(0.0f, 0.0f, rotateValue));
                 break;
         }
-
-	}
+    }
 
     //Reward player with things. 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject && collision.gameObject.tag == "PlayerEntity")
         {
+            CmdPowerupTaken();
             var PlayerHandle = collision.gameObject.GetComponent<PlayerControl>();
             if (AudioManager.Instance != null)
             {
@@ -101,5 +105,11 @@ public class PlayerPowerup : MonoBehaviour {
                     break;
             }
         }
+    }
+
+    [Command]
+    public void CmdPowerupTaken()
+    {
+        PowerupSpawner.Instance.numPowerups--;
     }
 }
