@@ -8,7 +8,7 @@ public class PlayerBullet : NetworkBehaviour
     private Vector3 m_direction;
 
     [SerializeField] private float m_speed = 1f;
-    [SerializeField] private float max_speed = 100f;
+    [SerializeField] private float max_speed = 50f;
 
     [SerializeField] private int bulletDamage = 10;
 
@@ -50,10 +50,9 @@ public class PlayerBullet : NetworkBehaviour
     /// Sets Initial direction of Bullet based off Parent's forward vector. 
     /// </summary> 
     /// <param name="direction"></param> 
-    public void SetInitialDirection(Vector3 direction, Quaternion rotation)
+    public void SetInitialDirection(Vector3 direction)
     {
         m_direction = direction;
-        transform.rotation = rotation;
     }
 
     private void OnCollisionEnter(Collision other)
