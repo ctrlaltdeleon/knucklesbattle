@@ -116,7 +116,7 @@ public class PlayerControl : NetworkBehaviour
         float zDir = z * Time.deltaTime * 15.0f;
         transform.Translate(xDir, 0, zDir);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(1))
         {
             if (m_weaponType == WeaponType.DEFAULT || m_weaponType == WeaponType.SPECIAL)
             {
