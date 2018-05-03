@@ -21,10 +21,10 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         Debug.Log("START MENU");
-        if (GameManager.Instance)
+        if (LevelManager.Instance)
         {
             Debug.Log("level instance!");
-            if (GameManager.Instance.win)
+            if (LevelManager.Instance.win)
             {
                 WonGame();
             }
@@ -84,6 +84,7 @@ public class MenuManager : MonoBehaviour
         Destroy(GameManager.Instance.gameObject);
         Destroy(LevelManager.Instance.gameObject);
         Destroy(KnucklesSpawner.Instance.gameObject);
+        Destroy(PowerupSpawner.Instance.gameObject);
         Destroy(LobbyManager.s_Singleton.gameObject);
     }
 
@@ -100,6 +101,7 @@ public class MenuManager : MonoBehaviour
         Destroy(GameManager.Instance.gameObject);
         Destroy(LevelManager.Instance.gameObject);
         Destroy(KnucklesSpawner.Instance.gameObject);
+        Destroy(PowerupSpawner.Instance.gameObject);
         Destroy(LobbyManager.s_Singleton.gameObject);
     }
 }

@@ -7,7 +7,6 @@ public class GameManager : NetworkBehaviour
 {
     //Global Instance
     public static GameManager Instance = null;
-    [SyncVar] public bool win;
     public GameObject LevelManagerPrefab;
     private GameObject LevelManagerGO;
 

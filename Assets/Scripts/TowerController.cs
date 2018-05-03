@@ -57,7 +57,7 @@ public class TowerController : MonoBehaviour
 
         if (health <= 0)
         {
-            LevelManager.Instance.LoseGame();
+            LevelManager.Instance.CmdLoseGame();
         }
     }
 

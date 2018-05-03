@@ -14,7 +14,7 @@ public class LevelManager : NetworkBehaviour
 
     [SyncVar] public int numMonsters = 1;
     [SyncVar] public int totalNumMonsters = 0;
-
+    [SyncVar] public bool win;
     public AudioSource audioSource;
     public AudioClip nextLevelSound;
 
@@ -73,7 +73,7 @@ public class LevelManager : NetworkBehaviour
         if (level > 20)
         {
             LobbyManager.s_Singleton.StopHostClbk();
-            GameManager.Instance.win = true;
+            win = true;
             SceneManager.LoadScene("MainMenu");
             return;
         }
@@ -86,17 +86,16 @@ public class LevelManager : NetworkBehaviour
         }
     }
 
-    public void LoseGame()
+    [Command]
+    public void CmdLoseGame()
     {
-        if (isServer)
-        {
-            NetworkManager.singleton.StopHost();
-        }
-        else
-        {
-            NetworkManager.singleton.StopClient();
-        }
-        GameManager.Instance.win = false;
+        RpcLoseGame();
+    }
+
+    [ClientRpc]
+    public void RpcLoseGame()
+    {
+        win = false;
         SceneManager.LoadScene("MainMenu");
     }
 }

@@ -140,18 +140,32 @@ public class PlayerControl : NetworkBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            m_health -= 10;
-            Debug.Log("Health: " + m_health);
-
-            //ApplyKnockback(other.gameObject.transform.position);
-            if (m_health < 1)
+            if (isLocalPlayer)
             {
-                Cursor.visible = true;
-                GameManager.Instance.win = false;
-                SceneManager.LoadScene("MainMenu");
-                Destroy(gameObject);
+                m_health -= 10;
+                Debug.Log("Health: " + m_health);
+
+                //ApplyKnockback(other.gameObject.transform.position);
+                if (m_health < 1)
+                {
+                    Cursor.visible = true;
+                    CmdLoseGame();
+                }
             }
         }
+    }
+
+    [Command]
+    public void CmdLoseGame()
+    {
+        RpcLoseGame();
+    }
+
+    [ClientRpc]
+    public void RpcLoseGame()
+    {
+        LevelManager.Instance.win = false;
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void ApplyKnockback(Vector3 otherTransformPos)
