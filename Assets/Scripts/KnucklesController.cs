@@ -117,7 +117,7 @@ public class KnucklesController : NetworkBehaviour
     private void OnCollisionEnter(Collision other)
     {
         //Debug.Log ("In OnCollisionEnter");
-        if (other.gameObject.CompareTag("PlayerBullet") || other.gameObject.CompareTag("MrMeeseeksWeapon"))
+        if (other.gameObject.CompareTag("PlayerBullet"))
         {
             if (!isServer)
             {
@@ -128,7 +128,6 @@ public class KnucklesController : NetworkBehaviour
             float newSliderValue = 0;
 
             float newHealth = hp - other.gameObject.GetComponent<PlayerBullet>().BulletDamage; // 15-10 = 5
-            newHealth = hp - other.gameObject.GetComponent<MrMeeseeksWeaponAI>().MeeseeksDamage;
 
             switch (type)
             {
@@ -148,7 +147,7 @@ public class KnucklesController : NetworkBehaviour
 
             knucklesHPSlider.value = newSliderValue;
             hp -= other.gameObject.GetComponent<PlayerBullet>().BulletDamage;
-            hp -= other.gameObject.GetComponent<MrMeeseeksWeaponAI>().MeeseeksDamage;
+            
             RpcTakeDamage(newSliderValue);
             if (hp <= 0)
             {
@@ -161,6 +160,49 @@ public class KnucklesController : NetworkBehaviour
             }
 
             Destroy(other.gameObject); //Destroy bullet
+        }
+
+        if (other.gameObject.CompareTag("MrMeeseeksWeapon"))
+        {
+            if (!isServer)
+            {
+                return;
+            }
+
+            audioSource.PlayOneShot(oof);
+            float newSliderValue = 0;
+
+            float newHealth = hp - other.gameObject.GetComponent<MrMeeseeksWeaponAI>().MeeseeksDamage; // 15-10 = 5
+
+            switch (type)
+            {
+                case (int)Knuckles.Red:
+                    newSliderValue = newHealth / 20;
+                    break;
+                case (int)Knuckles.Blue:
+                    newSliderValue = newHealth / 40;
+                    break;
+                case (int)Knuckles.Green:
+                    newSliderValue = newHealth / 15;
+                    break;
+                case (int)Knuckles.Orange:
+                    newSliderValue = newHealth / 15;
+                    break;
+            }
+
+            knucklesHPSlider.value = newSliderValue;
+            hp -= other.gameObject.GetComponent<MrMeeseeksWeaponAI>().MeeseeksDamage;
+
+            RpcTakeDamage(newSliderValue);
+            if (hp <= 0)
+            {
+                GameObject explosion = Instantiate(this.explosion);
+                explosion.transform.position = gameObject.transform.position;
+                NetworkServer.Spawn(explosion);
+                Destroy(gameObject); //Destroy knuckle
+                Destroy(explosion, 1.5f);
+                LevelManager.Instance.numMonsters--;
+            }
         }
     }
 
