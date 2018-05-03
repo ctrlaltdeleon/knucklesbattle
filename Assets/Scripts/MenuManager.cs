@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Prototype.NetworkLobby;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 #if UNITY_EDITOR
@@ -76,6 +77,8 @@ public class MenuManager : MonoBehaviour
 
     public void WonGame()
     {
+        LobbyManager.s_Singleton.StopHost();
+        NetworkManager.Shutdown();
         GameObject WonMenu = Instantiate(WonMenuPrefab);
         WonMenu.SetActive(true);
         WonMenu.transform.GetChild(3).GetComponent<Text>().text =
@@ -85,11 +88,13 @@ public class MenuManager : MonoBehaviour
         Destroy(LevelManager.Instance.gameObject);
         Destroy(KnucklesSpawner.Instance.gameObject);
         Destroy(PowerupSpawner.Instance.gameObject);
-        Destroy(LobbyManager.s_Singleton.gameObject);
+        DestroyObject(LobbyManager.s_Singleton.gameObject);
     }
 
     public void LoseGame()
     {
+        LobbyManager.s_Singleton.StopHost();
+        NetworkManager.Shutdown();
         GameObject LoseMenu = Instantiate(LoseMenuPrefab);
         LoseMenu.SetActive(true);
         Debug.Log("Level: " + LevelManager.Instance.level);
@@ -102,6 +107,6 @@ public class MenuManager : MonoBehaviour
         Destroy(LevelManager.Instance.gameObject);
         Destroy(KnucklesSpawner.Instance.gameObject);
         Destroy(PowerupSpawner.Instance.gameObject);
-        Destroy(LobbyManager.s_Singleton.gameObject);
+        DestroyObject(LobbyManager.s_Singleton.gameObject);
     }
 }
