@@ -1068,18 +1068,16 @@ MonoBehaviour:
   m_weaponType: 0
   m_health: 0
   m_ammoCount: 150
-  m_speed: 40
-  MAX_SPEED: 0
   m_bulletPrefab: {fileID: 1996569756414780, guid: aa24e548c143b4b6890f22f80b0f54a9,
     type: 2}
   bulletSpawnPosition: {fileID: 4742482418666472}
   rickisms:
-  - {fileID: 8300000, guid: 7125c0d1bee5640e285f8e3825d437d8, type: 3}
-  - {fileID: 8300000, guid: 749c5e3ba01bf4a37b584d85862efbdb, type: 3}
-  - {fileID: 8300000, guid: 451cdc9e75c464265af870ed97ca59de, type: 3}
-  - {fileID: 8300000, guid: 082249f855be24fb196f01aea9839d86, type: 3}
-  - {fileID: 8300000, guid: 6edecd7cafe1246969e6311c322d9f43, type: 3}
-  - {fileID: 8300000, guid: d39722f69ad6a4a54a93ed1638f3803b, type: 3}
+  - {fileID: 8300000, guid: 622e275b5f4d28a4f9a1149e5a7115ba, type: 3}
+  - {fileID: 8300000, guid: dd208df5b9020a445b7609ea79788ca9, type: 3}
+  - {fileID: 8300000, guid: 41bab2231a352e04194c01b1e3edc3a7, type: 3}
+  - {fileID: 8300000, guid: e1bef03d3530d8c47a07a358fa2f2ee0, type: 3}
+  - {fileID: 8300000, guid: 816a5462aa1c1384393b75ecadc456e2, type: 3}
+  - {fileID: 8300000, guid: 44f6e10d15da94845935dad642e923a8, type: 3}
   audioSource: {fileID: 82392815516321584}
   knockbackStrength: 500
 --- !u!114 &114872067445723586

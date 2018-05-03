@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Prototype.NetworkLobby;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
@@ -10,7 +11,7 @@ public class LevelManager : NetworkBehaviour
 
     //Game State
     [SyncVar] public int level = 1;
-
+    [SyncVar] public bool win;
     [SyncVar] public int numMonsters = 1;
 
     public AudioSource audioSource;
@@ -28,6 +29,7 @@ public class LevelManager : NetworkBehaviour
         {
             Destroy(gameObject);
         }
+
         DontDestroyOnLoad(gameObject);
     }
 
@@ -35,7 +37,7 @@ public class LevelManager : NetworkBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -43,6 +45,7 @@ public class LevelManager : NetworkBehaviour
         {
             return;
         }
+
         if (numMonsters <= 0)
         {
             Debug.Log("From the server, emit WON LEVEL");
@@ -68,9 +71,13 @@ public class LevelManager : NetworkBehaviour
         audioSource.PlayOneShot(nextLevelSound);
         if (level > 20)
         {
+            LobbyManager.s_Singleton.StopHostClbk();
             SceneManager.LoadScene("MainMenu");
+            win = true;
+            Destroy(GameManager.Instance.gameObject);
             return;
         }
+
         Debug.Log("Start new Level " + level);
         if (KnucklesSpawner.Instance != null)
         {
@@ -81,6 +88,9 @@ public class LevelManager : NetworkBehaviour
 
     public void LoseGame()
     {
+        LobbyManager.s_Singleton.StopHostClbk();
         SceneManager.LoadScene("MainMenu");
+        win = false;
+        Destroy(GameManager.Instance.gameObject);
     }
 }

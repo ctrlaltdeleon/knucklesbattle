@@ -42,22 +42,16 @@ public class KnucklesController : NetworkBehaviour
         switch (type)
         {
             case (int) Knuckles.Red: //Normal
-                gameObject.transform.localScale *= 1.6f;
-                transform.GetChild(2).localScale /= 1.6f;
                 speed = 4f;
                 hp = 45;
                 attackDmg = 1f;
                 break;
             case (int) Knuckles.Blue: //Slow, heavy damage
-                gameObject.transform.localScale *= 7f;
-                transform.GetChild(2).localScale /= 7f;
                 speed = 3f;
                 hp = 145;
                 attackDmg = 5f;
                 break;
             case (int) Knuckles.Green: //Projectile/Spit
-                gameObject.transform.localScale *= 1.2f;
-                transform.GetChild(2).localScale /= 1.2f;
                 speed = 4f;
                 hp = 27;
                 attackDmg = 2f;
@@ -68,6 +62,7 @@ public class KnucklesController : NetworkBehaviour
                 attackDmg = 0.5f;
                 break;
         }
+
         InvokeRepeating("SpeakUgandan", Random.Range(1f, 3f), Random.Range(5f, 8f));
     }
 
@@ -119,12 +114,6 @@ public class KnucklesController : NetworkBehaviour
         //Debug.Log ("In OnCollisionEnter");
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
-            if (!isServer)
-            {
-                return;
-            }
-
-            audioSource.PlayOneShot(oof);
             float newSliderValue = 0;
 
             float newHealth = hp - other.gameObject.GetComponent<PlayerBullet>().BulletDamage; //15-10 = 5
@@ -132,46 +121,31 @@ public class KnucklesController : NetworkBehaviour
             switch (type)
             {
                 case (int) Knuckles.Red:
-                    newSliderValue = newHealth / 20;
+                    newSliderValue = newHealth / 45;
                     break;
                 case (int) Knuckles.Blue:
-                    newSliderValue = newHealth / 40;
+                    newSliderValue = newHealth / 145;
                     break;
                 case (int) Knuckles.Green:
-                    newSliderValue = newHealth / 15;
+                    newSliderValue = newHealth / 27;
                     break;
                 case (int) Knuckles.Orange:
-                    newSliderValue = newHealth / 15;
+                    newSliderValue = newHealth / 23;
                     break;
             }
 
             knucklesHPSlider.value = newSliderValue;
             hp -= other.gameObject.GetComponent<PlayerBullet>().BulletDamage;
-            RpcTakeDamage(newSliderValue);
-            if (hp <= 0)
-            {
-                GameObject explosion = Instantiate(this.explosion);
-                explosion.transform.position = gameObject.transform.position;
-                NetworkServer.Spawn(explosion);
-                Destroy(gameObject); //Destroy knuckle
-                Destroy(explosion, 1.5f);
-                LevelManager.Instance.numMonsters--;
-            }
-
+            PlayerControl.Instance.CmdTakeDamage(newSliderValue, hp, gameObject);
             Destroy(other.gameObject); //Destroy bullet
         }
     }
 
-//    [Command]
-//    void CmdTakeDamage(float health)
+//    [ClientRpc]
+//    public void RpcTakeDamage(float newSliderValue)
 //    {
 //
 //    }
-    [ClientRpc]
-    public void RpcTakeDamage(float newSliderValue)
-    {
-        knucklesHPSlider.value = newSliderValue;
-    }
 
 
     //SPIT CODE FOR ORANGE KNUCKLE

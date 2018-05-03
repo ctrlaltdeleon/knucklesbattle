@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class PlayerBullet : NetworkBehaviour
+public class PlayerBullet : MonoBehaviour
 {
     private Vector3 m_direction;
 
@@ -30,7 +30,6 @@ public class PlayerBullet : NetworkBehaviour
 
     void Start()
     {
-        Debug.Log("Rotation" + transform.rotation);
         m_rigidBody = GetComponent<Rigidbody>();
     }
 
@@ -59,7 +58,7 @@ public class PlayerBullet : NetworkBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            NetworkServer.Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

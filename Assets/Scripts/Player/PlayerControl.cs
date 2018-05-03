@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Prototype.NetworkLobby;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 /// <summary>
 /// Player Controller
@@ -122,7 +124,7 @@ public class PlayerControl : NetworkBehaviour
             {
                 if (m_ammoCount > 0)
                 {
-                    CmdFire(Camera.main.transform.forward, Camera.main.transform.rotation);
+                    Shoot();
                     --m_ammoCount;
                 }
             }
@@ -143,7 +145,7 @@ public class PlayerControl : NetworkBehaviour
             //ApplyKnockback(other.gameObject.transform.position);
             if (m_health <= 0)
             {
-                LevelManager.Instance.LoseGame();
+                LobbyManager.s_Singleton.StopClientClbk();
             }
         }
     }
@@ -154,19 +156,38 @@ public class PlayerControl : NetworkBehaviour
         m_rigidBody.AddForce(direction.normalized * knockbackStrength);
     }
 
-    [Command]
-    public void CmdFire(Vector3 direction, Quaternion rotation)
+    void Shoot()
     {
-        GameObject bullet = Instantiate(m_bulletPrefab, bulletSpawnPosition.position, rotation);
+        GameObject bullet = Instantiate(m_bulletPrefab, bulletSpawnPosition.position, Camera.main.transform.rotation);
         bullet.transform.position = bulletSpawnPosition.position;
-        NetworkServer.Spawn(bullet);
         PlayerBullet newBullet = bullet.GetComponent<PlayerBullet>();
-        newBullet.SetInitialDirection(direction);
+        newBullet.SetInitialDirection(Camera.main.transform.forward);
 //        foreach (Transform t in GetComponentsInChildren<Transform>())
 //        {
 //            Physics.IgnoreCollision(newBullet.GetComponent<Collider>(), t.gameObject.GetComponent<Collider>());
 //        }
         newBullet.transform.position = bulletSpawnPosition.position;
+    }
+
+    [Command]
+    public void CmdTakeDamage(float newSliderValue, float hp, GameObject knuckles)
+    {
+        RpcTakeDamage(newSliderValue, hp, knuckles);
+    }
+
+    [ClientRpc]
+    public void RpcTakeDamage(float newSliderValue, float hp, GameObject knuckles)
+    {
+        audioSource.PlayOneShot(knuckles.GetComponent<KnucklesController>().oof);
+        knuckles.GetComponent<KnucklesController>().knucklesHPSlider.value = newSliderValue;
+        if (hp <= 0)
+        {
+            GameObject explosion = Instantiate(knuckles.GetComponent<KnucklesController>().explosion);
+            explosion.transform.position = knuckles.transform.position;
+            Destroy(knuckles); //Destroy knuckle
+            Destroy(explosion, 1.5f);
+            LevelManager.Instance.numMonsters--;
+        }
     }
 
     IEnumerator DeployMeeseeks()

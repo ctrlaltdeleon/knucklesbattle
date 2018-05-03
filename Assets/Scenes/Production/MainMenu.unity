@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731316, g: 0.38074896, b: 0.3587254, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839197968}
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
@@ -752,6 +752,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 1534447323}
+  WonMenuPrefab: {fileID: 1203010641441320, guid: ffed14f0dee08c049915bfa9b8b2dc90,
+    type: 2}
+  LoseMenuPrefab: {fileID: 1550028341375014, guid: 727c2a0931783894b895e2e06ec90607,
+    type: 2}
 --- !u!4 &839197969
 Transform:
   m_ObjectHideFlags: 0
@@ -1332,7 +1336,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 166a37ca98b73482e8be063d56e92c2c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6f9fd1934325a9d4f908245fb904dd4d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2270,7 +2274,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 839197968}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:

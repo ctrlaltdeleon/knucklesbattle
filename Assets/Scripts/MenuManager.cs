@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Prototype.NetworkLobby;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 
@@ -9,25 +11,27 @@ using UnityEditor;
 
 public class MenuManager : MonoBehaviour
 {
-    public static MenuManager Instance = null;
-
     //Pause Menu
     private bool paused;
 
     public GameObject PauseMenu;
+    public GameObject WonMenuPrefab;
+    public GameObject LoseMenuPrefab;
 
-    // Use this for initialization
     void Start()
     {
-        if (Instance != this)
+        if (LevelManager.Instance)
         {
-            Instance = this;
+            if (LevelManager.Instance.win)
+            {
+                WonGame();
+            }
+            else
+            {
+                Debug.Log("LOSE");
+                LoseGame();
+            }
         }
-        else
-        {
-            Destroy(Instance);
-        }
-        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
@@ -66,5 +70,30 @@ public class MenuManager : MonoBehaviour
 #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
 #endif
+    }
+
+    public void WonGame()
+    {
+        GameObject WonMenu = Instantiate(WonMenuPrefab);
+        WonMenu.SetActive(true);
+        WonMenu.transform.GetChild(3).GetComponent<Text>().text = "Max level: " + LevelManager.Instance.level;
+        WonMenu.transform.GetChild(4).GetComponent<Text>().text =
+            "Total knuckles defeated: " + KnucklesSpawner.Instance.totalNumKnuckles;
+        Destroy(LevelManager.Instance.gameObject);
+        Destroy(KnucklesSpawner.Instance.gameObject);
+        Destroy(LobbyManager.s_Singleton);
+    }
+
+    public void LoseGame()
+    {
+        GameObject LoseMenu = Instantiate(LoseMenuPrefab);
+        LoseMenu.SetActive(true);
+        LoseMenu.transform.GetChild(3).GetComponent<Text>().text = "Max level: " + LevelManager.Instance.level;
+        LoseMenu.transform.GetChild(4).GetComponent<Text>().text =
+            "Total knuckles defeated: " +
+            (KnucklesSpawner.Instance.totalNumKnuckles - KnucklesSpawner.Instance.numKnuckles);
+        Destroy(LevelManager.Instance.gameObject);
+        Destroy(KnucklesSpawner.Instance.gameObject);
+        Destroy(LobbyManager.s_Singleton);
     }
 }

@@ -22,8 +22,9 @@ public class KnucklesSpawner : NetworkBehaviour
     public int spawnHeight;
     public float spawnRate = 1.0f;
     public float difficultyRating = 50f;
-    [SyncVar] private int numKnuckles = 0;
+    [SyncVar] public int numKnuckles = 0;
     [SyncVar] public int maxNumKnuckles;
+    [SyncVar] public int totalNumKnuckles;
 
     void Awake()
     {
@@ -35,6 +36,8 @@ public class KnucklesSpawner : NetworkBehaviour
         {
             Destroy(Instance);
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public override void OnStartServer()
@@ -46,6 +49,7 @@ public class KnucklesSpawner : NetworkBehaviour
     {
         int levelNumber = LevelManager.Instance.level;
         maxNumKnuckles = (int) Mathf.Log(levelNumber * difficultyRating * NetworkServer.connections.Count, 2f);
+        totalNumKnuckles += maxNumKnuckles;
         LevelManager.Instance.numMonsters = maxNumKnuckles;
         Random.InitState(levelNumber);
         numKnuckles = 0;
