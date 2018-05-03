@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.47958505, g: 0.42702457, b: 0.51684463, a: 1}
+  m_IndirectSpecularColor: {r: 0.47957468, g: 0.42701912, b: 0.5168309, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -384,81 +384,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4290500721358900, guid: 2b770fff6378a584ca211f5e71746ada, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290500721358900, guid: 2b770fff6378a584ca211f5e71746ada, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290500721358900, guid: 2b770fff6378a584ca211f5e71746ada, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114586684265814184, guid: 2b770fff6378a584ca211f5e71746ada,
-        type: 2}
-      propertyPath: m_towerController
-      value: 
-      objectReference: {fileID: 1302646837}
-    - target: {fileID: 114854670267513328, guid: 2b770fff6378a584ca211f5e71746ada,
-        type: 2}
-      propertyPath: m_AmmoPlatformController
-      value: 
-      objectReference: {fileID: 1247109757}
     - target: {fileID: 114854670267513328, guid: 2b770fff6378a584ca211f5e71746ada,
         type: 2}
       propertyPath: cooldownImageAlpha
       value: 
       objectReference: {fileID: 1049361480}
-    - target: {fileID: 114586684265814184, guid: 2b770fff6378a584ca211f5e71746ada,
-        type: 2}
-      propertyPath: m_playerControl
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 64170302936719744, guid: 2b770fff6378a584ca211f5e71746ada,
-        type: 2}
-      propertyPath: m_Convex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1488087809276110, guid: 2b770fff6378a584ca211f5e71746ada, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114442404207331276, guid: 2b770fff6378a584ca211f5e71746ada, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b770fff6378a584ca211f5e71746ada, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &987242324 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1320960956474228, guid: 2b770fff6378a584ca211f5e71746ada,
-    type: 2}
-  m_PrefabInternal: {fileID: 987242323}
---- !u!136 &987242325
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 987242324}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 6
-  m_Height: 12
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &1049361480 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114297873528481144, guid: adf814faaf5c40045b751be77b9d414d,
     type: 2}
   m_PrefabInternal: {fileID: 1921945711}
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
---- !u!114 &1247109757 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114586684265814184, guid: 2b770fff6378a584ca211f5e71746ada,
-    type: 2}
-  m_PrefabInternal: {fileID: 987242323}
-  m_Script: {fileID: 11500000, guid: 4117ab3ee01e947de967aeb2fea2e329, type: 3}
 --- !u!114 &1302646837 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114854670267513328, guid: 2b770fff6378a584ca211f5e71746ada,

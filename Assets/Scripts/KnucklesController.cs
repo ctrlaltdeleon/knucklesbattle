@@ -117,7 +117,7 @@ public class KnucklesController : NetworkBehaviour
     private void OnCollisionEnter(Collision other)
     {
         //Debug.Log ("In OnCollisionEnter");
-        if (other.gameObject.CompareTag("PlayerBullet"))
+        if (other.gameObject.CompareTag("PlayerBullet") || other.gameObject.CompareTag("MrMeeseeksWeapon"))
         {
             if (!isServer)
             {
@@ -127,7 +127,8 @@ public class KnucklesController : NetworkBehaviour
             audioSource.PlayOneShot(oof);
             float newSliderValue = 0;
 
-            float newHealth = hp - other.gameObject.GetComponent<PlayerBullet>().BulletDamage; //15-10 = 5
+            float newHealth = hp - other.gameObject.GetComponent<PlayerBullet>().BulletDamage; // 15-10 = 5
+            newHealth = hp - other.gameObject.GetComponent<MrMeeseeksWeaponAI>().MeeseeksDamage;
 
             switch (type)
             {
@@ -147,6 +148,7 @@ public class KnucklesController : NetworkBehaviour
 
             knucklesHPSlider.value = newSliderValue;
             hp -= other.gameObject.GetComponent<PlayerBullet>().BulletDamage;
+            hp -= other.gameObject.GetComponent<MrMeeseeksWeaponAI>().MeeseeksDamage;
             RpcTakeDamage(newSliderValue);
             if (hp <= 0)
             {

@@ -12,6 +12,8 @@ TagManager:
   - Spit
   - Enemy
   - Ground
+  - MrMeeseeksAI
+  - MrMeeseeksWeaponAI
   layers:
   - Default
   - TransparentFX
