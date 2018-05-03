@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Prototype.NetworkLobby;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -143,9 +144,12 @@ public class PlayerControl : NetworkBehaviour
             Debug.Log("Health: " + m_health);
 
             //ApplyKnockback(other.gameObject.transform.position);
-            if (m_health <= 0)
+            if (m_health < 1)
             {
-                LobbyManager.s_Singleton.StopClientClbk();
+                Cursor.visible = true;
+                GameManager.Instance.win = false;
+                SceneManager.LoadScene("MainMenu");
+                Destroy(gameObject);
             }
         }
     }

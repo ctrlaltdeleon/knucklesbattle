@@ -20,9 +20,11 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        if (LevelManager.Instance)
+        Debug.Log("START MENU");
+        if (GameManager.Instance)
         {
-            if (LevelManager.Instance.win)
+            Debug.Log("level instance!");
+            if (GameManager.Instance.win)
             {
                 WonGame();
             }
@@ -76,24 +78,28 @@ public class MenuManager : MonoBehaviour
     {
         GameObject WonMenu = Instantiate(WonMenuPrefab);
         WonMenu.SetActive(true);
-        WonMenu.transform.GetChild(3).GetComponent<Text>().text = "Max level: " + LevelManager.Instance.level;
-        WonMenu.transform.GetChild(4).GetComponent<Text>().text =
-            "Total knuckles defeated: " + KnucklesSpawner.Instance.totalNumKnuckles;
+        WonMenu.transform.GetChild(3).GetComponent<Text>().text =
+            "Max level: " + LevelManager.Instance.level + "\nTotal knuckles defeated: " +
+            LevelManager.Instance.totalNumMonsters;
+        Destroy(GameManager.Instance.gameObject);
         Destroy(LevelManager.Instance.gameObject);
         Destroy(KnucklesSpawner.Instance.gameObject);
-        Destroy(LobbyManager.s_Singleton);
+        Destroy(LobbyManager.s_Singleton.gameObject);
     }
 
     public void LoseGame()
     {
         GameObject LoseMenu = Instantiate(LoseMenuPrefab);
         LoseMenu.SetActive(true);
-        LoseMenu.transform.GetChild(3).GetComponent<Text>().text = "Max level: " + LevelManager.Instance.level;
-        LoseMenu.transform.GetChild(4).GetComponent<Text>().text =
-            "Total knuckles defeated: " +
-            (KnucklesSpawner.Instance.totalNumKnuckles - KnucklesSpawner.Instance.numKnuckles);
+        Debug.Log("Level: " + LevelManager.Instance.level);
+        Debug.Log("total knuckles defeated: " +
+                  (LevelManager.Instance.totalNumMonsters - LevelManager.Instance.numMonsters));
+        LoseMenu.transform.GetChild(3).GetComponent<Text>().text =
+            "Max level: " + LevelManager.Instance.level + "\nTotal knuckles defeated: " +
+            (LevelManager.Instance.totalNumMonsters - LevelManager.Instance.numMonsters);
+        Destroy(GameManager.Instance.gameObject);
         Destroy(LevelManager.Instance.gameObject);
         Destroy(KnucklesSpawner.Instance.gameObject);
-        Destroy(LobbyManager.s_Singleton);
+        Destroy(LobbyManager.s_Singleton.gameObject);
     }
 }
