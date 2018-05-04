@@ -70,7 +70,7 @@ public class LevelManager : NetworkBehaviour
     {
         level++;
         audioSource.PlayOneShot(nextLevelSound);
-        if (level > 20)
+        if (level > 1)
         {
             LobbyManager.s_Singleton.StopHostClbk();
             win = true;

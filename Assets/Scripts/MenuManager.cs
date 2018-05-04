@@ -77,8 +77,7 @@ public class MenuManager : MonoBehaviour
 
     public void WonGame()
     {
-        LobbyManager.s_Singleton.StopHost();
-        NetworkManager.Shutdown();
+        Cursor.visible = true;
         GameObject WonMenu = Instantiate(WonMenuPrefab);
         WonMenu.SetActive(true);
         WonMenu.transform.GetChild(3).GetComponent<Text>().text =
@@ -93,8 +92,7 @@ public class MenuManager : MonoBehaviour
 
     public void LoseGame()
     {
-        LobbyManager.s_Singleton.StopHost();
-        NetworkManager.Shutdown();
+        Cursor.visible = true;
         GameObject LoseMenu = Instantiate(LoseMenuPrefab);
         LoseMenu.SetActive(true);
         Debug.Log("Level: " + LevelManager.Instance.level);
@@ -106,7 +104,6 @@ public class MenuManager : MonoBehaviour
         Destroy(GameManager.Instance.gameObject);
         Destroy(LevelManager.Instance.gameObject);
         Destroy(KnucklesSpawner.Instance.gameObject);
-        Destroy(PowerupSpawner.Instance.gameObject);
         DestroyObject(LobbyManager.s_Singleton.gameObject);
     }
 }
