@@ -114,6 +114,12 @@ public class KnucklesController : NetworkBehaviour
         //Debug.Log ("In OnCollisionEnter");
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
+            audioSource.PlayOneShot(oof);
+
+            if (!isServer)
+            {
+                return;
+            }
             float newSliderValue = 0;
 
             float newHealth = hp - other.gameObject.GetComponent<PlayerBullet>().BulletDamage; //15-10 = 5
@@ -134,10 +140,18 @@ public class KnucklesController : NetworkBehaviour
                     break;
             }
 
-            audioSource.PlayOneShot(oof);
-//            knucklesHPSlider.value = newSliderValue;
+            knucklesHPSlider.value = newSliderValue;
             hp -= other.gameObject.GetComponent<PlayerBullet>().BulletDamage;
-            PlayerControl.Instance.CmdTakeDamage(newSliderValue, hp, gameObject);
+//            RpcTakeDamage(newSliderValue);
+            if (hp <= 0)
+            {
+                GameObject explosion = Instantiate(this.explosion);
+                explosion.transform.position = gameObject.transform.position;
+                NetworkServer.Spawn(explosion);
+                Destroy(gameObject); //Destroy knuckle 
+                Destroy(explosion, 1.5f);
+                LevelManager.Instance.numMonsters--;
+            }
             Destroy(other.gameObject); //Destroy bullet
         }
     }
@@ -145,7 +159,7 @@ public class KnucklesController : NetworkBehaviour
 //    [ClientRpc]
 //    public void RpcTakeDamage(float newSliderValue)
 //    {
-//
+//        knucklesHPSlider.value = newSliderValue;
 //    }
 
 
