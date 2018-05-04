@@ -72,17 +72,22 @@ public class LevelManager : NetworkBehaviour
         audioSource.PlayOneShot(nextLevelSound);
         if (level > 1)
         {
-            win = true;
-            SceneManager.LoadScene("MainMenu");
+            RpcWonGame();
             return;
         }
-
         Debug.Log("Start new Level " + level);
         if (KnucklesSpawner.Instance != null)
         {
             KnucklesSpawner.Instance.StartLevel();
             PowerupSpawner.Instance.StartLevel();
         }
+    }
+
+    [ClientRpc]
+    public void RpcWonGame()
+    {
+        win = true;
+        SceneManager.LoadScene("MainMenu");
     }
 
     [Command]
