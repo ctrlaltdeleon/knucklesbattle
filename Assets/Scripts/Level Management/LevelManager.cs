@@ -72,7 +72,6 @@ public class LevelManager : NetworkBehaviour
         audioSource.PlayOneShot(nextLevelSound);
         if (level > 1)
         {
-            LobbyManager.s_Singleton.StopHostClbk();
             win = true;
             SceneManager.LoadScene("MainMenu");
             return;
