@@ -178,9 +178,8 @@ public class PlayerControl : NetworkBehaviour
     void CmdShoot(Vector3 direction, Quaternion rotation)
     {
         GameObject bullet = Instantiate(m_bulletPrefab, bulletSpawnPosition.position, rotation);
-        bullet.transform.position = bulletSpawnPosition.position;
-        PlayerBullet newBullet = bullet.GetComponent<PlayerBullet>();
         NetworkServer.Spawn(bullet);
+        PlayerBullet newBullet = bullet.GetComponent<PlayerBullet>();
         newBullet.SetInitialDirection(direction);
 //        foreach (Transform t in GetComponentsInChildren<Transform>())
 //        {
@@ -189,26 +188,6 @@ public class PlayerControl : NetworkBehaviour
         newBullet.transform.position = bulletSpawnPosition.position;
     }
 
-//    [Command]
-//    public void CmdTakeDamage(float newSliderValue, float hp, GameObject knuckles)
-//    {
-//        RpcTakeDamage(newSliderValue, hp, knuckles);
-//    }
-//
-//    [ClientRpc]
-//    public void RpcTakeDamage(float newSliderValue, float hp, GameObject knuckles)
-//    {
-//        knuckles.GetComponent<KnucklesController>().knucklesHPSlider.value = newSliderValue;
-//        knuckles.GetComponent<KnucklesController>().hp = hp;
-//        if (hp <= 0)
-//        {
-//            GameObject explosion = Instantiate(knuckles.GetComponent<KnucklesController>().explosion);
-//            explosion.transform.position = knuckles.transform.position;
-//            Destroy(knuckles); //Destroy knuckle
-//            Destroy(explosion, 1.5f);
-//            LevelManager.Instance.numMonsters--;
-//        }
-//    }
 
     IEnumerator DeployMeeseeks()
     {

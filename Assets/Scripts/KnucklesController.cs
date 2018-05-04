@@ -141,7 +141,7 @@ public class KnucklesController : NetworkBehaviour
 
             knucklesHPSlider.value = newSliderValue;
             hp -= other.gameObject.GetComponent<PlayerBullet>().BulletDamage;
-//            RpcTakeDamage(newSliderValue);
+            RpcTakeDamage(newSliderValue);
             if (hp <= 0)
             {
                 GameObject explosion = Instantiate(this.explosion);
@@ -155,11 +155,11 @@ public class KnucklesController : NetworkBehaviour
         }
     }
 
-//    [ClientRpc]
-//    public void RpcTakeDamage(float newSliderValue)
-//    {
-//        knucklesHPSlider.value = newSliderValue;
-//    }
+    [ClientRpc]
+    public void RpcTakeDamage(float newSliderValue)
+    {
+        knucklesHPSlider.value = newSliderValue;
+    }
 
 
     //SPIT CODE FOR ORANGE KNUCKLE
