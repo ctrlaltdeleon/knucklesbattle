@@ -188,16 +188,16 @@ public class PlayerControl : NetworkBehaviour
     }
 
     [Command]
-    public void CmdTakeDamage(float newSliderValue, float hp, GameObject knuckles, float bulletDamage)
+    public void CmdTakeDamage(float newSliderValue, float hp, GameObject knuckles)
     {
-        RpcTakeDamage(newSliderValue, hp, knuckles, bulletDamage);
+        RpcTakeDamage(newSliderValue, hp, knuckles);
     }
 
     [ClientRpc]
-    public void RpcTakeDamage(float newSliderValue, float hp, GameObject knuckles, float bulletDamage)
+    public void RpcTakeDamage(float newSliderValue, float hp, GameObject knuckles)
     {
         knuckles.GetComponent<KnucklesController>().knucklesHPSlider.value = newSliderValue;
-        hp -= bulletDamage;
+        knuckles.GetComponent<KnucklesController>().hp = hp;
         if (hp <= 0)
         {
             GameObject explosion = Instantiate(knuckles.GetComponent<KnucklesController>().explosion);

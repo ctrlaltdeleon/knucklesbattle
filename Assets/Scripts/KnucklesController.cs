@@ -136,8 +136,8 @@ public class KnucklesController : NetworkBehaviour
 
             audioSource.PlayOneShot(oof);
 //            knucklesHPSlider.value = newSliderValue;
-//            hp -= other.gameObject.GetComponent<PlayerBullet>().BulletDamage;
-            PlayerControl.Instance.CmdTakeDamage(newSliderValue, hp, gameObject, other.gameObject.GetComponent<PlayerBullet>().BulletDamage);
+            hp -= other.gameObject.GetComponent<PlayerBullet>().BulletDamage;
+            PlayerControl.Instance.CmdTakeDamage(newSliderValue, hp, gameObject);
             Destroy(other.gameObject); //Destroy bullet
         }
     }
