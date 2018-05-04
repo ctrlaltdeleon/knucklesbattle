@@ -70,7 +70,7 @@ public class LevelManager : NetworkBehaviour
     {
         level++;
         audioSource.PlayOneShot(nextLevelSound);
-        if (level > 1)
+        if (level > 20)
         {
             RpcWonGame();
             return;
