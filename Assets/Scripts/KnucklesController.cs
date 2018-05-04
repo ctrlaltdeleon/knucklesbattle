@@ -115,7 +115,6 @@ public class KnucklesController : NetworkBehaviour
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
             audioSource.PlayOneShot(oof);
-
             if (!isServer)
             {
                 return;

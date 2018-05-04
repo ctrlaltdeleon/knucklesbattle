@@ -180,6 +180,7 @@ public class PlayerControl : NetworkBehaviour
         GameObject bullet = Instantiate(m_bulletPrefab, bulletSpawnPosition.position, rotation);
         bullet.transform.position = bulletSpawnPosition.position;
         PlayerBullet newBullet = bullet.GetComponent<PlayerBullet>();
+        NetworkServer.Spawn(bullet);
         newBullet.SetInitialDirection(direction);
 //        foreach (Transform t in GetComponentsInChildren<Transform>())
 //        {
