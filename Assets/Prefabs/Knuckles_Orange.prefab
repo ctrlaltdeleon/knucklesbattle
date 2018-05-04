@@ -2143,12 +2143,12 @@ MonoBehaviour:
   spitPrefab: {fileID: 0}
   explosion: {fileID: 100004, guid: 6e8c7c425e5bc374daf95a774767b1e3, type: 2}
   ugandanDialect:
-  - {fileID: 8300000, guid: 3fcb638b827ff4e4987589e38e3f2179, type: 3}
-  - {fileID: 8300000, guid: 5d9df04c6533f434d8f82a99d0e9916a, type: 3}
-  - {fileID: 8300000, guid: c8aab0f7c772e43548fc9525f7a0efc3, type: 3}
-  - {fileID: 8300000, guid: 929b4c4adcbff4f5f9b99a96c1060239, type: 3}
-  spit: {fileID: 8300000, guid: 5395df7a5510a49a99b44f51ccea67b2, type: 3}
-  oof: {fileID: 8300000, guid: 91218bcdc8e934a0b9c7948b9d49a889, type: 3}
+  - {fileID: 8300000, guid: 0c2660eeca7d4b34787702fd5109a147, type: 3}
+  - {fileID: 8300000, guid: 9db7688301e3cca4f94992cbcdd506f4, type: 3}
+  - {fileID: 8300000, guid: 4807dd9a5cd2141418368ca6d0816a00, type: 3}
+  - {fileID: 0}
+  spit: {fileID: 8300000, guid: b0e52f3763ab2f0499844ccf2cd99aa8, type: 3}
+  oof: {fileID: 8300000, guid: b3f5b36411c388849be29561a93a621b, type: 3}
   audioSource: {fileID: 0}
 --- !u!114 &114447449706128980
 MonoBehaviour:
@@ -2282,10 +2282,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.4704895
+  m_Radius: 1.9867142
   m_Height: 5.159645
   m_Direction: 1
-  m_Center: {x: 0.2600708, y: 2.0798225, z: 0}
+  m_Center: {x: -0.0072714686, y: 2.0798225, z: 0}
 --- !u!137 &137756357250866616
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Prototype.NetworkLobby;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Player Controller
@@ -122,7 +125,7 @@ public class PlayerControl : NetworkBehaviour
             {
                 if (m_ammoCount > 0)
                 {
-                    CmdFire(Camera.main.transform.forward, Camera.main.transform.rotation);
+                    CmdShoot(Camera.main.transform.forward, Camera.main.transform.rotation);
                     --m_ammoCount;
                 }
             }
@@ -137,15 +140,32 @@ public class PlayerControl : NetworkBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            m_health -= 10;
-            Debug.Log("Health: " + m_health);
-
-            //ApplyKnockback(other.gameObject.transform.position);
-            if (m_health <= 0)
+            if (isLocalPlayer)
             {
-                LevelManager.Instance.LoseGame();
+                m_health -= 10;
+                Debug.Log("Health: " + m_health);
+
+                //ApplyKnockback(other.gameObject.transform.position);
+                if (m_health < 1)
+                {
+                    Cursor.visible = true;
+                    CmdLoseGame();
+                }
             }
         }
+    }
+
+    [Command]
+    public void CmdLoseGame()
+    {
+        RpcLoseGame();
+    }
+
+    [ClientRpc]
+    public void RpcLoseGame()
+    {
+        LevelManager.Instance.win = false;
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void ApplyKnockback(Vector3 otherTransformPos)
@@ -155,10 +175,9 @@ public class PlayerControl : NetworkBehaviour
     }
 
     [Command]
-    public void CmdFire(Vector3 direction, Quaternion rotation)
+    void CmdShoot(Vector3 direction, Quaternion rotation)
     {
         GameObject bullet = Instantiate(m_bulletPrefab, bulletSpawnPosition.position, rotation);
-        bullet.transform.position = bulletSpawnPosition.position;
         NetworkServer.Spawn(bullet);
         PlayerBullet newBullet = bullet.GetComponent<PlayerBullet>();
         newBullet.SetInitialDirection(direction);
@@ -168,6 +187,7 @@ public class PlayerControl : NetworkBehaviour
 //        }
         newBullet.transform.position = bulletSpawnPosition.position;
     }
+
 
     IEnumerator DeployMeeseeks()
     {

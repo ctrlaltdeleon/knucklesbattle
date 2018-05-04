@@ -7,7 +7,6 @@ public class GameManager : NetworkBehaviour
 {
     //Global Instance
     public static GameManager Instance = null;
-
     public GameObject LevelManagerPrefab;
     private GameObject LevelManagerGO;
 

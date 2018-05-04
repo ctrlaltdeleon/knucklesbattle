@@ -168,4 +168,4 @@ MonoBehaviour:
   level: 1
   numMonsters: 1
   audioSource: {fileID: 0}
-  nextLevelSound: {fileID: 8300000, guid: c14eae9b9f7a24363848a3635d2d2ea4, type: 3}
+  nextLevelSound: {fileID: 8300000, guid: 4b3d032a375df154fb685e9af288f536, type: 3}

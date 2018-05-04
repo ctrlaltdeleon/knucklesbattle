@@ -30,7 +30,6 @@ public class PlayerBullet : NetworkBehaviour
 
     void Start()
     {
-        Debug.Log("Rotation" + transform.rotation);
         m_rigidBody = GetComponent<Rigidbody>();
     }
 
