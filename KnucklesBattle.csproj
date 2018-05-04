@@ -305,7 +305,9 @@
     <Compile Include="Assets\Scripts\AmmoPlatformController.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\CameraFX.cs" />
     <Compile Include="Assets\Scripts\CanvasLookAtCamera.cs" />
+    <Compile Include="Assets\Scripts\DamageScreenController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HUDController.cs" />
     <Compile Include="Assets\Scripts\KnucklesController.cs" />
@@ -322,6 +324,10 @@
     <Compile Include="Assets\Scripts\PlayerTestController.cs" />
     <Compile Include="Assets\Scripts\SpitController.cs" />
     <Compile Include="Assets\Scripts\TowerController.cs" />
+    <Compile Include="Assets\Sprites\Fx Explosion Pack\Script\csDemoScenceControl.cs" />
+    <Compile Include="Assets\Sprites\Fx Explosion Pack\Script\csLightControl.cs" />
+    <Compile Include="Assets\Sprites\Fx Explosion Pack\Script\csMouseOrbit.cs" />
+    <Compile Include="Assets\Sprites\Fx Explosion Pack\Script\DestroyEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\OpenSans\License!.txt" />

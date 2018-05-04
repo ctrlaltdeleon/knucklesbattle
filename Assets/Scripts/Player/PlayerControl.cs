@@ -67,7 +67,6 @@ public class PlayerControl : NetworkBehaviour
     public AudioSource audioSource;
     public float knockbackStrength;
 
-
     void Awake()
     {
         if (Instance == null)
@@ -144,6 +143,8 @@ public class PlayerControl : NetworkBehaviour
             {
                 m_health -= 10;
                 Debug.Log("Health: " + m_health);
+
+                DamageScreenController.Instance.Run();
 
                 //ApplyKnockback(other.gameObject.transform.position);
                 if (m_health < 1)
