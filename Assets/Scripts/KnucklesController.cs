@@ -134,9 +134,10 @@ public class KnucklesController : NetworkBehaviour
                     break;
             }
 
-            knucklesHPSlider.value = newSliderValue;
-            hp -= other.gameObject.GetComponent<PlayerBullet>().BulletDamage;
-            PlayerControl.Instance.CmdTakeDamage(newSliderValue, hp, gameObject);
+            audioSource.PlayOneShot(oof);
+//            knucklesHPSlider.value = newSliderValue;
+//            hp -= other.gameObject.GetComponent<PlayerBullet>().BulletDamage;
+            PlayerControl.Instance.CmdTakeDamage(newSliderValue, hp, gameObject, other.gameObject.GetComponent<PlayerBullet>().BulletDamage);
             Destroy(other.gameObject); //Destroy bullet
         }
     }
