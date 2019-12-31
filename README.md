@@ -12,7 +12,7 @@
   Created with <a href="https://unity3d.com/" target="_blank">Unity</a> to create a 3D "Protect the Tower" game with friends.
 </p>
 
-<!-- INFORMATION (Shields:IO) -->
+<!-- BADGES -->
 
 <p align="center">
     <a href="https://github.com/acfromspace/knucklesbattle/blob/master/LICENSE">
