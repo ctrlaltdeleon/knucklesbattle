@@ -31,7 +31,7 @@
 
 - **Premise.** You and your friends come out of a jar of pickles as Pickle Rick in order to defend a tower being invaded by the Knuckles Tribe.
 
-- **Design Idea.** Create a game implementing our own graphics, networking, UI/UX, and artificial intelligence behaviors.
+- **Design.** Create a game implementing our own graphics, networking, UI/UX, and artificial intelligence behaviors.
 
 - **Future endeavors.** Diversity amongst stages especially power ups, certain specifics, as well as weird oddities.
 
