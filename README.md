@@ -24,16 +24,18 @@
 
 <!-- FEATURES -->
 
-![knucklesbattleDEMO1](https://user-images.githubusercontent.com/10361542/45701328-c4837880-bb23-11e8-8870-101b9d3f76c2.gif)
-![knucklesbattleDEMO2](https://user-images.githubusercontent.com/10361542/45702068-b171a800-bb25-11e8-8a61-c5b4842c5584.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/10361542/45701328-c4837880-bb23-11e8-8870-101b9d3f76c2.gif">
+  <img src="https://user-images.githubusercontent.com/10361542/45702068-b171a800-bb25-11e8-8a61-c5b4842c5584.gif">
+</p>
 
-[*knuckles battle*](https://acfromspace.itch.io/knucklesbattle) is a video game with the following features:
+[_knuckles battle_](https://acfromspace.itch.io/knucklesbattle) is a video game with the following features:
 
 - **Premise.** You and your friends come out of a jar of pickles as Pickle Rick in order to defend a tower being invaded by the Knuckles Tribe.
 
 - **Design.** Create a game implementing our own graphics, networking, UI/UX, and artificial intelligence behaviors.
 
-- **Future endeavors.** Diversity amongst stages especially power ups, certain specifics, as well as weird oddities.
+- **Potential endeavors.** Diversity amongst stages especially power ups, certain specifics, as well as weird oddities.
 
 <!-- QUICK INSTALLATION -->
 
