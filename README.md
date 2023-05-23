@@ -15,7 +15,7 @@
 <!-- BADGES -->
 
 <p align="center">
-    <a href="https://github.com/acfromspace/knucklesbattle/blob/master/LICENSE">
+    <a href="https://github.com/ctrlaltdeleon/knucklesbattle/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/mashape/apistatus.svg"
             alt="License: MIT"></a>
     <a href="https://www.repostatus.org/#unsupported">
@@ -29,7 +29,7 @@
   <img src="https://user-images.githubusercontent.com/10361542/45702068-b171a800-bb25-11e8-8a61-c5b4842c5584.gif">
 </p>
 
-[_knuckles battle_](https://acfromspace.itch.io/knucklesbattle) is a video game with the following features:
+[_knuckles battle_](https://ctrlaltdeleon.itch.io/knucklesbattle) is a video game with the following features:
 
 - **Premise.** You and your friends come out of a jar of pickles as Pickle Rick in order to defend a tower being invaded by the Knuckles Tribe.
 
@@ -41,7 +41,7 @@
 
 ## <span role="img" aria-label="Sparkles">✨</span> Quick Installation
 
-Go to [https://acfromspace.itch.io/knucklesbattle](https://acfromspace.itch.io/knucklesbattle) and download the `.exe` file!
+Go to [https://ctrlaltdeleon.itch.io/knucklesbattle](https://ctrlaltdeleon.itch.io/knucklesbattle) and download the `.exe` file!
 
 <!-- IN-DEPTH GUIDE -->
 
@@ -91,7 +91,7 @@ A quick look at the top-level files and directories you'll see in this project.
 - @MartinEngelsgjerd
 - @KevinDo
 - @NathanDanque
-- @acfromspace
+- @ctrlaltdeleon
 
 <!-- LICENSE -->
 
